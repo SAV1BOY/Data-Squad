@@ -1,0 +1,364 @@
+# ============================================================
+# DATA SQUAD -- config.yaml (Routing Brain)
+# ============================================================
+
+squad:
+  name: data
+  version: "2.0.0"
+  description: "Data + Analytics + Growth Metrics + CS Metrics + Community Metrics"
+  chief_agent: data-chief
+
+principles:
+  - decision_over_dashboard
+  - single_source_of_truth
+  - experiment_before_opinion
+  - prove_or_kill
+  - data_quality_first
+
+# ============================================================
+# ROUTING
+# ============================================================
+
+routing:
+
+  # ---- DEFINITION ----
+  define-north-star-metric:
+    agents: [data-chief, sean-ellis, wes-kao, avinash-kaushik]
+    frameworks: [north-star-metric, kpi-tree, ellis-growth-equation, kao-spiky-pov-framework]
+    checklists: [kpi-tree-quality, metric-definition-quality, ellis/north-star-metric-audit, kao/growth-strategy-clarity]
+    templates: [outputs/kpi-tree, outputs/metric-definition]
+    registry: [data/registries/metric-registry, data/registries/decision-registry]
+
+  create-kpi-tree:
+    agents: [data-chief, avinash-kaushik, sean-ellis]
+    frameworks: [kpi-tree, dmmm-kaushik, aarrr-pirate-metrics]
+    checklists: [kpi-tree-quality, kaushik/dmmm-measurement-model-audit]
+    templates: [outputs/kpi-tree]
+    registry: [data/registries/metric-registry]
+
+  define-metric-officially:
+    agents: [data-chief, avinash-kaushik]
+    frameworks: [metric-lifecycle-framework, kaushik-10-90-rule]
+    checklists: [metric-definition-quality, kaushik/metrics-that-matter-filter]
+    templates: [outputs/metric-definition]
+    registry: [data/registries/metric-registry, data/registries/glossary]
+
+  # ---- INSTRUMENTATION ----
+  build-measurement-plan:
+    agents: [data-chief, avinash-kaushik]
+    frameworks: [dmmm-kaushik, stdc-kaushik, instrumentation-layer]
+    checklists: [tracking-plan-quality, event-taxonomy-quality, kaushik/dmmm-measurement-model-audit, kaushik/see-think-do-care-mapping]
+    templates: [outputs/measurement-plan, outputs/tracking-spec]
+    registry: [data/registries/event-registry, data/registries/metric-registry]
+
+  implement-event-tracking:
+    agents: [avinash-kaushik, data-chief]
+    frameworks: [instrumentation-layer]
+    checklists: [instrumentation/tag-manager-qa, instrumentation/data-layer-contract-qa, instrumentation/consent-mode-tracking-qa]
+    templates: [outputs/tracking-spec]
+    registry: [data/registries/event-registry]
+
+  # ---- ANALYSIS ----
+  analytics-audit:
+    agents: [avinash-kaushik, data-chief]
+    frameworks: [kaushik-web-analytics-2-0-framework, kaushik-trinity-strategy, data-quality-triad]
+    checklists: [analytics-audit-quality, data-quality-quality, kaushik/web-analytics-quality]
+    templates: [briefs/analytics-audit-brief]
+    registry: [data/registries/data-quality-registry]
+
+  run-cohort-analysis:
+    agents: [peter-fader, data-chief]
+    frameworks: [cohort-analysis, fader-customer-base-audit]
+    checklists: [cohort-analysis-quality, analytics/cohort-curve-reading]
+    templates: [outputs/cohort-report]
+    registry: [data/registries/decision-registry]
+
+  run-funnel-analysis:
+    agents: [sean-ellis, avinash-kaushik]
+    frameworks: [aarrr-pirate-metrics, ellis-activation-aha-moment]
+    checklists: [activation-funnel-quality, analytics/funnel-dropoff-diagnosis]
+    templates: [outputs/activation-audit]
+    registry: [data/registries/decision-registry]
+
+  run-segmentation:
+    agents: [peter-fader, data-chief]
+    frameworks: [value-based-segmentation-fader, rfm-segmentation, fader-whale-curve-framework]
+    checklists: [segmentation-quality, fader/value-segmentation-audit, fader/fader-whale-curve-audit]
+    templates: [outputs/segmentation-report]
+    registry: [data/registries/segment-registry]
+
+  investigate-anomaly:
+    agents: [avinash-kaushik, data-chief]
+    frameworks: [analysis-layer]
+    checklists: [analytics/anomaly-investigation, analytics/metric-drift-detection]
+    templates: []
+    registry: [data/registries/decision-registry]
+
+  # ---- EXPERIMENTATION ----
+  design-experiment:
+    agents: [sean-ellis, wes-kao, data-chief]
+    frameworks: [experiment-framework, ellis-high-tempo-testing, ice-pie-rice-prioritization]
+    checklists: [experiment-design-quality, experimentation/sample-size-and-mde, experimentation/randomization-and-bias, experimentation/guardrails-and-metrics]
+    templates: [outputs/experiment-onepager]
+    registry: [data/registries/experiment-registry]
+
+  analyze-experiment:
+    agents: [sean-ellis, data-chief]
+    frameworks: [experiment-framework, bayesian-vs-frequentist-testing]
+    checklists: [experiment-analysis-quality, experimentation/decision-rubric]
+    templates: [outputs/experiment-analysis, reports/experiment-results-report]
+    registry: [data/registries/experiment-registry, data/registries/decision-registry, data/registries/lessons-learned-registry]
+
+  # ---- GROWTH ----
+  pmf-survey-analysis:
+    agents: [sean-ellis, wes-kao]
+    frameworks: [ellis-pmf-framework, kao-rigorous-thinking]
+    checklists: [ellis/pmf-survey-quality, kao/messaging-to-metric-alignment]
+    templates: []
+    registry: [data/registries/decision-registry]
+
+  activation-audit:
+    agents: [sean-ellis, wes-kao, avinash-kaushik]
+    frameworks: [ellis-activation-aha-moment, kao-learning-velocity-framework, aarrr-pirate-metrics]
+    checklists: [activation-funnel-quality, ellis/activation-loop-debug, kao/onboarding-activation-qa]
+    templates: [outputs/activation-audit]
+    registry: [data/registries/decision-registry]
+
+  growth-lever-analysis:
+    agents: [sean-ellis, wes-kao]
+    frameworks: [ellis-growth-levers, ellis-growth-equation, kao-constraint-led-strategy]
+    checklists: [ellis/ellis-growth-lever-audit, kao/constraint-led-prioritization]
+    templates: []
+    registry: [data/registries/decision-registry]
+
+  # ---- RETENTION & CLV ----
+  retention-diagnostics:
+    agents: [peter-fader, nick-mehta, data-chief]
+    frameworks: [retention-churn-diagnostics, fader-customer-centricity-framework, cohort-analysis]
+    checklists: [retention-quality, churn-analysis-quality, retention/churn-taxonomy]
+    templates: [outputs/retention-audit, reports/churn-postmortem]
+    registry: [data/registries/decision-registry]
+
+  clv-modeling:
+    agents: [peter-fader, data-chief]
+    frameworks: [clv-modeling, fader-probability-models, fader-clv-as-north-star]
+    checklists: [ltv-clv-model-quality, fader/clv-modeling-audit, fader/discount-rate-and-horizon-check]
+    templates: [outputs/clv-model-sheet]
+    registry: [data/registries/clv-registry, data/registries/segment-registry]
+
+  # ---- CUSTOMER SUCCESS ----
+  cs-health-score-design:
+    agents: [nick-mehta, peter-fader, data-chief]
+    frameworks: [cs-health-score, mehta-customer-health-score-design, value-based-segmentation-fader]
+    checklists: [cs-health-score-quality, mehta/health-score-design, fader/value-segmentation-audit]
+    templates: [outputs/cs-health-score, reports/alert-runbook]
+    registry: [data/registries/cs-health-registry, data/registries/decision-registry]
+
+  expansion-analysis:
+    agents: [nick-mehta, peter-fader]
+    frameworks: [mehta-expansion-playbook-framework, nrr-grr-expansion, fader-heterogeneity-audit]
+    checklists: [nrr-grr-quality, mehta/expansion-playbook-audit]
+    templates: [reports/qbr-deck-outline]
+    registry: [data/registries/cs-health-registry]
+
+  # ---- COMMUNITY ----
+  community-scorecard-build:
+    agents: [david-spinks, peter-fader, data-chief]
+    frameworks: [community-led-growth-metrics, spinks-orbit-model, spinks-community-roi-framework]
+    checklists: [community-metrics-quality, spinks/community-loop-design, spinks/community-impact-attribution]
+    templates: [outputs/community-scorecard]
+    registry: [data/registries/community-registry, data/registries/decision-registry]
+
+  community-health-analysis:
+    agents: [david-spinks, data-chief]
+    frameworks: [spinks-community-flywheel, spinks-contribution-path]
+    checklists: [community/community-health-score, spinks/engagement-signal-quality]
+    templates: []
+    registry: [data/registries/community-registry]
+
+  # ---- VISUALIZATION ----
+  build-dashboard:
+    agents: [avinash-kaushik, data-chief]
+    frameworks: [visualization-layer, data-storytelling-framework]
+    checklists: [dashboard-quality, kaushik/dashboard-storytelling-audit]
+    templates: [outputs/dashboard-spec]
+    registry: [data/registries/dashboard-registry]
+
+  build-exec-report:
+    agents: [data-chief, wes-kao]
+    frameworks: [decision-layer, data-storytelling-framework]
+    checklists: [exec-report-quality, data-storytelling-quality]
+    templates: [reports/exec-weekly-report]
+    registry: [data/registries/decision-registry]
+
+  # ---- REVIEW ----
+  metric-governance-review:
+    agents: [data-chief, avinash-kaushik]
+    frameworks: [governance-layer, metric-lifecycle-framework]
+    checklists: [governance/metric-governance, governance/data-catalog-quality]
+    templates: []
+    registry: [data/registries/metric-registry]
+
+  data-quality-review:
+    agents: [data-chief, avinash-kaushik]
+    frameworks: [data-quality-triad]
+    checklists: [data-quality-quality, governance/data-debt-audit]
+    templates: [reports/data-quality-report]
+    registry: [data/registries/data-quality-registry, data/registries/data-debt-registry]
+
+  # ---- OPERATIONS ----
+  quarterly-data-review:
+    agents: [data-chief]
+    frameworks: [governance-layer, ralphloop-data-ops]
+    checklists: []
+    templates: [reports/quarterly-data-review]
+    registry: [data/registries/decision-registry, data/registries/lessons-learned-registry]
+
+  cross-squad-data-sync:
+    agents: [data-chief]
+    frameworks: []
+    checklists: [cross-squad-data-request-quality]
+    templates: [operational/cross-squad-data-handoff]
+    registry: [data/registries/decision-registry]
+
+# ============================================================
+# CROSS-SQUAD INTEGRATION
+# ============================================================
+
+cross_squad:
+  traffic_squad:
+    handoff_to_data:
+      - "ad performance data -> data/metrics/acquisition/ (CAC, ROAS, CPA)"
+      - "campaign tracking -> data/registries/event-registry (UTMs, events)"
+    handoff_from_data:
+      - "attribution reports -> traffic/data/ (what actually works)"
+      - "incrementality results -> traffic/frameworks/ (what is incremental)"
+      - "audience segments -> traffic/tasks/ (segments for targeting)"
+    shared_assets: [utm-taxonomy, attribution-reports]
+
+  copy_squad:
+    handoff_to_data:
+      - "conversion copy variants -> data/experiments/ (A/B data)"
+    handoff_from_data:
+      - "conversion metrics -> copy/data/ (which copy converts)"
+      - "funnel dropoff insights -> copy/tasks/ (where copy fails)"
+    shared_assets: [experiment-results]
+
+  brand_squad:
+    handoff_to_data:
+      - "brand awareness data -> data/metrics/ (recall, recognition)"
+    handoff_from_data:
+      - "brand health metrics -> brand/data/ (NPS, sentiment, awareness)"
+      - "brand search trends -> brand/reference/ (share of search)"
+    shared_assets: [brand-health-dashboard]
+
+  design_squad:
+    handoff_to_data:
+      - "usability test data -> data/research/ (UX metrics)"
+    handoff_from_data:
+      - "HEART metrics -> design/data/metrics/ (UX quantified)"
+      - "feature adoption data -> design/tasks/ (what is used and what is not)"
+    shared_assets: [heart-metrics, feature-adoption-data]
+
+  movement_squad:
+    handoff_to_data:
+      - "community engagement data -> data/metrics/community/ (signals)"
+    handoff_from_data:
+      - "movement health score -> movement/data/metrics/ (quantified health)"
+      - "community ROI -> movement/reports/ (business impact)"
+    shared_assets: [community-scorecard, movement-health-score]
+
+  storytelling_squad:
+    handoff_to_data:
+      - "narrative performance -> data/metrics/ (narrative engagement)"
+    handoff_from_data:
+      - "data narratives -> storytelling/data/ (data as story raw material)"
+      - "proof points -> storytelling/reference/ (evidence for narratives)"
+    shared_assets: [data-narratives]
+
+# ============================================================
+# QUALITY GATES (RalphLoop)
+# ============================================================
+
+quality_gates:
+  mandatory:
+    - metric-definition-quality
+    - data-quality-quality
+    - exec-report-quality
+  per_domain:
+    definition: [kpi-tree-quality, event-taxonomy-quality]
+    instrumentation: [tracking-plan-quality, instrumentation/tag-manager-qa]
+    analysis: [cohort-analysis-quality, segmentation-quality]
+    experimentation: [experiment-design-quality, experiment-analysis-quality]
+    growth: [activation-funnel-quality, ellis/north-star-metric-audit]
+    retention: [retention-quality, ltv-clv-model-quality]
+    customer_success: [cs-health-score-quality, nrr-grr-quality]
+    community: [community-metrics-quality, spinks/community-loop-design]
+    visualization: [dashboard-quality]
+    governance: [governance/metric-governance, privacy-and-compliance-quality]
+
+  ralphloop_gates:
+    - name: "G1 -- Definition"
+      must_pass: [metric-definition-quality, kpi-tree-quality]
+    - name: "G2 -- Instrumentation"
+      must_pass: [tracking-plan-quality, instrumentation/tag-manager-qa]
+    - name: "G3 -- Quality"
+      must_pass: [data-quality-quality, alerting-quality]
+    - name: "G4 -- Insight"
+      must_pass: [cohort-analysis-quality, experiment-analysis-quality]
+    - name: "G5 -- Decision + Registry"
+      must_pass: [exec-report-quality]
+      required_registry_updates: [decision-registry, lessons-learned-registry]
+
+# ============================================================
+# KPIs
+# ============================================================
+
+kpis:
+  data_quality:
+    - data_completeness_rate
+    - data_accuracy_rate
+    - data_freshness_sla
+    - tracking_coverage
+  experimentation:
+    - experiment_velocity
+    - experiment_win_rate
+    - time_to_decision
+    - experiment_doc_rate
+  growth:
+    - north_star_trend
+    - activation_rate
+    - time_to_value
+    - growth_lever_impact
+  retention_clv:
+    - retention_rate_d30_d90
+    - churn_rate_monthly
+    - clv_trend
+    - nrr_grr
+  customer_success:
+    - cs_health_score_accuracy
+    - expansion_rate
+    - time_to_first_value
+  community:
+    - community_contribution_rate
+    - community_retention_rate
+    - community_to_business_rate
+  operational:
+    - dashboard_action_rate
+    - metric_governance_coverage
+    - data_debt_ratio
+    - decision_log_currency
+
+# ============================================================
+# DEFAULTS
+# ============================================================
+
+defaults:
+  review_agent: data-chief
+  min_checklists: 2
+  registry_on_completion: true
+  output_format: markdown
+  experiment_min_duration: "7_days"
+  metric_review_cadence: quarterly
+  dashboard_review_cadence: monthly
+  data_quality_check: weekly
