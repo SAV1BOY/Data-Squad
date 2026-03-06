@@ -1,0 +1,66 @@
+data_debt:
+  - id: DEBT-001
+    title: "Legacy user_events table still in use by 3 downstream queries"
+    type: broken
+    severity: high
+    description: "The legacy user_events table was deprecated (DEC-004) with a target migration deadline of 2026-03-15. Three scheduled queries in Metabase still reference the legacy table and have not been migrated."
+    impact: "These queries return slightly different numbers than the canonical events.user_actions table, causing confusion in weekly reports."
+    affected_assets:
+      - "Metabase query #142: Weekly signup summary"
+      - "Metabase query #187: Feature usage by plan"
+      - "Scheduled export: daily_events_dump.csv"
+    owner: data-chief
+    created: 2026-02-15
+    target_resolution: 2026-03-15
+    status: in_progress
+    effort_estimate: "4 hours"
+
+  - id: DEBT-002
+    title: "Orphaned staging tables in the warehouse"
+    type: orphan
+    severity: low
+    description: "There are 14 staging tables (prefixed with stg_ or tmp_) in the analytics schema that are not referenced by any active query, dashboard, or model. They were created during ad-hoc analyses and never cleaned up."
+    impact: "No functional impact, but they add clutter to the schema browser, increase warehouse storage costs marginally, and make it harder for new team members to find the right tables."
+    affected_assets:
+      - "stg_user_cohorts_20251105"
+      - "tmp_revenue_test"
+      - "stg_experiment_results_old"
+      - "11 additional tables (full list in warehouse audit spreadsheet)"
+    owner: data-chief
+    created: 2026-02-20
+    target_resolution: 2026-04-01
+    status: backlog
+    effort_estimate: "2 hours"
+
+  - id: DEBT-003
+    title: "Hardcoded timezone assumptions in retention queries"
+    type: broken
+    severity: medium
+    description: "Several retention queries assume UTC for day boundaries, but the product records user actions in the user's local timezone. This causes a ~3% discrepancy in daily active counts and shifts cohort boundaries for users in far-from-UTC timezones."
+    impact: "Retention metrics for APAC users are systematically understated. Cohort assignment for users near the date boundary is inconsistent."
+    affected_assets:
+      - "derived.daily_active_users (dbt model)"
+      - "derived.cohort_retention (dbt model)"
+      - "retention-dashboard"
+    owner: retention-lead
+    created: 2026-02-25
+    target_resolution: 2026-04-15
+    status: backlog
+    effort_estimate: "8 hours"
+
+  - id: DEBT-004
+    title: "Community event deduplication not implemented"
+    type: broken
+    severity: medium
+    description: "Community analytics events do not deduplicate guest sessions against authenticated sessions. When a user browses the community logged out and then logs in, their activity is counted twice."
+    impact: "Community unique member counts are inflated by an estimated 3-5%. This affects the community engagement score and any segment that includes community participation."
+    affected_assets:
+      - "community.analytics (raw source)"
+      - "derived.community_engagement (dbt model)"
+      - "community-dashboard"
+      - "community_engagement_score metric"
+    owner: community-lead
+    created: 2026-03-01
+    target_resolution: 2026-05-01
+    status: backlog
+    effort_estimate: "12 hours"

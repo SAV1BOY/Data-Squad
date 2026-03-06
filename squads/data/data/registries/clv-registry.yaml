@@ -1,0 +1,80 @@
+clv_models:
+  - name: clv_v1_simple
+    version: "1.0"
+    description: "Basic CLV model using average revenue per user and observed churn rate"
+    methodology: "CLV = ARPU / monthly_churn_rate"
+    assumptions:
+      - "Churn rate is constant across the customer lifetime"
+      - "ARPU is based on trailing 6-month average revenue per paying user"
+      - "Expansion revenue is included in ARPU but not modeled separately"
+    inputs:
+      - name: arpu
+        source: billing.transactions
+        current_value: "$48/month"
+      - name: monthly_churn_rate
+        source: derived.churn_metrics
+        current_value: "4.2%"
+    output:
+      current_estimate: "$1,143"
+      confidence: low
+    owner: data-chief
+    status: active
+    created: 2026-01-20
+    last_calibrated: 2026-02-15
+    next_review: 2026-05-15
+    known_limitations:
+      - "Does not account for cohort-level churn variation"
+      - "Treats all plans equally; enterprise accounts have materially different dynamics"
+
+  - name: clv_v2_cohort
+    version: "2.0"
+    description: "Cohort-based CLV model that segments by signup quarter and plan tier"
+    methodology: "For each cohort-plan segment, fit a shifted beta-geometric model to observed retention curves, then multiply surviving users by segment ARPU at each period."
+    assumptions:
+      - "Retention curves follow a shifted beta-geometric distribution"
+      - "ARPU within a segment is stable after month 3"
+      - "Expansion revenue is modeled as a fixed percentage uplift per year (15%)"
+    inputs:
+      - name: cohort_retention_curves
+        source: derived.cohort_retention
+        current_value: "Q4-2025 and Q1-2026 cohorts"
+      - name: segment_arpu
+        source: billing.transactions
+        current_value: "Starter: $29, Pro: $69, Enterprise: $220"
+      - name: expansion_rate
+        source: billing.expansion
+        current_value: "15% annual"
+    output:
+      current_estimate: "Starter: $580, Pro: $1,840, Enterprise: $7,920"
+      confidence: medium
+    owner: data-chief
+    status: in_development
+    created: 2026-02-20
+    last_calibrated: 2026-03-01
+    next_review: 2026-06-01
+    known_limitations:
+      - "Requires at least 6 months of cohort data for stable fits"
+      - "Enterprise segment has small sample size (n < 50), estimates are volatile"
+
+  - name: clv_v0_back_of_envelope
+    version: "0.1"
+    description: "Quick estimate used before formal models were built, retained for historical context"
+    methodology: "CLV = average_monthly_revenue * 24 (assumed 2-year average lifetime)"
+    assumptions:
+      - "Average customer lifetime is 24 months based on industry benchmarks"
+      - "No segmentation by plan or cohort"
+    inputs:
+      - name: average_monthly_revenue
+        source: billing.transactions
+        current_value: "$42/month"
+    output:
+      current_estimate: "$1,008"
+      confidence: very_low
+    owner: data-chief
+    status: deprecated
+    created: 2025-11-01
+    last_calibrated: 2025-12-01
+    next_review: null
+    known_limitations:
+      - "Fixed lifetime assumption has no empirical basis for this product"
+      - "Superseded by clv_v1_simple"

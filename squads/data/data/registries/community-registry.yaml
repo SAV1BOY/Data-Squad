@@ -1,0 +1,75 @@
+community:
+  loops:
+    - name: content_contribution_loop
+      description: "Users consume community content, gain value, then contribute their own content, attracting more consumers"
+      stages:
+        - "New user discovers community via in-app prompt or search"
+        - "User reads existing threads and finds value"
+        - "User asks a question or shares a tip"
+        - "Other users engage (reply, upvote)"
+        - "Original poster returns to participate further"
+      health_signals:
+        - metric: posts_per_active_member
+          target: ">= 0.3 per month"
+          current: 0.22
+        - metric: reply_rate
+          target: ">= 60%"
+          current: 54%
+        - metric: content_to_consumer_ratio
+          target: ">= 1:10"
+          current: "1:18"
+      owner: community-lead
+      status: active
+      last_reviewed: 2026-02-28
+
+    - name: peer_support_loop
+      description: "Users answer each other's questions, reducing support ticket volume and building expertise reputation"
+      stages:
+        - "User posts a question in the community"
+        - "Experienced member provides an answer"
+        - "Asker confirms resolution"
+        - "Answerer gains reputation points"
+        - "Reputation drives continued helping behavior"
+      health_signals:
+        - metric: community_resolved_questions_pct
+          target: ">= 40%"
+          current: 31%
+        - metric: median_time_to_first_response
+          target: "<= 4 hours"
+          current: "6.2 hours"
+      owner: community-lead
+      status: active
+      last_reviewed: 2026-02-28
+
+  rituals:
+    - name: weekly_community_digest
+      description: "Automated weekly email highlighting top posts, unanswered questions, and new member introductions"
+      cadence: weekly
+      channel: email
+      owner: community-lead
+      status: active
+
+    - name: monthly_community_spotlight
+      description: "Monthly recognition of top contributors with a featured post and small reward"
+      cadence: monthly
+      channel: community_forum
+      owner: community-lead
+      status: active
+
+    - name: quarterly_community_ama
+      description: "Quarterly AMA session with product team where community members can ask questions live"
+      cadence: quarterly
+      channel: live_event
+      owner: community-lead
+      status: planned
+
+  signals:
+    - name: community_engagement_score
+      definition: "Composite score measuring community health based on active members, post volume, and response rates"
+      formula: "0.4 * normalized(active_members_pct) + 0.3 * normalized(posts_per_week) + 0.3 * normalized(reply_rate)"
+      source: community.analytics
+      owner: community-lead
+      cadence: weekly
+      current_value: 58
+      target: 75
+      status: tracking

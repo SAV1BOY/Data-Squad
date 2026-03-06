@@ -1,0 +1,58 @@
+segments:
+  - name: power_users
+    definition: "Users in the top 10% by engagement score over the trailing 30 days"
+    criteria:
+      - "engagement_score >= PERCENTILE(90) of all active users"
+      - "at least 12 active days in the last 30"
+    source: derived.user_segments
+    owner: retention-lead
+    use_cases:
+      - "Retention deep-dives to understand what keeps top users engaged"
+      - "Beta feature targeting for early feedback"
+      - "Referral program qualification"
+    refresh_cadence: daily
+    created: 2026-01-20
+    version: 1.0
+
+  - name: at_risk_users
+    definition: "Previously active users whose engagement has dropped by 50% or more compared to their trailing average"
+    criteria:
+      - "was active (3+ sessions) in the previous 30-day window"
+      - "current 30-day engagement_score < 0.5 * previous 30-day engagement_score"
+    source: derived.user_segments
+    owner: cs-lead
+    use_cases:
+      - "Proactive outreach by customer success"
+      - "Churn prediction model training"
+      - "Win-back campaign targeting"
+    refresh_cadence: daily
+    created: 2026-01-25
+    version: 1.0
+
+  - name: new_users
+    definition: "Users who signed up within the last 14 days"
+    criteria:
+      - "signup_date >= CURRENT_DATE - 14"
+    source: core.users
+    owner: growth-lead
+    use_cases:
+      - "Onboarding funnel analysis"
+      - "Activation rate tracking"
+      - "First-week experience experiments"
+    refresh_cadence: daily
+    created: 2026-01-15
+    version: 1.0
+
+  - name: enterprise_accounts
+    definition: "Accounts on an enterprise plan or with 10+ seats"
+    criteria:
+      - "plan_type = 'enterprise' OR seat_count >= 10"
+    source: billing.accounts
+    owner: revenue-lead
+    use_cases:
+      - "Revenue concentration analysis"
+      - "Enterprise feature adoption tracking"
+      - "CS health score weighting"
+    refresh_cadence: weekly
+    created: 2026-02-01
+    version: 1.0

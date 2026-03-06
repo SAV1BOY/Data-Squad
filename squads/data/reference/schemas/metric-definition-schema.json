@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Metric Definition Schema",
+  "description": "Standard schema for defining business metrics. Every certified metric must have a definition conforming to this schema.",
+  "type": "object",
+  "required": [
+    "metric_id",
+    "metric_name",
+    "display_name",
+    "description",
+    "formula",
+    "data_source",
+    "owner",
+    "status",
+    "grain",
+    "category"
+  ],
+  "properties": {
+    "metric_id": {
+      "type": "string",
+      "description": "Unique identifier for the metric",
+      "pattern": "^met_[a-z0-9_]+$",
+      "examples": ["met_active_user_count_monthly", "met_net_revenue_monthly"]
+    },
+    "metric_name": {
+      "type": "string",
+      "description": "Canonical metric name following the naming standard (snake_case)",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "examples": ["active_user_count_monthly", "net_revenue_monthly", "churn_rate_monthly"]
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Human-readable name for dashboards and reports (Title Case)",
+      "examples": ["Monthly Active Users", "Net Revenue (Monthly)", "Monthly Churn Rate"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Clear, unambiguous description of what the metric measures and why it matters",
+      "minLength": 20,
+      "examples": [
+        "Count of unique users who triggered at least one active_session event within a calendar month. This metric measures product engagement breadth and is the primary indicator of product adoption."
+      ]
+    },
+    "formula": {
+      "type": "object",
+      "description": "The mathematical definition of the metric",
+      "required": ["expression", "numerator"],
+      "properties": {
+        "expression": {
+          "type": "string",
+          "description": "Human-readable formula",
+          "examples": [
+            "COUNT(DISTINCT user_id) WHERE event_name = 'active_session'",
+            "SUM(revenue) - SUM(refunds)",
+            "(Churned customers at end of period) / (Total customers at start of period)"
+          ]
+        },
+        "numerator": {
+          "type": "string",
+          "description": "The numerator of the metric (or the full expression for non-ratio metrics)",
+          "examples": ["COUNT(DISTINCT user_id) WHERE event_name = 'active_session'"]
+        },
+        "denominator": {
+          "type": ["string", "null"],
+          "description": "The denominator for ratio/rate metrics. Null for count/sum metrics.",
+          "examples": ["COUNT(DISTINCT user_id) WHERE was_active_previous_period = TRUE"]
+        },
+        "sql": {
+          "type": "string",
+          "description": "Reference SQL implementation (points to dbt model or warehouse query)",
+          "examples": [
+            "SELECT date_trunc('month', event_date) AS period, COUNT(DISTINCT user_id) AS value FROM analytics.fct_user_activity WHERE event_name = 'active_session' GROUP BY 1"
+          ]
+        }
+      }
+    },
+    "data_source": {
+      "type": "object",
+      "description": "Where the data for this metric originates",
+      "required": ["warehouse_table"],
+      "properties": {
+        "warehouse_table": {
+          "type": "string",
+          "description": "Fully qualified table name in the data warehouse",
+          "examples": ["analytics.core.fct_user_activity"]
+        },
+        "dbt_model": {
+          "type": ["string", "null"],
+          "description": "The dbt model that produces this data",
+          "examples": ["fct_user_activity"]
+        },
+        "upstream_sources": {
+          "type": "array",
+          "description": "Original source systems",
+          "items": {
+            "type": "string"
+          },
+          "examples": [["segment_events", "app_database.users"]]
+        }
+      }
+    },
+    "grain": {
+      "type": "string",
+      "description": "The level of detail at which the metric is calculated",
+      "enum": ["daily", "weekly", "monthly", "quarterly", "yearly", "snapshot", "event"],
+      "examples": ["monthly"]
+    },
+    "dimensions": {
+      "type": "array",
+      "description": "Available dimensions for breaking down this metric",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Dimension name (snake_case)"
+          },
+          "description": {
+            "type": "string"
+          },
+          "values": {
+            "type": "array",
+            "description": "Possible values if the dimension is categorical",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["name", "description"]
+      },
+      "examples": [
+        [
+          { "name": "platform", "description": "User platform", "values": ["web", "ios", "android"] },
+          { "name": "plan", "description": "Subscription plan", "values": ["free", "starter", "pro", "enterprise"] },
+          { "name": "country", "description": "User country (ISO 3166-1 alpha-2)" }
+        ]
+      ]
+    },
+    "category": {
+      "type": "string",
+      "description": "Business domain category",
+      "enum": [
+        "growth",
+        "engagement",
+        "revenue",
+        "retention",
+        "acquisition",
+        "product",
+        "support",
+        "marketing",
+        "operations",
+        "finance"
+      ]
+    },
+    "owner": {
+      "type": "object",
+      "description": "The person accountable for this metric definition",
+      "required": ["name", "email", "team"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "examples": ["Maria Silva"]
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "examples": ["maria.silva@company.com"]
+        },
+        "team": {
+          "type": "string",
+          "examples": ["Product Analytics"]
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "description": "Certification status of the metric",
+      "enum": ["draft", "certified", "deprecated"]
+    },
+    "tier": {
+      "type": "string",
+      "description": "Importance tier affecting SLA and governance requirements",
+      "enum": ["tier_1", "tier_2", "tier_3"],
+      "default": "tier_2"
+    },
+    "targets": {
+      "type": ["object", "null"],
+      "description": "Business targets for this metric",
+      "properties": {
+        "current_value": {
+          "type": "number",
+          "description": "Most recent known value"
+        },
+        "target_value": {
+          "type": "number",
+          "description": "Target value for the current period"
+        },
+        "target_period": {
+          "type": "string",
+          "description": "Period the target applies to",
+          "examples": ["2025-Q1", "2025-03"]
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["increase", "decrease", "maintain"],
+          "description": "Whether the goal is to increase, decrease, or maintain the metric"
+        }
+      }
+    },
+    "known_limitations": {
+      "type": "array",
+      "description": "Documented limitations, caveats, and known issues with this metric",
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        [
+          "Does not include users who interact only via API (server-side only).",
+          "Undercounts by approximately 5-8% due to ad-blocker impact on client-side tracking.",
+          "Definition changed on 2024-06-01: previously included inactive sessions."
+        ]
+      ]
+    },
+    "related_metrics": {
+      "type": "array",
+      "description": "Other metrics that are related or commonly compared",
+      "items": {
+        "type": "string"
+      },
+      "examples": [["active_user_count_weekly", "new_user_count_monthly", "user_retention_rate_monthly"]]
+    },
+    "changelog": {
+      "type": "array",
+      "description": "History of changes to this metric definition",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "author": { "type": "string" },
+          "change": { "type": "string" }
+        },
+        "required": ["date", "author", "change"]
+      },
+      "examples": [
+        [
+          { "date": "2025-01-15", "author": "Maria Silva", "change": "Initial definition created" },
+          { "date": "2025-03-01", "author": "Carlos Santos", "change": "Added platform dimension, updated SQL to use new events table" }
+        ]
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the metric was first defined"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the metric definition was last updated"
+    }
+  }
+}

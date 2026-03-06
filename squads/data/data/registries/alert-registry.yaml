@@ -1,0 +1,75 @@
+alerts:
+  - name: mau_drop_alert
+    description: "Fires when trailing 30-day MAU drops by more than 5% compared to the previous 30-day window"
+    metric: monthly_active_users
+    condition: "current_30d_mau < 0.95 * previous_30d_mau"
+    severity: critical
+    owner: data-chief
+    notification_channels:
+      - slack: "#data-alerts"
+      - email: "data-chief@company.com"
+    runbook: |
+      1. Verify the alert is not caused by a data pipeline delay (check events.user_actions freshness).
+      2. Check if the drop is concentrated in a specific segment (new users, enterprise, region).
+      3. Cross-reference with recent deployments or incidents in the engineering changelog.
+      4. If the drop is real and unexplained, escalate to the exec team within 4 hours.
+      5. Open an investigation ticket and assign to the retention lead.
+    created: 2026-01-20
+    last_triggered: 2026-02-18
+    status: active
+
+  - name: pipeline_freshness_alert
+    description: "Fires when the events.user_actions table has not received new data for more than 30 minutes"
+    metric: data_freshness
+    condition: "CURRENT_TIMESTAMP - MAX(ingested_at) > INTERVAL '30 minutes'"
+    severity: high
+    owner: data-chief
+    notification_channels:
+      - slack: "#data-alerts"
+      - pagerduty: "data-on-call"
+    runbook: |
+      1. Check the ingestion pipeline status in the orchestration tool (Airflow/Dagster).
+      2. Look for failed tasks or upstream API errors.
+      3. If the pipeline is stuck, restart the ingestion job.
+      4. If the upstream source is down, check the provider status page and notify stakeholders.
+      5. Post a status update in #data-alerts within 15 minutes of the alert.
+    created: 2026-01-15
+    last_triggered: 2026-03-02
+    status: active
+
+  - name: revenue_anomaly_alert
+    description: "Fires when daily revenue deviates more than 2 standard deviations from the trailing 30-day mean"
+    metric: daily_revenue
+    condition: "ABS(today_revenue - trailing_30d_mean) > 2 * trailing_30d_stddev"
+    severity: high
+    owner: revenue-lead
+    notification_channels:
+      - slack: "#data-alerts"
+      - email: "revenue-lead@company.com"
+    runbook: |
+      1. Check if the anomaly is positive (spike) or negative (drop).
+      2. For drops: verify billing system health, check for failed payment processor webhooks.
+      3. For spikes: check for large enterprise deals closing or annual prepayments.
+      4. Review refund data for delayed refund processing that may distort the number.
+      5. If unexplained, open an investigation and update the daily standup notes.
+    created: 2026-02-01
+    last_triggered: 2026-02-25
+    status: active
+
+  - name: health_score_bulk_change_alert
+    description: "Fires when more than 10% of accounts change health status (healthy/warning/critical) in a single day"
+    metric: customer_health_score
+    condition: "COUNT(accounts WHERE health_status_changed = true) > 0.10 * COUNT(all_accounts)"
+    severity: medium
+    owner: cs-lead
+    notification_channels:
+      - slack: "#cs-alerts"
+    runbook: |
+      1. Check if the health score model was recently recalibrated or redeployed.
+      2. Verify that input data sources (engagement, billing, support) are fresh and accurate.
+      3. If a model change caused the shift, review with data-chief before communicating to CS.
+      4. If data is correct and no model change occurred, investigate which component drove the shift.
+      5. Brief the CS team on affected accounts if the changes reflect real customer behavior.
+    created: 2026-02-15
+    last_triggered: null
+    status: active

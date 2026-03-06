@@ -1,0 +1,40 @@
+lessons_learned:
+  - id: LL-001
+    title: "Early experiment termination leads to false positives"
+    date: 2026-01-28
+    context: "Two A/B tests were called as winners after 5 days based on apparent statistical significance. After full rollout, the effects disappeared within 2 weeks."
+    lesson: "Short-duration experiments are vulnerable to novelty effects, day-of-week bias, and multiple-testing issues. Statistical significance alone is not sufficient without adequate duration."
+    action_taken: "Established a minimum 14-day experiment duration policy (DEC-003). Added a duration check to the experiment review checklist."
+    category: experimentation
+    owner: growth-lead
+    impact: high
+
+  - id: LL-002
+    title: "Duplicate BI tools cause metric trust erosion"
+    date: 2026-02-05
+    context: "Leadership noticed that the same metric (MAU) showed different numbers on three different dashboards built in different tools. This triggered a loss of confidence in all data reporting."
+    lesson: "Every additional BI tool multiplies the surface area for metric inconsistency. Even small definitional differences (e.g., timezone handling) create visible discrepancies that erode trust disproportionately."
+    action_taken: "Consolidated on Metabase as the single BI tool (DEC-002). Created the metric registry to enforce a single definition per metric."
+    category: data_governance
+    owner: data-chief
+    impact: high
+
+  - id: LL-003
+    title: "Manual health scores have low inter-rater reliability"
+    date: 2026-02-10
+    context: "An audit of CS manual health classifications showed that different CS managers rated the same accounts differently. Cohen's kappa was 0.38, indicating poor agreement."
+    lesson: "Subjective assessments are useful as inputs but unreliable as the sole basis for critical business decisions like churn risk. Structured, data-driven scoring provides consistency even if imperfect."
+    action_taken: "Developed the automated health_score_v1 model. Manual input is now one weighted component (via override) rather than the entire score."
+    category: customer_success
+    owner: cs-lead
+    impact: medium
+
+  - id: LL-004
+    title: "Client-side tracking gaps go undetected for weeks"
+    date: 2026-02-22
+    context: "Community analytics showed a gradual decline in engagement events over 3 weeks. Investigation revealed that a tracking script update broke event firing on Safari, not an actual engagement decline."
+    lesson: "Client-side tracking is fragile. Browser updates, ad blockers, and script changes can silently drop events. Automated volume anomaly detection must be sensitive enough to catch gradual declines, not just sudden drops."
+    action_taken: "Added a weekly trend-based volume check (not just day-over-day) to the data quality tests for all client-side sources. Began evaluating server-side tracking alternatives for critical events."
+    category: data_quality
+    owner: community-lead
+    impact: medium

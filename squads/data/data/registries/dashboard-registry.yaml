@@ -1,0 +1,65 @@
+dashboards:
+  - name: exec-dashboard
+    title: "Executive Overview"
+    description: "Top-level health metrics for leadership review including MAU, revenue, retention, and NPS"
+    owner: data-chief
+    audience: executive-team
+    refresh_cadence: daily
+    tool: metabase
+    url: "https://analytics.internal/dashboards/exec-overview"
+    metrics:
+      - monthly_active_users
+      - average_revenue_per_user
+      - weekly_retention_rate
+      - net_promoter_score
+    created: 2026-01-15
+    last_reviewed: 2026-03-01
+    status: active
+
+  - name: growth-dashboard
+    title: "Growth and Acquisition"
+    description: "Tracks new user acquisition, activation funnel, and channel performance"
+    owner: growth-lead
+    audience: growth-squad
+    refresh_cadence: daily
+    tool: metabase
+    url: "https://analytics.internal/dashboards/growth"
+    metrics:
+      - new_user_activation_rate
+      - daily_signups
+      - channel_conversion_rate
+    created: 2026-01-20
+    last_reviewed: 2026-02-28
+    status: active
+
+  - name: retention-dashboard
+    title: "Retention and Engagement"
+    description: "Monitors cohort retention curves, churn indicators, and engagement depth"
+    owner: retention-lead
+    audience: product-team
+    refresh_cadence: weekly
+    tool: metabase
+    url: "https://analytics.internal/dashboards/retention"
+    metrics:
+      - weekly_retention_rate
+      - churn_rate
+      - engagement_score
+    created: 2026-01-25
+    last_reviewed: 2026-02-25
+    status: active
+
+  - name: cs-dashboard
+    title: "Customer Success Health"
+    description: "Customer health scores, ticket volume trends, and satisfaction metrics"
+    owner: cs-lead
+    audience: cs-team
+    refresh_cadence: daily
+    tool: metabase
+    url: "https://analytics.internal/dashboards/cs-health"
+    metrics:
+      - customer_health_score
+      - ticket_resolution_time
+      - csat_score
+    created: 2026-02-01
+    last_reviewed: 2026-03-01
+    status: active

@@ -1,0 +1,65 @@
+decisions:
+  - id: DEC-001
+    title: "Adopt MAU as the primary north-star metric"
+    date: 2026-01-15
+    context: "The team was tracking DAU, WAU, and MAU inconsistently across dashboards. Leadership needed a single north-star to align around."
+    decision: "Monthly Active Users (MAU) was chosen as the north-star metric, defined as unique users with at least 1 core action in 30 days."
+    rationale: "MAU smooths out daily noise, aligns with the billing cycle, and is the standard metric investors and board members expect. DAU is too volatile for a product with weekly usage patterns."
+    alternatives_considered:
+      - "DAU: rejected due to high volatility and mismatch with natural usage cadence"
+      - "WAU: considered but less aligned with monthly billing and reporting cycles"
+    owner: data-chief
+    status: active
+    review_date: 2026-07-15
+
+  - id: DEC-002
+    title: "Standardize on Metabase for internal dashboards"
+    date: 2026-01-20
+    context: "Multiple BI tools were in use (Metabase, Looker, Google Sheets dashboards), causing duplication and inconsistent numbers."
+    decision: "Metabase is the single official BI tool. All official dashboards must live in Metabase. Ad-hoc analysis can use notebooks but results must be pushed to Metabase for sharing."
+    rationale: "Metabase is already the most-used tool, has the lowest cost, and supports SQL-native workflows. Consolidation reduces maintenance burden and eliminates conflicting metrics."
+    alternatives_considered:
+      - "Looker: more powerful but higher cost and steeper learning curve"
+      - "Keep multiple tools: rejected because metric inconsistency was causing trust issues"
+    owner: data-chief
+    status: active
+    review_date: 2026-07-20
+
+  - id: DEC-003
+    title: "Set minimum experiment duration to 14 days"
+    date: 2026-02-01
+    context: "Several experiments were called early (after 3-5 days) leading to false positives that were later reversed."
+    decision: "All A/B tests must run for a minimum of 14 days regardless of early significance signals. Exceptions require data-chief approval."
+    rationale: "Short experiments are subject to novelty effects, day-of-week bias, and insufficient sample accumulation. The 14-day minimum covers two full weekly cycles."
+    alternatives_considered:
+      - "7 days: insufficient to cover weekly seasonality patterns"
+      - "21 days: unnecessarily long for most experiments given current traffic"
+    owner: growth-lead
+    status: active
+    review_date: 2026-08-01
+
+  - id: DEC-004
+    title: "Deprecate legacy user_events table"
+    date: 2026-02-15
+    context: "The legacy user_events table had inconsistent schema, missing fields, and was being used alongside the new events.user_actions table."
+    decision: "Legacy user_events table is deprecated effective 2026-03-15. All queries must migrate to events.user_actions. The legacy table will be kept read-only for 90 days then archived."
+    rationale: "Maintaining two event tables causes metric discrepancies and doubles the QA burden. The new table has a cleaner schema, better coverage, and lower query cost."
+    alternatives_considered:
+      - "Maintain both with a view: rejected because it masks underlying schema differences"
+      - "Backfill legacy into new: partially done, but full backfill is not cost-effective for data older than 12 months"
+    owner: data-chief
+    status: active
+    review_date: 2026-06-15
+
+  - id: DEC-005
+    title: "Use cohort week as the standard time grain for retention"
+    date: 2026-02-20
+    context: "Retention was being measured inconsistently: some reports used calendar weeks, others used days-since-signup, and CS used months."
+    decision: "Cohort week (7-day windows starting from signup date) is the official time grain for all retention reporting. Monthly retention is derived by aggregating cohort weeks."
+    rationale: "Cohort week aligns with the natural re-engagement cycle observed in user data and provides enough granularity without the noise of daily measurement."
+    alternatives_considered:
+      - "Calendar week: rejected because it splits cohorts across arbitrary boundaries"
+      - "Daily: too granular, creates noisy charts that are hard to act on"
+    owner: retention-lead
+    status: active
+    review_date: 2026-08-20

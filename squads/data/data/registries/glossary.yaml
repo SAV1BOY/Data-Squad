@@ -1,0 +1,63 @@
+glossary:
+  - term: Active User
+    definition: "A user who has performed at least 1 core action within the measurement window (daily, weekly, or monthly depending on context)"
+    context: "Core actions are defined in the event registry under action_type = 'core_actions'. Passive visits (e.g., loading the homepage without interaction) do not count."
+    see_also:
+      - monthly_active_users
+      - core_action
+
+  - term: Core Action
+    definition: "A product interaction that delivers or reflects meaningful value to the user"
+    context: "The list of core actions is maintained in the event registry. Examples include creating a project, running an analysis, or inviting a team member. Login alone is not a core action."
+    see_also:
+      - active_user
+      - event-registry.yaml
+
+  - term: Activation
+    definition: "The point at which a new user has experienced enough product value to be likely to retain"
+    context: "Currently defined as completing the onboarding milestone (creating first project and inviting 1 teammate) within 7 days of signup."
+    see_also:
+      - new_user_activation_rate
+
+  - term: Cohort
+    definition: "A group of users sharing a common characteristic, typically signup date, used for longitudinal analysis"
+    context: "Cohorts are defined by signup week unless otherwise specified. Cohort week 0 is the week of signup."
+    see_also:
+      - weekly_retention_rate
+
+  - term: Churn
+    definition: "A user or account that has stopped using the product or canceled their subscription"
+    context: "Product churn: no core action for 30+ days. Revenue churn: subscription canceled or expired. These are tracked separately."
+    see_also:
+      - at_risk_users
+      - churn_rate
+
+  - term: North-Star Metric
+    definition: "The single most important metric that best captures the value the product delivers to users"
+    context: "Currently set to Monthly Active Users (MAU). Reviewed semi-annually. See DEC-001 in the decision registry."
+    see_also:
+      - monthly_active_users
+
+  - term: Health Score
+    definition: "A composite 0-100 score reflecting the likelihood that an account will remain active and expand"
+    context: "Computed daily by the CS health model. Scores below 45 are flagged as critical. See cs-health-registry.yaml for model details."
+    see_also:
+      - cs_health_models
+
+  - term: CLV (Customer Lifetime Value)
+    definition: "The estimated total revenue a customer will generate over their entire relationship with the product"
+    context: "Multiple CLV models exist with different methodologies and confidence levels. See clv-registry.yaml for current models."
+    see_also:
+      - clv_models
+
+  - term: Experiment
+    definition: "A controlled test (typically A/B) designed to measure the causal impact of a product change on a specific metric"
+    context: "All experiments must run for a minimum of 14 days (DEC-003). Results and learnings are recorded in the experiment registry."
+    see_also:
+      - experiment-registry.yaml
+
+  - term: Segment
+    definition: "A defined subset of users grouped by shared behavioral or demographic characteristics for targeted analysis"
+    context: "Official segments are maintained in the segment registry. Ad-hoc segments used in one-off analyses do not need to be registered unless they become recurring."
+    see_also:
+      - segment-registry.yaml

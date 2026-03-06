@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tracking Plan Schema",
+  "description": "Schema for defining a product analytics tracking plan. Documents all events, properties, and validation rules for consistent data collection across platforms.",
+  "type": "object",
+  "required": [
+    "tracking_plan_id",
+    "name",
+    "version",
+    "owner",
+    "events"
+  ],
+  "properties": {
+    "tracking_plan_id": {
+      "type": "string",
+      "description": "Unique identifier for this tracking plan",
+      "pattern": "^tp_[a-z0-9_]+$",
+      "examples": ["tp_core_product", "tp_marketing_site", "tp_mobile_app"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the tracking plan",
+      "examples": ["Core Product Tracking Plan", "Marketing Website Tracking Plan"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Purpose and scope of this tracking plan"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the tracking plan",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["2.3.0"]
+    },
+    "owner": {
+      "type": "object",
+      "required": ["name", "email", "team"],
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "team": { "type": "string" }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "description": "Platforms this tracking plan covers",
+      "items": {
+        "type": "string",
+        "enum": ["web", "ios", "android", "server", "email"]
+      },
+      "examples": [["web", "ios", "android", "server"]]
+    },
+    "global_properties": {
+      "type": "array",
+      "description": "Properties included with every event automatically (handled by the SDK or tracking layer)",
+      "items": {
+        "$ref": "#/$defs/property_definition"
+      },
+      "examples": [
+        [
+          { "name": "event_timestamp", "type": "string", "format": "date-time", "required": true, "description": "ISO 8601 UTC timestamp" },
+          { "name": "user_id", "type": "string", "required": false, "description": "Authenticated user ID, null if anonymous" },
+          { "name": "session_id", "type": "string", "required": true, "description": "Session identifier" },
+          { "name": "platform", "type": "string", "required": true, "description": "Event source platform", "allowed_values": ["web", "ios", "android", "server"] }
+        ]
+      ]
+    },
+    "user_properties": {
+      "type": "array",
+      "description": "User-level properties set via identify calls",
+      "items": {
+        "$ref": "#/$defs/property_definition"
+      }
+    },
+    "events": {
+      "type": "array",
+      "description": "All tracked events",
+      "items": {
+        "$ref": "#/$defs/event_definition"
+      }
+    },
+    "validation_rules": {
+      "type": "object",
+      "description": "How non-conforming events are handled",
+      "properties": {
+        "unknown_events": {
+          "type": "string",
+          "enum": ["allow", "block", "log_warning"],
+          "description": "What to do when an event not in the plan is received"
+        },
+        "unknown_properties": {
+          "type": "string",
+          "enum": ["allow", "strip", "block", "log_warning"],
+          "description": "What to do when an unexpected property is received"
+        },
+        "type_mismatch": {
+          "type": "string",
+          "enum": ["coerce", "block", "log_warning"],
+          "description": "What to do when a property value does not match the expected type"
+        }
+      }
+    },
+    "changelog": {
+      "type": "array",
+      "description": "History of changes to this tracking plan",
+      "items": {
+        "type": "object",
+        "required": ["date", "version", "author", "changes"],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "version": { "type": "string" },
+          "author": { "type": "string" },
+          "changes": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "deprecated"]
+    },
+    "created_at": { "type": "string", "format": "date" },
+    "updated_at": { "type": "string", "format": "date" }
+  },
+  "$defs": {
+    "property_definition": {
+      "type": "object",
+      "required": ["name", "type", "required", "description"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Property name in snake_case",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["string", "number", "integer", "boolean", "array", "object"],
+          "description": "Data type of the property"
+        },
+        "format": {
+          "type": "string",
+          "description": "Additional format constraint",
+          "enum": ["date-time", "date", "email", "uri", "uuid", "currency", "semver"]
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether this property must be present"
+        },
+        "description": {
+          "type": "string",
+          "description": "Clear description of the property"
+        },
+        "allowed_values": {
+          "type": "array",
+          "description": "Enum values for categorical properties",
+          "items": {}
+        },
+        "examples": {
+          "type": "array",
+          "description": "Example values",
+          "items": {}
+        },
+        "pii": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this property contains personally identifiable information"
+        },
+        "deprecated": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this property is deprecated"
+        }
+      }
+    },
+    "event_definition": {
+      "type": "object",
+      "required": ["event_name", "description", "category", "platforms", "properties"],
+      "properties": {
+        "event_name": {
+          "type": "string",
+          "description": "Event name following verb_noun convention",
+          "pattern": "^[a-z]+(_[a-z]+){1,4}$"
+        },
+        "description": {
+          "type": "string",
+          "description": "When and why this event fires",
+          "minLength": 10
+        },
+        "category": {
+          "type": "string",
+          "description": "Logical grouping for the event",
+          "enum": [
+            "lifecycle",
+            "navigation",
+            "engagement",
+            "commerce",
+            "subscription",
+            "growth",
+            "system"
+          ]
+        },
+        "platforms": {
+          "type": "array",
+          "description": "Which platforms fire this event",
+          "items": {
+            "type": "string",
+            "enum": ["web", "ios", "android", "server"]
+          }
+        },
+        "trigger": {
+          "type": "string",
+          "description": "Specific user action or system condition that triggers this event",
+          "examples": [
+            "User clicks the 'Add to Cart' button on the product detail page",
+            "Server processes a successful payment webhook from Stripe"
+          ]
+        },
+        "properties": {
+          "type": "array",
+          "description": "Event-specific properties (in addition to global properties)",
+          "items": {
+            "$ref": "#/$defs/property_definition"
+          }
+        },
+        "is_conversion": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether this event is tracked as a conversion in analytics tools"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["planned", "implemented", "verified", "deprecated"],
+          "description": "Implementation status of the event"
+        },
+        "implemented_version": {
+          "type": ["string", "null"],
+          "description": "App version when this event was first implemented"
+        },
+        "screenshot_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Screenshot or wireframe showing where this event triggers"
+        },
+        "example_payload": {
+          "type": "object",
+          "description": "Example of a complete event payload"
+        }
+      }
+    }
+  }
+}

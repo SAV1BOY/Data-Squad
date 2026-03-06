@@ -1,0 +1,82 @@
+data_quality:
+  - source: events.user_actions
+    status: healthy
+    owner: data-chief
+    last_audit: 2026-02-28
+    completeness: "99.7% - occasional missed events during deploys (< 0.3%)"
+    freshness: "Events land in warehouse within 5 minutes of occurrence"
+    accuracy: "Validated against application logs monthly. Last discrepancy: 0.1% on 2026-02-15."
+    known_issues: []
+    tests:
+      - name: row_count_anomaly
+        type: volume
+        description: "Alert if daily event count drops below 70% of the trailing 7-day average"
+        status: passing
+      - name: null_user_id_check
+        type: completeness
+        description: "Fail if any row has a null user_id"
+        status: passing
+    next_audit: 2026-05-28
+
+  - source: billing.transactions
+    status: warning
+    owner: revenue-lead
+    last_audit: 2026-02-20
+    completeness: "98.5% - refund events are delayed by up to 24 hours due to payment processor webhook lag"
+    freshness: "Transactions sync every 15 minutes. Refunds may lag up to 24 hours."
+    accuracy: "Monthly reconciliation against payment processor reports. Last variance: $142 (0.02%) on 2026-02-01."
+    known_issues:
+      - "Refund events arrive late, causing temporary over-reporting of daily revenue"
+      - "Currency conversion for non-USD transactions uses daily rate, not transaction-time rate"
+    tests:
+      - name: revenue_reconciliation
+        type: accuracy
+        description: "Monthly check that warehouse revenue matches payment processor totals within 0.1%"
+        status: passing
+      - name: refund_delay_monitor
+        type: freshness
+        description: "Alert if refund events are more than 36 hours behind"
+        status: passing
+    next_audit: 2026-05-20
+
+  - source: cs.helpdesk
+    status: healthy
+    owner: cs-lead
+    last_audit: 2026-03-01
+    completeness: "100% - all tickets sync via API integration"
+    freshness: "Tickets sync every 10 minutes"
+    accuracy: "Category field is manually assigned by agents; approximately 8% miscategorization rate based on quarterly audit"
+    known_issues:
+      - "Ticket category accuracy depends on agent training; new agents miscategorize more often"
+    tests:
+      - name: ticket_volume_anomaly
+        type: volume
+        description: "Alert if daily ticket count exceeds 200% of trailing 14-day average"
+        status: passing
+      - name: missing_category_check
+        type: completeness
+        description: "Flag tickets with null or 'other' category for review"
+        status: passing
+    next_audit: 2026-06-01
+
+  - source: community.analytics
+    status: degraded
+    owner: community-lead
+    last_audit: 2026-02-25
+    completeness: "92% - some forum events are not captured due to ad-blocker interference on client-side tracking"
+    freshness: "Events batch-sync every 6 hours"
+    accuracy: "Unique member counts may be inflated by 3-5% due to guest sessions not being deduplicated"
+    known_issues:
+      - "Client-side tracking is blocked by ad blockers for an estimated 8% of users"
+      - "Guest vs. authenticated session deduplication is unreliable"
+      - "6-hour batch sync means community dashboards are not real-time"
+    tests:
+      - name: member_count_drift
+        type: accuracy
+        description: "Compare community platform member count with warehouse count weekly"
+        status: failing
+      - name: event_volume_check
+        type: volume
+        description: "Alert if daily community events drop below 50% of trailing average"
+        status: passing
+    next_audit: 2026-04-25

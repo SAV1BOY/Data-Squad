@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dashboard Specification Schema",
+  "description": "Schema for specifying dashboard requirements before implementation. Ensures dashboards are purpose-driven and follow design standards.",
+  "type": "object",
+  "required": [
+    "dashboard_id",
+    "title",
+    "purpose",
+    "audience",
+    "owner",
+    "kpis",
+    "tiles",
+    "data_sources",
+    "refresh_frequency"
+  ],
+  "properties": {
+    "dashboard_id": {
+      "type": "string",
+      "description": "Unique identifier for the dashboard",
+      "pattern": "^dash_[a-z0-9_]+$",
+      "examples": ["dash_executive_revenue", "dash_product_engagement"]
+    },
+    "title": {
+      "type": "string",
+      "description": "Dashboard title (clear, specific, action-oriented)",
+      "maxLength": 80,
+      "examples": ["Revenue Performance Q1 2025", "Product Engagement Weekly Review"]
+    },
+    "purpose": {
+      "type": "string",
+      "description": "What decision this dashboard helps the viewer make",
+      "minLength": 20,
+      "examples": [
+        "Enables the revenue team to monitor monthly revenue trends, identify underperforming segments, and decide where to focus expansion efforts."
+      ]
+    },
+    "audience": {
+      "type": "object",
+      "description": "Who this dashboard is for",
+      "required": ["primary", "access_level"],
+      "properties": {
+        "primary": {
+          "type": "string",
+          "description": "Primary audience for this dashboard",
+          "examples": ["VP of Revenue", "Product Team", "Customer Success Managers"]
+        },
+        "secondary": {
+          "type": "array",
+          "description": "Secondary audiences who may also use this dashboard",
+          "items": { "type": "string" },
+          "examples": [["CEO", "Board of Directors"]]
+        },
+        "access_level": {
+          "type": "string",
+          "enum": ["public", "team", "leadership", "restricted"],
+          "description": "Who can access this dashboard"
+        }
+      }
+    },
+    "owner": {
+      "type": "object",
+      "description": "Person responsible for maintaining this dashboard",
+      "required": ["name", "email"],
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" }
+      }
+    },
+    "kpis": {
+      "type": "array",
+      "description": "Key performance indicators displayed in the top row",
+      "minItems": 2,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["metric_id", "display_name", "comparison"],
+        "properties": {
+          "metric_id": {
+            "type": "string",
+            "description": "Reference to metric definition (see metric-definition-schema.json)"
+          },
+          "display_name": {
+            "type": "string",
+            "description": "Label shown on the KPI card"
+          },
+          "format": {
+            "type": "string",
+            "enum": ["number", "currency", "percentage", "duration"],
+            "description": "How to format the value"
+          },
+          "comparison": {
+            "type": "string",
+            "enum": ["previous_period", "same_period_last_year", "target", "none"],
+            "description": "What to compare the current value against"
+          },
+          "sparkline": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to show a trend sparkline"
+          },
+          "alert_threshold": {
+            "type": "object",
+            "description": "Thresholds for color-coding the KPI",
+            "properties": {
+              "green_above": { "type": "number" },
+              "yellow_above": { "type": "number" },
+              "red_below": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "tiles": {
+      "type": "array",
+      "description": "Detail tiles below the KPI row",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": ["tile_id", "title", "chart_type", "metrics", "position"],
+        "properties": {
+          "tile_id": {
+            "type": "string",
+            "description": "Unique identifier for this tile"
+          },
+          "title": {
+            "type": "string",
+            "description": "Chart title (should state the insight or describe the data clearly)"
+          },
+          "chart_type": {
+            "type": "string",
+            "enum": [
+              "line",
+              "bar_vertical",
+              "bar_horizontal",
+              "stacked_bar",
+              "area",
+              "scatter",
+              "table",
+              "heatmap",
+              "map",
+              "funnel",
+              "waterfall",
+              "kpi_card"
+            ],
+            "description": "Type of visualization"
+          },
+          "metrics": {
+            "type": "array",
+            "description": "Metrics displayed in this tile",
+            "items": {
+              "type": "string",
+              "description": "Reference to metric_id"
+            },
+            "minItems": 1
+          },
+          "dimensions": {
+            "type": "array",
+            "description": "Dimensions for grouping/breakdown",
+            "items": { "type": "string" }
+          },
+          "filters": {
+            "type": "array",
+            "description": "Tile-level filters applied by default",
+            "items": {
+              "type": "object",
+              "properties": {
+                "field": { "type": "string" },
+                "operator": { "type": "string", "enum": ["equals", "not_equals", "greater_than", "less_than", "in", "between"] },
+                "value": {}
+              }
+            }
+          },
+          "position": {
+            "type": "object",
+            "description": "Grid position (row and column, 12-column grid)",
+            "required": ["row", "col", "width", "height"],
+            "properties": {
+              "row": { "type": "integer", "minimum": 1 },
+              "col": { "type": "integer", "minimum": 1, "maximum": 12 },
+              "width": { "type": "integer", "minimum": 1, "maximum": 12 },
+              "height": { "type": "integer", "minimum": 1 }
+            }
+          },
+          "annotations": {
+            "type": "array",
+            "description": "Notable events to mark on the chart",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": { "type": "string", "format": "date" },
+                "label": { "type": "string" }
+              }
+            }
+          },
+          "drill_down_link": {
+            "type": ["string", "null"],
+            "description": "Link to a detail dashboard for drill-down"
+          }
+        }
+      }
+    },
+    "filters": {
+      "type": "array",
+      "description": "Global dashboard filters",
+      "items": {
+        "type": "object",
+        "required": ["filter_id", "label", "type", "default_value"],
+        "properties": {
+          "filter_id": { "type": "string" },
+          "label": {
+            "type": "string",
+            "description": "User-facing label"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["date_range", "single_select", "multi_select", "text", "number_range"]
+          },
+          "default_value": {
+            "description": "Default filter value"
+          },
+          "options": {
+            "type": "array",
+            "description": "Available options for select filters",
+            "items": { "type": "string" }
+          },
+          "applies_to": {
+            "type": "array",
+            "description": "Which tile_ids this filter affects",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "data_sources": {
+      "type": "array",
+      "description": "Data sources this dashboard depends on",
+      "items": {
+        "type": "object",
+        "required": ["source_name", "table_or_model", "freshness_sla"],
+        "properties": {
+          "source_name": { "type": "string" },
+          "table_or_model": {
+            "type": "string",
+            "description": "Warehouse table or dbt model name"
+          },
+          "freshness_sla": {
+            "type": "string",
+            "description": "Expected data freshness",
+            "examples": ["1 hour", "4 hours", "daily"]
+          }
+        }
+      }
+    },
+    "refresh_frequency": {
+      "type": "string",
+      "description": "How often the dashboard auto-refreshes",
+      "enum": ["real_time", "5_minutes", "15_minutes", "1_hour", "4_hours", "daily", "manual"]
+    },
+    "bi_tool": {
+      "type": "string",
+      "description": "Target BI tool for implementation",
+      "enum": ["metabase", "looker", "power_bi", "tableau", "preset", "other"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "in_review", "approved", "published", "deprecated"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "published_at": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "review_notes": {
+      "type": "array",
+      "description": "Notes from the review process",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reviewer": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "comment": { "type": "string" },
+          "status": { "type": "string", "enum": ["approved", "needs_changes", "rejected"] }
+        }
+      }
+    }
+  }
+}

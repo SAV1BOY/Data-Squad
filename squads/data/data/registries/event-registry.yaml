@@ -1,0 +1,92 @@
+events:
+  - name: user_signup
+    description: "Fired when a new user completes the registration flow"
+    source: app.auth
+    properties:
+      - name: user_id
+        type: string
+        required: true
+        description: "Unique identifier for the user"
+      - name: signup_method
+        type: string
+        required: true
+        description: "Method used to sign up (email, google, github)"
+      - name: referral_source
+        type: string
+        required: false
+        description: "Attribution source if available"
+    owner: growth-lead
+    status: active
+    added: 2026-01-10
+
+  - name: feature_used
+    description: "Fired when a user interacts with a tracked product feature"
+    source: app.features
+    properties:
+      - name: user_id
+        type: string
+        required: true
+        description: "Unique identifier for the user"
+      - name: feature_name
+        type: string
+        required: true
+        description: "Name of the feature used"
+      - name: duration_seconds
+        type: integer
+        required: false
+        description: "Time spent on the feature in seconds"
+      - name: session_id
+        type: string
+        required: true
+        description: "Session in which the feature was used"
+    owner: product-analytics
+    status: active
+    added: 2026-01-10
+
+  - name: subscription_changed
+    description: "Fired when a user upgrades, downgrades, or cancels their subscription"
+    source: billing.subscriptions
+    properties:
+      - name: user_id
+        type: string
+        required: true
+        description: "Unique identifier for the user"
+      - name: previous_plan
+        type: string
+        required: true
+        description: "Plan before the change"
+      - name: new_plan
+        type: string
+        required: true
+        description: "Plan after the change"
+      - name: change_reason
+        type: string
+        required: false
+        description: "User-provided reason for change"
+    owner: revenue-lead
+    status: active
+    added: 2026-01-15
+
+  - name: support_ticket_opened
+    description: "Fired when a customer opens a support ticket"
+    source: cs.helpdesk
+    properties:
+      - name: user_id
+        type: string
+        required: true
+        description: "Unique identifier for the user"
+      - name: ticket_id
+        type: string
+        required: true
+        description: "Unique ticket identifier"
+      - name: category
+        type: string
+        required: true
+        description: "Ticket category (bug, billing, feature_request, general)"
+      - name: priority
+        type: string
+        required: false
+        description: "Ticket priority level"
+    owner: cs-lead
+    status: active
+    added: 2026-01-20

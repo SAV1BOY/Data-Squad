@@ -1,0 +1,68 @@
+experiments:
+  - id: EXP-001
+    name: "Onboarding Flow Simplification"
+    hypothesis: "Reducing onboarding steps from 5 to 3 will increase activation rate by at least 10%"
+    status: completed
+    type: a_b_test
+    owner: growth-lead
+    primary_metric: new_user_activation_rate
+    secondary_metrics:
+      - 7_day_retention
+      - time_to_first_value
+    start_date: 2026-01-20
+    end_date: 2026-02-20
+    sample_size: 12000
+    result: "Activation rate increased by 14%. Statistically significant (p < 0.01). Rolled out to 100%."
+    decision: ship
+    learnings: "Users drop off primarily at step 3 (profile completion). Making it optional removed the largest friction point."
+
+  - id: EXP-002
+    name: "Weekly Digest Email"
+    hypothesis: "Sending a personalized weekly digest will improve 30-day retention by 5%"
+    status: running
+    type: a_b_test
+    owner: retention-lead
+    primary_metric: 30_day_retention
+    secondary_metrics:
+      - email_open_rate
+      - return_visit_rate
+    start_date: 2026-02-15
+    end_date: null
+    sample_size: 8000
+    result: null
+    decision: pending
+    learnings: null
+
+  - id: EXP-003
+    name: "Pricing Page Redesign"
+    hypothesis: "Highlighting annual plan savings more prominently will increase annual plan adoption by 15%"
+    status: backlog
+    type: a_b_test
+    owner: revenue-lead
+    primary_metric: annual_plan_conversion_rate
+    secondary_metrics:
+      - average_revenue_per_user
+      - plan_downgrade_rate
+    start_date: null
+    end_date: null
+    sample_size: null
+    result: null
+    decision: pending
+    learnings: null
+
+  - id: EXP-004
+    name: "In-App Community Prompts"
+    hypothesis: "Prompting users to join the community after completing key actions will increase community participation by 20%"
+    status: completed
+    type: a_b_test
+    owner: community-lead
+    primary_metric: community_join_rate
+    secondary_metrics:
+      - first_post_rate
+      - 14_day_community_retention
+    start_date: 2026-01-10
+    end_date: 2026-02-10
+    sample_size: 6000
+    result: "Community join rate increased by 25%. First post rate remained flat. Need to explore activation within community separately."
+    decision: ship
+    learnings: "The prompt timing matters: post-milestone prompts converted 3x better than random prompts."

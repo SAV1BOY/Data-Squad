@@ -1,0 +1,89 @@
+cs_health_models:
+  - name: health_score_v1
+    version: "1.0"
+    description: "Initial customer health score combining product usage, support interactions, and billing signals"
+    methodology: "Weighted composite score on a 0-100 scale. Each component is normalized to 0-100 then weighted."
+    components:
+      - name: product_engagement
+        weight: 0.40
+        description: "30-day engagement score based on login frequency, feature breadth, and session duration"
+        source: derived.engagement_scores
+        thresholds:
+          healthy: ">= 70"
+          warning: "40-69"
+          critical: "< 40"
+      - name: support_sentiment
+        weight: 0.25
+        description: "Rolling 90-day support ticket sentiment. Accounts for volume, severity, and resolution satisfaction."
+        source: cs.ticket_scores
+        thresholds:
+          healthy: ">= 75"
+          warning: "50-74"
+          critical: "< 50"
+      - name: billing_stability
+        weight: 0.20
+        description: "Payment consistency, plan tenure, and absence of downgrade signals"
+        source: billing.health_signals
+        thresholds:
+          healthy: ">= 80"
+          warning: "50-79"
+          critical: "< 50"
+      - name: growth_trajectory
+        weight: 0.15
+        description: "Seat growth and feature adoption trend over the last 90 days"
+        source: derived.account_growth
+        thresholds:
+          healthy: ">= 60"
+          warning: "30-59"
+          critical: "< 30"
+    overall_thresholds:
+      healthy: ">= 70"
+      warning: "45-69"
+      critical: "< 45"
+    owner: cs-lead
+    status: active
+    created: 2026-01-25
+    last_calibrated: 2026-02-28
+    calibration_notes: "Validated against 6 months of churn data. Accounts scoring < 45 churned at 3.2x the base rate. Weight for support_sentiment increased from 0.20 to 0.25 after calibration."
+    next_review: 2026-05-28
+
+  - name: health_score_v2_ml
+    version: "2.0"
+    description: "Machine-learning-based health score using gradient boosted trees trained on historical churn outcomes"
+    methodology: "XGBoost classifier predicting 90-day churn probability. Health score = (1 - churn_probability) * 100."
+    features:
+      - "30-day login count"
+      - "Feature breadth (unique features used / total features)"
+      - "Session duration trend (slope over 8 weeks)"
+      - "Support ticket count and severity (90 days)"
+      - "Days since last login"
+      - "Contract renewal proximity"
+      - "Seat utilization rate"
+      - "NPS response (if available)"
+    training_data: "12 months of account-level snapshots with known churn outcomes (n = 2,400 accounts)"
+    performance:
+      auc_roc: 0.84
+      precision_at_10pct_recall: 0.72
+      f1_score: 0.68
+    owner: data-chief
+    status: in_development
+    created: 2026-03-01
+    last_calibrated: 2026-03-01
+    calibration_notes: "Initial training run. Needs validation on Q1-2026 holdout set before production deployment."
+    next_review: 2026-04-15
+
+  - name: health_score_v0_manual
+    version: "0.1"
+    description: "Manual health classification used by CS before automated scoring was available"
+    methodology: "CS managers assign health status (green/yellow/red) based on their judgment during quarterly business reviews"
+    components:
+      - name: cs_manager_assessment
+        weight: 1.0
+        description: "Subjective assessment based on relationship, recent interactions, and gut feel"
+        source: cs.manual_reviews
+    owner: cs-lead
+    status: deprecated
+    created: 2025-10-01
+    last_calibrated: 2025-12-15
+    calibration_notes: "Replaced by health_score_v1. Manual scores had low inter-rater reliability (Cohen's kappa = 0.38)."
+    next_review: null

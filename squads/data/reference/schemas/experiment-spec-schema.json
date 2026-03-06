@@ -1,0 +1,448 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Experiment Specification Schema",
+  "description": "Schema for specifying A/B test and experiment requirements before launch. Ensures every experiment has a clear hypothesis, proper sizing, and defined decision criteria.",
+  "type": "object",
+  "required": [
+    "experiment_id",
+    "name",
+    "hypothesis",
+    "owner",
+    "status",
+    "metrics",
+    "variants",
+    "traffic_allocation",
+    "duration",
+    "decision_criteria"
+  ],
+  "properties": {
+    "experiment_id": {
+      "type": "string",
+      "description": "Unique identifier for the experiment",
+      "pattern": "^exp_[a-z0-9_]+$",
+      "examples": ["exp_checkout_redesign_2025q1", "exp_onboarding_simplification"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable experiment name",
+      "maxLength": 100,
+      "examples": ["Checkout Flow Redesign", "Simplified Onboarding"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what is being tested and the context",
+      "minLength": 50
+    },
+    "hypothesis": {
+      "type": "object",
+      "description": "Formal hypothesis for the experiment",
+      "required": ["statement", "rationale"],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "description": "Hypothesis in the format: We believe that [change] will cause [effect] on [metric] because [reason]",
+          "minLength": 30,
+          "examples": [
+            "We believe that reducing checkout steps from 4 to 2 will increase purchase completion rate by at least 5% because user research shows friction at the address entry step."
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Supporting evidence or reasoning for the hypothesis",
+          "examples": [
+            "User research interviews revealed that 40% of users who abandon checkout cite too many steps. Funnel analysis shows a 30% drop-off at the address entry step. Competitors have implemented single-page checkouts with reported improvements."
+          ]
+        },
+        "assumptions": {
+          "type": "array",
+          "description": "Key assumptions underlying the hypothesis",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "owner": {
+      "type": "object",
+      "required": ["name", "email", "team"],
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "team": { "type": "string" }
+      }
+    },
+    "stakeholders": {
+      "type": "array",
+      "description": "People who need to be informed of results",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "email": { "type": "string", "format": "email" }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "approved", "running", "paused", "completed", "cancelled"],
+      "description": "Current status of the experiment"
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Metrics used to evaluate the experiment",
+      "required": ["primary", "guardrails"],
+      "properties": {
+        "primary": {
+          "type": "object",
+          "description": "The single metric that determines success or failure",
+          "required": ["metric_id", "expected_direction", "minimum_detectable_effect"],
+          "properties": {
+            "metric_id": {
+              "type": "string",
+              "description": "Reference to metric definition"
+            },
+            "display_name": {
+              "type": "string"
+            },
+            "current_baseline": {
+              "type": "number",
+              "description": "Current value of the metric (pre-experiment)"
+            },
+            "expected_direction": {
+              "type": "string",
+              "enum": ["increase", "decrease"]
+            },
+            "minimum_detectable_effect": {
+              "type": "object",
+              "description": "Smallest effect size worth detecting",
+              "properties": {
+                "absolute": {
+                  "type": "number",
+                  "description": "Absolute change (e.g., +2 percentage points)"
+                },
+                "relative": {
+                  "type": "number",
+                  "description": "Relative change (e.g., 0.05 for 5% improvement)"
+                }
+              }
+            }
+          }
+        },
+        "secondary": {
+          "type": "array",
+          "description": "Supporting metrics that provide context (max 3)",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "properties": {
+              "metric_id": { "type": "string" },
+              "display_name": { "type": "string" },
+              "expected_direction": {
+                "type": "string",
+                "enum": ["increase", "decrease", "no_change"]
+              }
+            }
+          }
+        },
+        "guardrails": {
+          "type": "array",
+          "description": "Metrics that must not degrade",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["metric_id", "threshold"],
+            "properties": {
+              "metric_id": { "type": "string" },
+              "display_name": { "type": "string" },
+              "threshold": {
+                "type": "object",
+                "description": "Maximum acceptable degradation",
+                "properties": {
+                  "max_decrease_absolute": { "type": "number" },
+                  "max_decrease_relative": { "type": "number" },
+                  "max_increase_absolute": { "type": "number" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "variants": {
+      "type": "array",
+      "description": "Experiment variants",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["variant_id", "name", "description"],
+        "properties": {
+          "variant_id": {
+            "type": "string",
+            "description": "Unique variant identifier",
+            "examples": ["control", "variant_a", "variant_b"]
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable variant name"
+          },
+          "description": {
+            "type": "string",
+            "description": "What this variant does differently"
+          },
+          "is_control": {
+            "type": "boolean",
+            "default": false
+          },
+          "screenshot_url": {
+            "type": ["string", "null"],
+            "format": "uri",
+            "description": "Screenshot or mockup of this variant"
+          }
+        }
+      }
+    },
+    "traffic_allocation": {
+      "type": "object",
+      "description": "How traffic is split between variants",
+      "required": ["allocation", "randomization_unit"],
+      "properties": {
+        "allocation": {
+          "type": "object",
+          "description": "Percentage allocation per variant (must sum to 100)",
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "examples": [{ "control": 50, "variant_a": 50 }]
+        },
+        "randomization_unit": {
+          "type": "string",
+          "enum": ["user", "session", "device", "company"],
+          "description": "What entity is randomized"
+        },
+        "targeting": {
+          "type": "object",
+          "description": "Eligibility criteria for the experiment",
+          "properties": {
+            "include": {
+              "type": "array",
+              "description": "Criteria for inclusion",
+              "items": { "type": "string" }
+            },
+            "exclude": {
+              "type": "array",
+              "description": "Criteria for exclusion",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "mutual_exclusion_group": {
+          "type": ["string", "null"],
+          "description": "If set, users in this experiment cannot be in other experiments in the same group"
+        }
+      }
+    },
+    "duration": {
+      "type": "object",
+      "description": "Expected and actual experiment duration",
+      "required": ["estimated_days", "minimum_days"],
+      "properties": {
+        "estimated_days": {
+          "type": "integer",
+          "description": "Expected number of days to reach sufficient sample size"
+        },
+        "minimum_days": {
+          "type": "integer",
+          "description": "Minimum days the experiment must run (at least 7 for day-of-week effects)",
+          "minimum": 7
+        },
+        "maximum_days": {
+          "type": "integer",
+          "description": "Maximum days before the experiment is declared inconclusive",
+          "maximum": 84
+        },
+        "planned_start_date": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "planned_end_date": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "actual_start_date": {
+          "type": ["string", "null"],
+          "format": "date"
+        },
+        "actual_end_date": {
+          "type": ["string", "null"],
+          "format": "date"
+        }
+      }
+    },
+    "sample_size": {
+      "type": "object",
+      "description": "Sample size calculation",
+      "properties": {
+        "required_per_variant": {
+          "type": "integer",
+          "description": "Minimum sample size per variant"
+        },
+        "significance_level": {
+          "type": "number",
+          "description": "Alpha (typically 0.05)",
+          "default": 0.05
+        },
+        "power": {
+          "type": "number",
+          "description": "Statistical power (typically 0.80)",
+          "default": 0.80
+        },
+        "test_type": {
+          "type": "string",
+          "enum": ["two_tailed", "one_tailed"],
+          "default": "two_tailed"
+        },
+        "daily_eligible_users": {
+          "type": "integer",
+          "description": "Estimated daily users eligible for the experiment"
+        }
+      }
+    },
+    "statistical_method": {
+      "type": "string",
+      "enum": ["frequentist", "bayesian", "sequential"],
+      "description": "Statistical approach for analysis",
+      "default": "frequentist"
+    },
+    "decision_criteria": {
+      "type": "object",
+      "description": "Pre-defined rules for making a decision",
+      "required": ["ship", "do_not_ship", "inconclusive"],
+      "properties": {
+        "ship": {
+          "type": "string",
+          "description": "Conditions under which the treatment is shipped",
+          "examples": ["Primary metric statistically significant in the expected direction AND no guardrail degradation"]
+        },
+        "do_not_ship": {
+          "type": "string",
+          "description": "Conditions under which the treatment is not shipped",
+          "examples": ["Primary metric not significant OR any guardrail significantly degraded"]
+        },
+        "inconclusive": {
+          "type": "string",
+          "description": "What happens when results are not significant after planned duration",
+          "examples": ["Do not ship. Status quo wins ties. Discuss whether a follow-up experiment with larger MDE is warranted."]
+        },
+        "mixed": {
+          "type": "string",
+          "description": "What happens when primary wins but a guardrail or secondary degrades",
+          "examples": ["Escalate to product leadership. Document trade-off."]
+        }
+      }
+    },
+    "early_stopping_rules": {
+      "type": "array",
+      "description": "Conditions under which the experiment can be stopped before planned duration",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": { "type": "string" },
+          "action": { "type": "string" }
+        }
+      },
+      "examples": [
+        [
+          { "condition": "Guardrail metric degrades by >5% with p<0.01", "action": "Stop experiment, revert to control" },
+          { "condition": "Critical bug discovered in treatment", "action": "Pause experiment, fix bug, restart" }
+        ]
+      ]
+    },
+    "segmentation": {
+      "type": "array",
+      "description": "Pre-planned segments to analyze (not for cherry-picking)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dimension": { "type": "string" },
+          "rationale": { "type": "string" }
+        }
+      },
+      "examples": [
+        [
+          { "dimension": "platform", "rationale": "Mobile and web checkout experiences differ significantly" },
+          { "dimension": "user_tenure", "rationale": "New users may respond differently to UI changes" }
+        ]
+      ]
+    },
+    "implementation": {
+      "type": "object",
+      "description": "Technical implementation details",
+      "properties": {
+        "platform": {
+          "type": "string",
+          "description": "Experimentation platform used",
+          "enum": ["optimizely", "statsig", "launchdarkly", "amplitude", "custom"]
+        },
+        "feature_flag_key": {
+          "type": "string",
+          "description": "Feature flag identifier in the experimentation platform"
+        },
+        "engineering_ticket": {
+          "type": "string",
+          "description": "Link to the implementation ticket"
+        },
+        "qa_checklist": {
+          "type": "array",
+          "description": "QA verification steps",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "results": {
+      "type": ["object", "null"],
+      "description": "Experiment results (filled in after completion)",
+      "properties": {
+        "decision": {
+          "type": "string",
+          "enum": ["ship", "do_not_ship", "inconclusive", "iterate"]
+        },
+        "primary_metric_result": {
+          "type": "object",
+          "properties": {
+            "control_value": { "type": "number" },
+            "treatment_value": { "type": "number" },
+            "relative_change": { "type": "number" },
+            "p_value": { "type": "number" },
+            "confidence_interval_lower": { "type": "number" },
+            "confidence_interval_upper": { "type": "number" },
+            "is_significant": { "type": "boolean" }
+          }
+        },
+        "sample_sizes": {
+          "type": "object",
+          "additionalProperties": { "type": "integer" }
+        },
+        "srm_check_passed": {
+          "type": "boolean",
+          "description": "Whether the sample ratio mismatch check passed"
+        },
+        "learnings": {
+          "type": "string",
+          "description": "Key learnings from the experiment"
+        },
+        "follow_up_actions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "report_url": {
+          "type": ["string", "null"],
+          "format": "uri",
+          "description": "Link to the full experiment report"
+        }
+      }
+    },
+    "created_at": { "type": "string", "format": "date" },
+    "updated_at": { "type": "string", "format": "date" }
+  }
+}

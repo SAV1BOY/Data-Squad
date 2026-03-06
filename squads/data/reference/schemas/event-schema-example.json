@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Standard Event Schema",
+  "description": "Canonical schema for product analytics events. All events across all platforms must conform to this structure.",
+  "type": "object",
+  "required": [
+    "event_name",
+    "event_timestamp",
+    "platform",
+    "session_id"
+  ],
+  "properties": {
+    "event_name": {
+      "type": "string",
+      "description": "Event name following verb_noun convention (e.g., view_page, complete_purchase)",
+      "pattern": "^[a-z]+(_[a-z]+){1,4}$",
+      "examples": ["view_page", "complete_purchase", "add_to_cart", "submit_signup_form"]
+    },
+    "event_timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp in UTC when the event occurred",
+      "examples": ["2025-03-15T14:30:00Z"]
+    },
+    "event_id": {
+      "type": "string",
+      "description": "Unique identifier for this event instance, used for deduplication",
+      "examples": ["evt_a1b2c3d4e5f6"]
+    },
+    "user_id": {
+      "type": ["string", "null"],
+      "description": "Authenticated user identifier. Null for anonymous users.",
+      "examples": ["usr_12345"]
+    },
+    "anonymous_id": {
+      "type": "string",
+      "description": "Device or session identifier for anonymous tracking",
+      "examples": ["anon_abc123def456"]
+    },
+    "session_id": {
+      "type": "string",
+      "description": "Current session identifier",
+      "examples": ["sess_xyz789"]
+    },
+    "platform": {
+      "type": "string",
+      "enum": ["web", "ios", "android", "server"],
+      "description": "Platform where the event originated"
+    },
+    "app_version": {
+      "type": "string",
+      "description": "Application version in semver format",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["2.4.1"]
+    },
+    "page_url": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Current page URL (web only). Must not contain PII in query parameters."
+    },
+    "screen_name": {
+      "type": ["string", "null"],
+      "description": "Current screen name (mobile only)",
+      "examples": ["HomeScreen", "ProductDetail", "Checkout"]
+    },
+    "referrer": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "Referring URL or screen"
+    },
+    "properties": {
+      "type": "object",
+      "description": "Event-specific properties. Keys must be snake_case.",
+      "additionalProperties": true,
+      "examples": [
+        {
+          "product_id": "SKU-001",
+          "product_name": "Pro Plan",
+          "product_price": 99.99,
+          "currency": "BRL",
+          "quantity": 1
+        }
+      ]
+    },
+    "user_properties": {
+      "type": "object",
+      "description": "User-level properties sent with the event for enrichment",
+      "properties": {
+        "plan": {
+          "type": "string",
+          "enum": ["free", "starter", "pro", "enterprise"],
+          "description": "Current subscription plan"
+        },
+        "user_role": {
+          "type": "string",
+          "description": "User role within the application"
+        },
+        "account_created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user account was created"
+        },
+        "company_id": {
+          "type": ["string", "null"],
+          "description": "Associated company identifier for B2B"
+        }
+      },
+      "additionalProperties": true
+    },
+    "context": {
+      "type": "object",
+      "description": "Contextual metadata about the event",
+      "properties": {
+        "locale": {
+          "type": "string",
+          "description": "User locale (e.g., pt-BR, en-US)",
+          "examples": ["pt-BR", "en-US", "es-MX"]
+        },
+        "timezone": {
+          "type": "string",
+          "description": "User timezone (IANA format)",
+          "examples": ["America/Sao_Paulo", "America/New_York"]
+        },
+        "user_agent": {
+          "type": "string",
+          "description": "Browser or app user agent string"
+        },
+        "ip": {
+          "type": ["string", "null"],
+          "description": "User IP address. Should be anonymized or truncated for privacy compliance."
+        },
+        "library": {
+          "type": "object",
+          "description": "Tracking library metadata",
+          "properties": {
+            "name": {
+              "type": "string",
+              "examples": ["analytics.js", "segment-ios", "custom-server"]
+            },
+            "version": {
+              "type": "string",
+              "examples": ["2.1.0"]
+            }
+          }
+        }
+      }
+    },
+    "campaign": {
+      "type": "object",
+      "description": "Marketing campaign attribution",
+      "properties": {
+        "utm_source": {
+          "type": ["string", "null"],
+          "description": "Campaign source (e.g., google, newsletter)",
+          "examples": ["google", "facebook", "email_campaign"]
+        },
+        "utm_medium": {
+          "type": ["string", "null"],
+          "description": "Campaign medium (e.g., cpc, email, organic)",
+          "examples": ["cpc", "email", "social"]
+        },
+        "utm_campaign": {
+          "type": ["string", "null"],
+          "description": "Campaign name",
+          "examples": ["spring_sale_2025", "product_launch"]
+        },
+        "utm_term": {
+          "type": ["string", "null"],
+          "description": "Campaign keyword term"
+        },
+        "utm_content": {
+          "type": ["string", "null"],
+          "description": "Campaign content variant"
+        }
+      }
+    },
+    "experiment": {
+      "type": ["object", "null"],
+      "description": "Active experiment context, if the user is in an experiment",
+      "properties": {
+        "experiment_id": {
+          "type": "string",
+          "description": "Experiment identifier",
+          "examples": ["exp_checkout_redesign_2025"]
+        },
+        "variant_id": {
+          "type": "string",
+          "description": "Variant the user is assigned to",
+          "examples": ["control", "variant_a", "variant_b"]
+        }
+      },
+      "required": ["experiment_id", "variant_id"]
+    },
+    "consent": {
+      "type": "object",
+      "description": "User consent status at the time of the event",
+      "properties": {
+        "analytics": {
+          "type": "boolean",
+          "description": "Whether the user consented to analytics tracking"
+        },
+        "marketing": {
+          "type": "boolean",
+          "description": "Whether the user consented to marketing tracking"
+        },
+        "personalization": {
+          "type": "boolean",
+          "description": "Whether the user consented to personalization"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "event_name": "complete_purchase",
+      "event_timestamp": "2025-03-15T14:30:00Z",
+      "event_id": "evt_a1b2c3d4e5f6",
+      "user_id": "usr_12345",
+      "anonymous_id": "anon_abc123",
+      "session_id": "sess_xyz789",
+      "platform": "web",
+      "app_version": "2.4.1",
+      "page_url": "https://app.example.com/checkout/confirmation",
+      "properties": {
+        "order_id": "ORD-789",
+        "order_total": 149.90,
+        "currency": "BRL",
+        "payment_method": "pix",
+        "items_count": 3,
+        "coupon_code": "WELCOME10"
+      },
+      "user_properties": {
+        "plan": "pro",
+        "account_created_at": "2024-06-01T10:00:00Z"
+      },
+      "campaign": {
+        "utm_source": "google",
+        "utm_medium": "cpc",
+        "utm_campaign": "spring_sale_2025"
+      },
+      "consent": {
+        "analytics": true,
+        "marketing": true,
+        "personalization": false
+      }
+    }
+  ]
+}

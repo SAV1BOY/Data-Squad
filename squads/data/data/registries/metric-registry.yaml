@@ -1,0 +1,44 @@
+metrics:
+  - name: monthly_active_users
+    definition: "Unique users who performed at least 1 core action in the last 30 days"
+    formula: "COUNT(DISTINCT user_id) WHERE action_type IN ('core_actions') AND action_date >= CURRENT_DATE - 30"
+    source: events.user_actions
+    owner: data-chief
+    type: health
+    cadence: daily
+    dashboard: exec-dashboard
+    created: 2026-01-15
+    version: 1.0
+
+  - name: weekly_retention_rate
+    definition: "Percentage of users active in week N who return in week N+1"
+    formula: "(COUNT(DISTINCT user_id WHERE active_week = N AND active_week = N+1) / COUNT(DISTINCT user_id WHERE active_week = N)) * 100"
+    source: events.user_sessions
+    owner: retention-lead
+    type: retention
+    cadence: weekly
+    dashboard: retention-dashboard
+    created: 2026-01-20
+    version: 1.0
+
+  - name: new_user_activation_rate
+    definition: "Percentage of new signups who complete the activation milestone within 7 days"
+    formula: "(COUNT(DISTINCT user_id WHERE signup_date >= CURRENT_DATE - 7 AND activation_complete = true) / COUNT(DISTINCT user_id WHERE signup_date >= CURRENT_DATE - 7)) * 100"
+    source: events.user_milestones
+    owner: growth-lead
+    type: activation
+    cadence: daily
+    dashboard: growth-dashboard
+    created: 2026-02-01
+    version: 1.0
+
+  - name: average_revenue_per_user
+    definition: "Total revenue divided by the number of active paying users in the period"
+    formula: "SUM(revenue_amount) / COUNT(DISTINCT user_id WHERE has_payment = true)"
+    source: billing.transactions
+    owner: data-chief
+    type: revenue
+    cadence: monthly
+    dashboard: exec-dashboard
+    created: 2026-02-10
+    version: 1.0
