@@ -221,6 +221,62 @@ routing:
     templates: [operational/cross-squad-data-handoff]
     registry: [data/registries/decision-registry]
 
+  data-pipeline-health-check:
+    agents: [avinash-kaushik, data-chief]
+    frameworks: [data-quality-triad, ralphloop-data-ops, governance-layer]
+    checklists: [data-quality-quality, alerting-quality, analytics/anomaly-investigation]
+    templates: [reports/data-quality-report]
+    registry: [data/registries/data-quality-registry]
+
+  dashboard-deprecation:
+    agents: [avinash-kaushik, data-chief]
+    frameworks: [visualization-layer, governance-layer, kaushik-10-90-rule]
+    checklists: [dashboard-quality, governance/data-debt-audit, kaushik/dashboard-storytelling-audit]
+    templates: [outputs/dashboard-spec]
+    registry: [data/registries/dashboard-registry]
+
+  alert-threshold-calibration:
+    agents: [avinash-kaushik]
+    frameworks: [data-quality-triad, ralphloop-data-ops]
+    checklists: [alerting-quality, analytics/anomaly-investigation, analytics/metric-drift-detection]
+    templates: [reports/alert-runbook]
+    registry: [data/registries/alert-registry, data/registries/data-quality-registry]
+
+  metric-sunset:
+    agents: [data-chief]
+    frameworks: [metric-lifecycle-framework, governance-layer, goodhart-law-framework]
+    checklists: [metric-definition-quality, governance/metric-governance, governance/data-catalog-quality]
+    templates: [outputs/metric-definition, operational/metric-change-request]
+    registry: [data/registries/metric-registry, data/registries/glossary]
+
+  segment-refresh:
+    agents: [peter-fader, avinash-kaushik]
+    frameworks: [value-based-segmentation-fader, rfm-segmentation, fader-customer-base-audit]
+    checklists: [segmentation-quality, fader/value-segmentation-audit, analytics/cohort-curve-reading]
+    templates: [outputs/segmentation-report]
+    registry: [data/registries/segment-registry]
+
+  attribution-model-selection:
+    agents: [avinash-kaushik, sean-ellis]
+    frameworks: [attribution-and-incrementality, kaushik-economic-value-framework, ellis-growth-levers]
+    checklists: [attribution/multi-touch-attribution-sanity, attribution/incrementality-test-qa, analytics/funnel-dropoff-diagnosis]
+    templates: [outputs/attribution-report]
+    registry: [data/registries/decision-registry]
+
+  privacy-impact-assessment:
+    agents: [data-chief, avinash-kaushik]
+    frameworks: [governance-layer, data-quality-triad, instrumentation-layer]
+    checklists: [privacy-and-compliance-quality, security-privacy/pii-audit, security-privacy/retention-policy-qa]
+    templates: [reports/data-quality-report]
+    registry: [data/registries/data-quality-registry, data/registries/decision-registry]
+
+  data-literacy-training:
+    agents: [wes-kao, data-chief]
+    frameworks: [data-literacy-program-framework, kao-learning-velocity-framework, data-storytelling-framework]
+    checklists: [data-storytelling-quality, kao/learning-loop-integrity, kao/kao-rigorous-thinking-audit]
+    templates: [reports/exec-weekly-report]
+    registry: [data/registries/decision-registry, data/registries/lessons-learned-registry]
+
 # ============================================================
 # CROSS-SQUAD INTEGRATION
 # ============================================================

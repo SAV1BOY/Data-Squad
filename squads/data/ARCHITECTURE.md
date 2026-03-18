@@ -238,4 +238,48 @@ If an output cannot answer all three questions, it is not ready for delivery.
 
 ---
 
+## 11. HRM Quality Gate Cascade
+
+The Data Squad enforces a 5-level quality gate cascade that maps the RalphLoop gate system (G1-G5) onto the HRM organizational hierarchy. Every deliverable passes through the appropriate levels before reaching a stakeholder or another squad.
+
+### The 5 Levels
+
+| Level | Name | Who Validates | When Triggered |
+|-------|------|---------------|----------------|
+| L1 | Agent Individual Gate | Producing agent | Every unit of work, always |
+| L2 | Team Coordination Gate | Lead agent on multi-agent task | Tasks involving 2+ agents |
+| L3 | Squad Chief Gate | data-chief | Every deliverable before delivery |
+| L4 | Cross-Squad Handoff Gate | data-chief + receiving squad chief | Deliverables destined for another squad |
+| L5 | HRM Chief Gate | HRM Chief | Strategic decisions, unresolved disputes, multi-squad impact |
+
+### How They Cascade
+
+The levels are sequential and additive: L1 always runs. L2 runs only for multi-agent tasks. L3 always runs. L4 runs only for cross-squad deliverables. L5 runs only when escalation criteria are met.
+
+```
+L1 (Agent) → L2 (Team, if multi-agent) → L3 (Chief) → L4 (Cross-Squad, if applicable) → L5 (HRM, if escalated)
+```
+
+Most deliverables pass through L1 → L3 and stop. Cross-squad deliverables add L4. L5 is reserved for strategic decisions and unresolved disputes.
+
+### Rework Loop Mechanism
+
+Each level has a maximum number of rework iterations before escalation:
+
+- **L1:** 2 self-correction loops. On exhaustion → escalate to data-chief.
+- **L2:** 2 coordination cycles. On exhaustion → data-chief intervenes directly.
+- **L3:** 2 rework iterations. On exhaustion → descope, reassign, or escalate to L5.
+- **L4:** 2 remediation cycles. On exhaustion → both squad chiefs escalate to L5.
+- **L5:** 1 rework cycle. On exhaustion → descope or convene cross-squad working group.
+
+Total maximum iterations for a single deliverable: 9. In practice, most deliverables require 0-1 rework iterations.
+
+### Full Documentation
+
+- **[HRM Quality Gate Cascade](docs/quality-gate-cascade.md)** — Complete specification of all 5 levels with trigger conditions, validation criteria, pass/fail actions, and registry updates.
+- **[Inter-Agent Handoff Protocol](docs/inter-agent-handoff-protocol.md)** — How work transitions between agents: handoff payload requirements, agent-to-agent matrix, common handoff paths, anti-patterns, and escalation rules.
+- **[Quality Gate Enforcement Workflow](workflows/quality-gate-enforcement-workflow.md)** — Step-by-step operational procedure for enforcing quality gates from task completion through registry update and learning capture.
+
+---
+
 *Last updated: 2026-03-18 | Maintained by: data-chief*
