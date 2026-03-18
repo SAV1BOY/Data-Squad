@@ -1,9 +1,9 @@
 # Task: PMF Survey Analysis
-> Agent(s): Data Analyst, Product Strategist
-> Frameworks: Sean Ellis PMF Survey, Product-Market Fit Framework
-> Checklists: survey-analysis-checklist, statistical-validity-checklist
-> Template: pmf-survey-report-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): sean-ellis, wes-kao
+> Frameworks: ellis-pmf-framework, kao-rigorous-thinking
+> Checklists: ellis/pmf-survey-quality, kao/messaging-to-metric-alignment
+> Templates: (none)
+> Registry: decision-registry
 
 ## Objective
 Design, deploy, and analyze a Product-Market Fit survey to quantify how strongly users value

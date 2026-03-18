@@ -1,9 +1,9 @@
 # Task: Build Exec Report
-> Agent(s): Data Analyst, Data Strategist
-> Frameworks: Executive Reporting Framework, Pyramid Principle
-> Checklists: exec-report-checklist, narrative-quality-checklist
-> Template: exec-report-template
-> Registry: analysis-registry
+> Agent(s): data-chief, wes-kao
+> Frameworks: decision-layer, data-storytelling-framework
+> Checklists: exec-report-quality, data-storytelling-quality
+> Templates: reports/exec-weekly-report
+> Registry: decision-registry
 
 ## Objective
 Create a recurring executive report that distills the most important data insights into a

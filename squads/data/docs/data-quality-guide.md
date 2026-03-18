@@ -67,14 +67,14 @@ Are records unique where they should be?
 ## Incident Response Runbook
 
 ### Severity 1: Critical metric affected
-1. Immediately notify Analytics Architect and Retention Strategist via Slack and email.
+1. Immediately notify avinash-kaushik and peter-fader via Slack and email.
 2. Add a data quality warning banner to affected dashboards within 30 minutes.
 3. Investigate root cause. Prioritize over all other work.
 4. Provide hourly updates until resolved.
 5. Post-incident: document root cause, resolution, and prevention measures.
 
 ### Severity 2: Non-critical metric affected
-1. Notify Analytics Architect via Slack.
+1. Notify avinash-kaushik via Slack.
 2. Add to the daily quality check for monitoring.
 3. Fix within 2 business days.
 4. Document root cause and resolution.
@@ -100,7 +100,7 @@ The weekly scorecard reports:
 - Issues resolved since last scorecard
 - Trend over the past 4 weeks
 
-The scorecard is published every Monday by the Data Quality Sentinel and reviewed in the weekly sync.
+The scorecard is published every Monday by the avinash-kaushik and reviewed in the weekly sync.
 
 ## Prevention Practices
 

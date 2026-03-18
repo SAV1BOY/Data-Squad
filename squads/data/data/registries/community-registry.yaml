@@ -18,7 +18,7 @@ community:
         - metric: content_to_consumer_ratio
           target: ">= 1:10"
           current: "1:18"
-      owner: community-lead
+      owner: david-spinks
       status: active
       last_reviewed: 2026-02-28
 
@@ -37,7 +37,7 @@ community:
         - metric: median_time_to_first_response
           target: "<= 4 hours"
           current: "6.2 hours"
-      owner: community-lead
+      owner: david-spinks
       status: active
       last_reviewed: 2026-02-28
 
@@ -46,21 +46,21 @@ community:
       description: "Automated weekly email highlighting top posts, unanswered questions, and new member introductions"
       cadence: weekly
       channel: email
-      owner: community-lead
+      owner: david-spinks
       status: active
 
     - name: monthly_community_spotlight
       description: "Monthly recognition of top contributors with a featured post and small reward"
       cadence: monthly
       channel: community_forum
-      owner: community-lead
+      owner: david-spinks
       status: active
 
     - name: quarterly_community_ama
       description: "Quarterly AMA session with product team where community members can ask questions live"
       cadence: quarterly
       channel: live_event
-      owner: community-lead
+      owner: david-spinks
       status: planned
 
   signals:
@@ -68,7 +68,7 @@ community:
       definition: "Composite score measuring community health based on active members, post volume, and response rates"
       formula: "0.4 * normalized(active_members_pct) + 0.3 * normalized(posts_per_week) + 0.3 * normalized(reply_rate)"
       source: community.analytics
-      owner: community-lead
+      owner: david-spinks
       cadence: weekly
       current_value: 58
       target: 75

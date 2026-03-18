@@ -1,9 +1,9 @@
 # Task: CS Early Warning Setup
-> Agent(s): Customer Success Analyst, Data Engineer
-> Frameworks: Early Warning System Framework, Signal Detection Theory
-> Checklists: alerting-checklist, early-warning-checklist
-> Template: early-warning-setup-template
-> Registry: metric-registry, incident-registry
+> Agent(s): nick-mehta, data-chief
+> Frameworks: mehta-customer-health-score-design, cs-health-score
+> Checklists: cs-health-score-quality, mehta/health-score-design
+> Templates: reports/alert-runbook
+> Registry: cs-health-registry, alert-registry
 
 ## Objective
 Set up an automated early warning system that detects signs of customer distress, usage

@@ -1,9 +1,9 @@
 # Task: Community Health Analysis
-> Agent(s): Community Analyst, Data Analyst
-> Frameworks: Community Health Framework, Engagement Lifecycle Model
-> Checklists: community-health-checklist, analysis-rigor-checklist
-> Template: community-health-template
-> Registry: analysis-registry
+> Agent(s): david-spinks, data-chief
+> Frameworks: spinks-community-flywheel, spinks-contribution-path
+> Checklists: community/community-health-score, spinks/engagement-signal-quality
+> Templates: (none)
+> Registry: community-registry
 
 ## Objective
 Assess the overall health of the community by analyzing member engagement patterns, content

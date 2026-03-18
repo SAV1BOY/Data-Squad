@@ -1,9 +1,9 @@
 # Task: Cross-Squad Data Sync
-> Agent(s): Data Team Lead, Data Analyst
-> Frameworks: Cross-Functional Alignment Framework, RACI Matrix
-> Checklists: cross-squad-sync-checklist, communication-checklist
-> Template: cross-squad-sync-template
-> Registry: task-log
+> Agent(s): data-chief
+> Frameworks: (none)
+> Checklists: cross-squad-data-request-quality
+> Templates: operational/cross-squad-data-handoff
+> Registry: decision-registry
 
 ## Objective
 Facilitate regular data sync meetings between the data squad and other squads (product,

@@ -1,9 +1,9 @@
 # Task: Analyze Feature Adoption
-> Agent(s): Product Analyst, Data Analyst
-> Frameworks: Feature Adoption Framework, AARRR Funnel for Features
-> Checklists: analysis-rigor-checklist, feature-adoption-checklist
-> Template: feature-adoption-template
-> Registry: analysis-registry
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: kaushik-web-analytics-2-0-framework, aarrr-pirate-metrics
+> Checklists: analytics/cohort-curve-reading, kaushik/web-analytics-quality
+> Templates: outputs/cohort-report
+> Registry: decision-registry
 
 ## Objective
 Measure and analyze the adoption trajectory of a product feature to determine whether it is

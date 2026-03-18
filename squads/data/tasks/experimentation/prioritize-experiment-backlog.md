@@ -1,8 +1,8 @@
 # Task: Prioritize Experiment Backlog
-> Agent(s): Data Strategist, Product Manager, Data Scientist
-> Frameworks: ICE Scoring, Expected Value Framework, Opportunity Sizing
-> Checklists: prioritization-checklist, experiment-readiness-checklist
-> Template: experiment-backlog-template
+> Agent(s): sean-ellis, wes-kao, data-chief
+> Frameworks: ice-pie-rice-prioritization, ellis-high-tempo-testing
+> Checklists: experiment-design-quality
+> Templates: outputs/experiment-onepager
 > Registry: experiment-registry
 
 ## Objective

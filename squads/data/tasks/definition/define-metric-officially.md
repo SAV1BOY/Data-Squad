@@ -1,9 +1,9 @@
 # Task: Define Metric Officially
-> Agent(s): Data Analyst, Data Strategist
-> Frameworks: Metric Definition Standard, Semantic Layer Guidelines
-> Checklists: metric-definition-checklist, naming-convention-checklist
-> Template: metric-definition-template
-> Registry: metric-registry
+> Agent(s): data-chief, avinash-kaushik
+> Frameworks: metric-lifecycle-framework, kaushik-10-90-rule
+> Checklists: metric-definition-quality, kaushik/metrics-that-matter-filter
+> Templates: outputs/metric-definition
+> Registry: metric-registry, glossary
 
 ## Objective
 Create a complete, unambiguous, official definition for a single metric so that every team

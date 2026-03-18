@@ -1,9 +1,9 @@
 # Task: Build Dashboard
-> Agent(s): Data Analyst, BI Developer
-> Frameworks: Dashboard Design Framework, Information Hierarchy
-> Checklists: dashboard-design-checklist, data-quality-checklist
-> Template: dashboard-spec-template
-> Registry: dashboard-registry, metric-registry
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: visualization-layer, data-storytelling-framework
+> Checklists: dashboard-quality, kaushik/dashboard-storytelling-audit
+> Templates: outputs/dashboard-spec
+> Registry: dashboard-registry
 
 ## Objective
 Design and build a self-serve dashboard that provides stakeholders with always-current

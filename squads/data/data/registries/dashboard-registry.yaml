@@ -19,7 +19,7 @@ dashboards:
   - name: growth-dashboard
     title: "Growth and Acquisition"
     description: "Tracks new user acquisition, activation funnel, and channel performance"
-    owner: growth-lead
+    owner: sean-ellis
     audience: growth-squad
     refresh_cadence: daily
     tool: metabase
@@ -35,7 +35,7 @@ dashboards:
   - name: retention-dashboard
     title: "Retention and Engagement"
     description: "Monitors cohort retention curves, churn indicators, and engagement depth"
-    owner: retention-lead
+    owner: peter-fader
     audience: product-team
     refresh_cadence: weekly
     tool: metabase
@@ -51,7 +51,7 @@ dashboards:
   - name: cs-dashboard
     title: "Customer Success Health"
     description: "Customer health scores, ticket volume trends, and satisfaction metrics"
-    owner: cs-lead
+    owner: nick-mehta
     audience: cs-team
     refresh_cadence: daily
     tool: metabase

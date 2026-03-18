@@ -1,9 +1,9 @@
 # Task: Renewal Risk Analysis
-> Agent(s): Customer Success Analyst, Data Analyst
-> Frameworks: Renewal Risk Framework, Predictive Risk Scoring
-> Checklists: renewal-risk-checklist, analysis-rigor-checklist
-> Template: renewal-risk-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): nick-mehta, peter-fader
+> Frameworks: mehta-customer-health-score-design, retention-churn-diagnostics
+> Checklists: cs-health-score-quality, churn-analysis-quality
+> Templates: reports/alert-runbook
+> Registry: cs-health-registry, decision-registry
 
 ## Objective
 Assess renewal risk for upcoming customer renewals by combining quantitative signals and

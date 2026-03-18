@@ -5,7 +5,7 @@ segments:
       - "engagement_score >= PERCENTILE(90) of all active users"
       - "at least 12 active days in the last 30"
     source: derived.user_segments
-    owner: retention-lead
+    owner: peter-fader
     use_cases:
       - "Retention deep-dives to understand what keeps top users engaged"
       - "Beta feature targeting for early feedback"
@@ -20,7 +20,7 @@ segments:
       - "was active (3+ sessions) in the previous 30-day window"
       - "current 30-day engagement_score < 0.5 * previous 30-day engagement_score"
     source: derived.user_segments
-    owner: cs-lead
+    owner: nick-mehta
     use_cases:
       - "Proactive outreach by customer success"
       - "Churn prediction model training"
@@ -34,7 +34,7 @@ segments:
     criteria:
       - "signup_date >= CURRENT_DATE - 14"
     source: core.users
-    owner: growth-lead
+    owner: sean-ellis
     use_cases:
       - "Onboarding funnel analysis"
       - "Activation rate tracking"
@@ -48,7 +48,7 @@ segments:
     criteria:
       - "plan_type = 'enterprise' OR seat_count >= 10"
     source: billing.accounts
-    owner: revenue-lead
+    owner: peter-fader
     use_cases:
       - "Revenue concentration analysis"
       - "Enterprise feature adoption tracking"

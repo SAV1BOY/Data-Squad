@@ -20,7 +20,7 @@ data_quality:
 
   - source: billing.transactions
     status: warning
-    owner: revenue-lead
+    owner: peter-fader
     last_audit: 2026-02-20
     completeness: "98.5% - refund events are delayed by up to 24 hours due to payment processor webhook lag"
     freshness: "Transactions sync every 15 minutes. Refunds may lag up to 24 hours."
@@ -41,7 +41,7 @@ data_quality:
 
   - source: cs.helpdesk
     status: healthy
-    owner: cs-lead
+    owner: nick-mehta
     last_audit: 2026-03-01
     completeness: "100% - all tickets sync via API integration"
     freshness: "Tickets sync every 10 minutes"
@@ -61,7 +61,7 @@ data_quality:
 
   - source: community.analytics
     status: degraded
-    owner: community-lead
+    owner: david-spinks
     last_audit: 2026-02-25
     completeness: "92% - some forum events are not captured due to ad-blocker interference on client-side tracking"
     freshness: "Events batch-sync every 6 hours"

@@ -1,9 +1,9 @@
 # Task: Analyze Experiment
-> Agent(s): Data Scientist, Data Analyst
-> Frameworks: Statistical Hypothesis Testing, Bayesian A/B Analysis
-> Checklists: experiment-analysis-checklist, statistical-validity-checklist
-> Template: experiment-results-template
-> Registry: experiment-registry
+> Agent(s): sean-ellis, data-chief
+> Frameworks: experiment-framework, bayesian-vs-frequentist-testing
+> Checklists: experiment-analysis-quality, experimentation/decision-rubric
+> Templates: outputs/experiment-analysis, reports/experiment-results-report
+> Registry: experiment-registry, decision-registry, lessons-learned-registry
 
 ## Objective
 Analyze a completed experiment with statistical rigor, following the pre-registered analysis

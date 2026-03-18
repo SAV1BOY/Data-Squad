@@ -6,7 +6,7 @@ lessons_learned:
     lesson: "Short-duration experiments are vulnerable to novelty effects, day-of-week bias, and multiple-testing issues. Statistical significance alone is not sufficient without adequate duration."
     action_taken: "Established a minimum 14-day experiment duration policy (DEC-003). Added a duration check to the experiment review checklist."
     category: experimentation
-    owner: growth-lead
+    owner: sean-ellis
     impact: high
 
   - id: LL-002
@@ -26,7 +26,7 @@ lessons_learned:
     lesson: "Subjective assessments are useful as inputs but unreliable as the sole basis for critical business decisions like churn risk. Structured, data-driven scoring provides consistency even if imperfect."
     action_taken: "Developed the automated health_score_v1 model. Manual input is now one weighted component (via override) rather than the entire score."
     category: customer_success
-    owner: cs-lead
+    owner: nick-mehta
     impact: medium
 
   - id: LL-004
@@ -36,5 +36,5 @@ lessons_learned:
     lesson: "Client-side tracking is fragile. Browser updates, ad blockers, and script changes can silently drop events. Automated volume anomaly detection must be sensitive enough to catch gradual declines, not just sudden drops."
     action_taken: "Added a weekly trend-based volume check (not just day-over-day) to the data quality tests for all client-side sources. Began evaluating server-side tracking alternatives for critical events."
     category: data_quality
-    owner: community-lead
+    owner: david-spinks
     impact: medium

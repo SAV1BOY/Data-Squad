@@ -42,7 +42,7 @@ alerts:
     metric: daily_revenue
     condition: "ABS(today_revenue - trailing_30d_mean) > 2 * trailing_30d_stddev"
     severity: high
-    owner: revenue-lead
+    owner: peter-fader
     notification_channels:
       - slack: "#data-alerts"
       - email: "revenue-lead@company.com"
@@ -61,7 +61,7 @@ alerts:
     metric: customer_health_score
     condition: "COUNT(accounts WHERE health_status_changed = true) > 0.10 * COUNT(all_accounts)"
     severity: medium
-    owner: cs-lead
+    owner: nick-mehta
     notification_channels:
       - slack: "#cs-alerts"
     runbook: |

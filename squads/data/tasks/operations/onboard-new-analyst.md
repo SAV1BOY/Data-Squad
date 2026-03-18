@@ -1,9 +1,9 @@
 # Task: Onboard New Analyst
-> Agent(s): Data Team Lead, Buddy Analyst
-> Frameworks: Onboarding Framework, 30-60-90 Day Plan
-> Checklists: new-analyst-onboarding-checklist, access-provisioning-checklist
-> Template: onboarding-plan-template
-> Registry: task-log
+> Agent(s): data-chief
+> Frameworks: governance-layer
+> Checklists: (none)
+> Templates: (none)
+> Registry: decision-registry
 
 ## Objective
 Onboard a new data analyst or data scientist onto the data team with a structured program

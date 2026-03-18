@@ -1,9 +1,9 @@
 # Task: Weekly Data Ops Cadence
-> Agent(s): Data Team Lead, Data Analyst, Data Engineer
-> Frameworks: Operational Cadence Framework, Agile Standup Format
-> Checklists: weekly-ops-checklist, pipeline-health-checklist
-> Template: weekly-ops-template
-> Registry: task-log
+> Agent(s): data-chief
+> Frameworks: ralphloop-data-ops, governance-layer
+> Checklists: data-quality-quality
+> Templates: (none)
+> Registry: decision-registry
 
 ## Objective
 Execute a weekly operational cadence that ensures data quality is maintained, stakeholder

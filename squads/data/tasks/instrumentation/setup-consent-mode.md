@@ -1,9 +1,9 @@
 # Task: Setup Consent Mode
-> Agent(s): Data Engineer, Frontend Engineer, Legal/Privacy Lead
-> Frameworks: GDPR Compliance Framework, Consent Management Standard
-> Checklists: privacy-compliance-checklist, consent-implementation-checklist
-> Template: consent-configuration-template
-> Registry: event-registry, compliance-registry
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: instrumentation-layer
+> Checklists: instrumentation/consent-mode-tracking-qa, tracking-plan-quality
+> Templates: outputs/tracking-spec
+> Registry: event-registry
 
 ## Objective
 Implement a consent management system that controls analytics tracking based on user consent

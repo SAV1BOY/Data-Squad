@@ -1,9 +1,9 @@
 # Task: Experiment Portfolio Review
-> Agent(s): Data Scientist, Product Manager, Data Strategist
-> Frameworks: Experiment Portfolio Framework, Learning Velocity Assessment
-> Checklists: experiment-portfolio-checklist, review-checklist
-> Template: experiment-portfolio-template
-> Registry: experiment-registry
+> Agent(s): sean-ellis, data-chief
+> Frameworks: experiment-framework, ellis-high-tempo-testing
+> Checklists: experiment-design-quality, experiment-analysis-quality
+> Templates: (none)
+> Registry: experiment-registry, lessons-learned-registry
 
 ## Objective
 Review the complete experiment portfolio to assess learning velocity, success rates, impact

@@ -10,36 +10,36 @@ Systematic audit of analytics instrumentation to identify gaps, inaccuracies, an
 - New team member onboarding reveals undocumented gaps
 
 ## Agents Involved
-- **Analytics Architect**: Leads audit scope and methodology
-- **Data Quality Sentinel**: Executes validation checks and documents findings
-- **Tracking Implementer**: Fixes instrumentation issues
-- **Insight Narrator**: Communicates audit results to stakeholders
+- **avinash-kaushik**: Leads audit scope and methodology
+- **avinash-kaushik**: Executes validation checks and documents findings
+- **avinash-kaushik**: Fixes instrumentation issues
+- **wes-kao**: Communicates audit results to stakeholders
 
 ## Steps
 
 ### Phase 1: Scope and Inventory (Days 1-2)
-1. **Analytics Architect** defines audit scope: which products, platforms, and event categories to cover.
-2. **Analytics Architect** pulls the current tracking plan from the registry and compares against the live event stream.
-3. **Data Quality Sentinel** runs automated coverage checks: events firing vs. events documented.
-4. **Data Quality Sentinel** generates an initial gap report listing undocumented events, missing properties, and silent failures.
+1. **avinash-kaushik** defines audit scope: which products, platforms, and event categories to cover.
+2. **avinash-kaushik** pulls the current tracking plan from the registry and compares against the live event stream.
+3. **avinash-kaushik** runs automated coverage checks: events firing vs. events documented.
+4. **avinash-kaushik** generates an initial gap report listing undocumented events, missing properties, and silent failures.
 
 ### Phase 2: Prioritize Findings (Days 3-4)
-5. **Analytics Architect** classifies each finding by severity: Critical (blocks decisions), High (degrades metric accuracy), Medium (incomplete context), Low (cosmetic).
-6. **Analytics Architect** maps each finding to the metric or dashboard it affects, using the metric registry.
-7. **Insight Narrator** prepares a prioritized findings summary for stakeholder review.
-8. **Analytics Architect** holds a 30-minute triage session with product and engineering leads to confirm priorities.
+5. **avinash-kaushik** classifies each finding by severity: Critical (blocks decisions), High (degrades metric accuracy), Medium (incomplete context), Low (cosmetic).
+6. **avinash-kaushik** maps each finding to the metric or dashboard it affects, using the metric registry.
+7. **wes-kao** prepares a prioritized findings summary for stakeholder review.
+8. **avinash-kaushik** holds a 30-minute triage session with product and engineering leads to confirm priorities.
 
 ### Phase 3: Fix Instrumentation (Days 5-10)
-9. **Tracking Implementer** creates tickets for each fix, grouped by severity and affected surface.
-10. **Tracking Implementer** implements Critical and High fixes first, following the tracking-implementation-workflow.
-11. **Data Quality Sentinel** validates each fix in staging by comparing expected vs. actual payloads.
-12. **Tracking Implementer** deploys fixes in batches, monitoring for regressions after each batch.
+9. **avinash-kaushik** creates tickets for each fix, grouped by severity and affected surface.
+10. **avinash-kaushik** implements Critical and High fixes first, following the tracking-implementation-workflow.
+11. **avinash-kaushik** validates each fix in staging by comparing expected vs. actual payloads.
+12. **avinash-kaushik** deploys fixes in batches, monitoring for regressions after each batch.
 
 ### Phase 4: Validate and Close (Days 11-14)
-13. **Data Quality Sentinel** runs the full validation suite against production data 48 hours post-deploy.
-14. **Data Quality Sentinel** compares pre-audit and post-audit data quality scores.
-15. **Analytics Architect** updates the tracking plan and metric registry with all changes.
-16. **Insight Narrator** publishes the audit report: what was found, what was fixed, what remains.
+13. **avinash-kaushik** runs the full validation suite against production data 48 hours post-deploy.
+14. **avinash-kaushik** compares pre-audit and post-audit data quality scores.
+15. **avinash-kaushik** updates the tracking plan and metric registry with all changes.
+16. **wes-kao** publishes the audit report: what was found, what was fixed, what remains.
 
 ## Inputs
 - Current tracking plan (from registry)
@@ -57,11 +57,11 @@ Systematic audit of analytics instrumentation to identify gaps, inaccuracies, an
 
 | Gate | Criteria | Owner |
 |------|----------|-------|
-| G1: Scope Approved | Audit scope documented and signed off by Analytics Architect | Analytics Architect |
-| G2: Findings Classified | Every finding has severity, affected metric, and recommended action | Data Quality Sentinel |
-| G3: Fixes Validated | Each fix passes payload validation in staging before deploy | Data Quality Sentinel |
-| G4: Post-Audit Score | Data quality score improves or justification provided for exceptions | Analytics Architect |
-| G5: Registry Updated | Tracking plan and metric registry reflect post-audit state | Analytics Architect |
+| G1: Scope Approved | Audit scope documented and signed off by avinash-kaushik | avinash-kaushik |
+| G2: Findings Classified | Every finding has severity, affected metric, and recommended action | avinash-kaushik |
+| G3: Fixes Validated | Each fix passes payload validation in staging before deploy | avinash-kaushik |
+| G4: Post-Audit Score | Data quality score improves or justification provided for exceptions | avinash-kaushik |
+| G5: Registry Updated | Tracking plan and metric registry reflect post-audit state | avinash-kaushik |
 
 ## Registry Updates
 - **Tracking Plan**: Add newly discovered events, remove deprecated ones, correct property schemas.
@@ -77,4 +77,4 @@ Systematic audit of analytics instrumentation to identify gaps, inaccuracies, an
 ## Escalation
 - If Critical findings exceed 10: escalate to VP Engineering within 24 hours.
 - If a fix introduces a regression: halt deployment, revert, and convene incident review.
-- If stakeholders dispute severity classifications: Analytics Architect has final call, documented in audit log.
+- If stakeholders dispute severity classifications: avinash-kaushik has final call, documented in audit log.

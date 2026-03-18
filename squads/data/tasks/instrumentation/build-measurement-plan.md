@@ -1,8 +1,8 @@
 # Task: Build Measurement Plan
-> Agent(s): Data Analyst, Product Manager, Data Engineer
-> Frameworks: Measurement Plan Framework, RACI Matrix
-> Checklists: measurement-plan-checklist, coverage-checklist
-> Template: measurement-plan-template
+> Agent(s): data-chief, avinash-kaushik
+> Frameworks: dmmm-kaushik, stdc-kaushik, instrumentation-layer
+> Checklists: tracking-plan-quality, event-taxonomy-quality, kaushik/dmmm-measurement-model-audit, kaushik/see-think-do-care-mapping
+> Templates: outputs/measurement-plan, outputs/tracking-spec
 > Registry: event-registry, metric-registry
 
 ## Objective

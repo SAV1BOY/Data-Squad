@@ -1,9 +1,9 @@
 # Task: Value Segmentation
-> Agent(s): Data Analyst, Data Scientist
-> Frameworks: RFM Segmentation, Value-Based Segmentation Framework
-> Checklists: segmentation-validity-checklist, analysis-rigor-checklist
-> Template: value-segmentation-template
-> Registry: segment-registry, metric-registry
+> Agent(s): peter-fader, data-chief
+> Frameworks: value-based-segmentation-fader, rfm-segmentation, fader-whale-curve-framework
+> Checklists: segmentation-quality, fader/value-segmentation-audit
+> Templates: outputs/segmentation-report
+> Registry: segment-registry
 
 ## Objective
 Segment customers by their economic value to the business, enabling differentiated strategies

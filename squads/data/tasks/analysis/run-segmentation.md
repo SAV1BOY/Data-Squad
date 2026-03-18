@@ -1,9 +1,9 @@
 # Task: Run Segmentation
-> Agent(s): Data Analyst, Data Scientist
-> Frameworks: Behavioral Segmentation Framework, RFM Analysis
-> Checklists: analysis-rigor-checklist, segmentation-validity-checklist
-> Template: segmentation-analysis-template
-> Registry: analysis-registry, segment-registry
+> Agent(s): peter-fader, data-chief
+> Frameworks: value-based-segmentation-fader, rfm-segmentation, fader-whale-curve-framework
+> Checklists: segmentation-quality, fader/value-segmentation-audit, fader/fader-whale-curve-audit
+> Templates: outputs/segmentation-report
+> Registry: segment-registry
 
 ## Objective
 Identify meaningful user segments based on behavior, attributes, or value to enable targeted

@@ -54,12 +54,12 @@ Once approved, merge the PR. If the change affects other squads or active workfl
 
 | Content Type | Primary Reviewer | Secondary Reviewer |
 |-------------|-----------------|-------------------|
-| Workflows | Analytics Architect | Retention Strategist |
-| Metric definitions | Analytics Architect | Data Quality Sentinel |
-| Documentation (process) | Insight Narrator | Analytics Architect |
-| Documentation (technical) | Analytics Architect | Data Quality Sentinel |
-| Registry entries | Analytics Architect | Content-specific agent |
-| Templates | Insight Narrator | Relevant agent |
+| Workflows | avinash-kaushik | peter-fader |
+| Metric definitions | avinash-kaushik | data-chief |
+| Documentation (process) | wes-kao | avinash-kaushik |
+| Documentation (technical) | avinash-kaushik | data-chief |
+| Registry entries | data-chief | Content-specific agent |
+| Templates | wes-kao | Relevant domain agent |
 
 ## Review Criteria
 

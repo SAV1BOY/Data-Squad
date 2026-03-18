@@ -1,9 +1,9 @@
 # Task: Champion Impact Analysis
-> Agent(s): Community Analyst, Data Analyst
-> Frameworks: Champion Impact Framework, Influence Network Analysis
-> Checklists: champion-analysis-checklist, analysis-rigor-checklist
-> Template: champion-impact-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): david-spinks, data-chief
+> Frameworks: spinks-community-flywheel, spinks-contribution-path
+> Checklists: spinks/community-impact-attribution, spinks/engagement-signal-quality
+> Templates: outputs/community-scorecard
+> Registry: community-registry
 
 ## Objective
 Measure the outsized impact of community champions (top contributors) on community health,

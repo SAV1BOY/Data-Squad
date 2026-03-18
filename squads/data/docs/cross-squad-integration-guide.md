@@ -33,29 +33,47 @@ If you can answer your question with existing tools, that is the fastest path.
 
 ## How We Work with Other Squads
 
-### Product Squad
-- **We provide:** Metric definitions, experiment design and analysis, feature impact measurement, activation and retention analysis.
-- **They provide:** Feature context, product roadmap, user research insights, experiment implementation.
-- **Handoff format:** Analysis deliverables follow the data-storytelling-workflow. Experiment results follow the experiment-cycle-workflow format.
-- **Sync cadence:** Weekly async update, monthly sync for roadmap alignment.
+### Traffic Squad
+- **We provide:** Attribution reports showing what actually works, incrementality results identifying what is truly incremental, audience segments for targeting.
+- **They provide:** Ad performance data (CAC, ROAS, CPA), campaign tracking data (UTMs, events).
+- **Handoff format:** Attribution reports follow the data-storytelling-workflow. Audience segments include SQL-level criteria and are delivered to traffic/tasks/. Incrementality results are delivered to traffic/frameworks/.
+- **Shared assets:** utm-taxonomy, attribution-reports.
+- **Sync cadence:** Weekly async update, monthly sync for attribution model review.
 
-### Engineering Squad
-- **We provide:** Tracking specifications, data quality bug reports, instrumentation requirements, pipeline issue reports.
-- **They provide:** Instrumentation implementation, pipeline infrastructure, data source access, schema change notifications.
-- **Handoff format:** Tracking specs use the standardized template with event names, properties, types, and example payloads. Bug reports include reproduction steps and expected vs. actual data.
-- **Sync cadence:** As-needed for tracking implementation, weekly async for pipeline health.
+### Copy Squad
+- **We provide:** Conversion metrics showing which copy converts, funnel dropoff insights identifying where copy fails.
+- **They provide:** Conversion copy variants with A/B test data.
+- **Handoff format:** Experiment results follow the experiment-cycle-workflow format. Conversion metrics are delivered to copy/data/. Funnel dropoff insights are delivered to copy/tasks/.
+- **Shared assets:** experiment-results.
+- **Sync cadence:** As-needed for experiment analysis, weekly async for conversion metric updates.
 
-### Marketing Squad
-- **We provide:** Campaign attribution analysis, channel performance metrics, CLV by acquisition channel, audience segment definitions.
-- **They provide:** Campaign calendar, creative variants, channel spend data, attribution requirements.
-- **Handoff format:** Reports follow standard templates with methodology documentation. Segment definitions include SQL-level criteria.
-- **Sync cadence:** Monthly sync for campaign performance review.
+### Brand Squad
+- **We provide:** Brand health metrics (NPS, sentiment, awareness), brand search trends (share of search).
+- **They provide:** Brand awareness data (recall, recognition).
+- **Handoff format:** Brand health metrics are delivered to brand/data/ with methodology documentation. Search trend reports are delivered to brand/reference/.
+- **Shared assets:** brand-health-dashboard.
+- **Sync cadence:** Monthly sync for brand health review.
 
-### Customer Success Squad
-- **We provide:** Customer health scores, usage reports, churn risk flags, expansion opportunity signals.
-- **They provide:** Qualitative customer feedback, renewal outcomes, intervention results, feature requests.
-- **Handoff format:** Health scores delivered via automated dashboard. Alerts follow the cs-health-early-warning-workflow format.
-- **Sync cadence:** Weekly automated health score delivery, monthly sync for model review.
+### Design Squad
+- **We provide:** HEART metrics (UX quantified), feature adoption data showing what is used and what is not.
+- **They provide:** Usability test data (UX metrics).
+- **Handoff format:** HEART metrics are delivered to design/data/metrics/. Feature adoption reports are delivered to design/tasks/ with segmentation by user cohort and device.
+- **Shared assets:** heart-metrics, feature-adoption-data.
+- **Sync cadence:** As-needed for usability test analysis, monthly sync for HEART metric review.
+
+### Movement Squad
+- **We provide:** Movement health score (quantified community health), community ROI (business impact of community activity).
+- **They provide:** Community engagement data and signals.
+- **Handoff format:** Movement health scores are delivered to movement/data/metrics/. Community ROI reports are delivered to movement/reports/ following the data-storytelling-workflow with attribution methodology documented.
+- **Shared assets:** community-scorecard, movement-health-score.
+- **Sync cadence:** Weekly automated health score delivery, monthly sync for community ROI review.
+
+### Storytelling Squad
+- **We provide:** Data narratives (data as raw material for stories), proof points (evidence for narratives).
+- **They provide:** Narrative performance data (narrative engagement metrics).
+- **Handoff format:** Data narratives are delivered to storytelling/data/ with context, caveats, and interpretation guides. Proof points are delivered to storytelling/reference/ with source documentation.
+- **Shared assets:** data-narratives.
+- **Sync cadence:** As-needed for narrative support, monthly async for proof point updates.
 
 ## Handoff Standards
 

@@ -1,9 +1,9 @@
 # Task: CLV Modeling
-> Agent(s): Data Scientist, Data Analyst
-> Frameworks: Customer Lifetime Value Framework, BG/NBD Model, Gamma-Gamma Model
-> Checklists: modeling-checklist, statistical-validity-checklist
-> Template: clv-model-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): peter-fader, data-chief
+> Frameworks: clv-modeling, fader-probability-models, fader-clv-as-north-star
+> Checklists: ltv-clv-model-quality, fader/clv-modeling-audit, fader/discount-rate-and-horizon-check
+> Templates: outputs/clv-model-sheet
+> Registry: clv-registry, segment-registry
 
 ## Objective
 Build a Customer Lifetime Value model to estimate the total revenue a customer will generate

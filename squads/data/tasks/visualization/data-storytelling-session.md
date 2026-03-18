@@ -1,9 +1,9 @@
 # Task: Data Storytelling Session
-> Agent(s): Data Analyst, Data Strategist
-> Frameworks: Data Storytelling Framework, Assertion-Evidence Model
-> Checklists: storytelling-checklist, presentation-checklist
-> Template: data-storytelling-template
-> Registry: analysis-registry
+> Agent(s): wes-kao, data-chief
+> Frameworks: data-storytelling-framework, decision-layer
+> Checklists: data-storytelling-quality, exec-report-quality
+> Templates: reports/exec-weekly-report
+> Registry: decision-registry
 
 ## Objective
 Facilitate a live data storytelling session where an analyst presents data findings in a

@@ -4,7 +4,7 @@ experiments:
     hypothesis: "Reducing onboarding steps from 5 to 3 will increase activation rate by at least 10%"
     status: completed
     type: a_b_test
-    owner: growth-lead
+    owner: sean-ellis
     primary_metric: new_user_activation_rate
     secondary_metrics:
       - 7_day_retention
@@ -21,7 +21,7 @@ experiments:
     hypothesis: "Sending a personalized weekly digest will improve 30-day retention by 5%"
     status: running
     type: a_b_test
-    owner: retention-lead
+    owner: peter-fader
     primary_metric: 30_day_retention
     secondary_metrics:
       - email_open_rate
@@ -38,7 +38,7 @@ experiments:
     hypothesis: "Highlighting annual plan savings more prominently will increase annual plan adoption by 15%"
     status: backlog
     type: a_b_test
-    owner: revenue-lead
+    owner: peter-fader
     primary_metric: annual_plan_conversion_rate
     secondary_metrics:
       - average_revenue_per_user
@@ -55,7 +55,7 @@ experiments:
     hypothesis: "Prompting users to join the community after completing key actions will increase community participation by 20%"
     status: completed
     type: a_b_test
-    owner: community-lead
+    owner: david-spinks
     primary_metric: community_join_rate
     secondary_metrics:
       - first_post_rate

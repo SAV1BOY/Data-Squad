@@ -1,9 +1,9 @@
 # Task: Run Funnel Analysis
-> Agent(s): Data Analyst, Product Analyst
-> Frameworks: Funnel Analysis Framework, Conversion Rate Optimization
-> Checklists: analysis-rigor-checklist, funnel-validation-checklist
-> Template: funnel-analysis-template
-> Registry: analysis-registry
+> Agent(s): sean-ellis, avinash-kaushik
+> Frameworks: aarrr-pirate-metrics, ellis-activation-aha-moment
+> Checklists: activation-funnel-quality, analytics/funnel-dropoff-diagnosis
+> Templates: outputs/activation-audit
+> Registry: decision-registry
 
 ## Objective
 Analyze a multi-step user funnel to identify where users drop off, quantify conversion rates

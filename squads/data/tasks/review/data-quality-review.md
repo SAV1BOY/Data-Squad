@@ -1,9 +1,9 @@
 # Task: Data Quality Review
-> Agent(s): Data Engineer, Data Analyst
-> Frameworks: Data Quality Framework, Six Dimensions of Data Quality
-> Checklists: data-quality-checklist, pipeline-health-checklist
-> Template: data-quality-review-template
-> Registry: metric-registry, event-registry
+> Agent(s): data-chief, avinash-kaushik
+> Frameworks: data-quality-triad
+> Checklists: data-quality-quality, governance/data-debt-audit
+> Templates: reports/data-quality-report
+> Registry: data-quality-registry, data-debt-registry
 
 ## Objective
 Conduct a systematic review of data quality across the analytics stack, identifying issues

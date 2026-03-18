@@ -1,9 +1,9 @@
 # Task: Build Data Narrative
-> Agent(s): Data Analyst, Data Strategist
-> Frameworks: Data Storytelling Framework, Pyramid Principle
-> Checklists: narrative-quality-checklist, visualization-checklist
-> Template: data-narrative-template
-> Registry: analysis-registry
+> Agent(s): wes-kao, data-chief
+> Frameworks: data-storytelling-framework, decision-layer
+> Checklists: data-storytelling-quality, exec-report-quality
+> Templates: reports/exec-weekly-report
+> Registry: decision-registry
 
 ## Objective
 Transform raw analysis findings into a compelling, structured data narrative that drives

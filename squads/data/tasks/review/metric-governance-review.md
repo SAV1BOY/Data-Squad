@@ -1,8 +1,8 @@
 # Task: Metric Governance Review
-> Agent(s): Data Strategist, Data Analyst
-> Frameworks: Metric Governance Framework, Data Governance Model
-> Checklists: governance-review-checklist, metric-definition-checklist
-> Template: governance-review-template
+> Agent(s): data-chief, avinash-kaushik
+> Frameworks: governance-layer, metric-lifecycle-framework
+> Checklists: governance/metric-governance, governance/data-catalog-quality
+> Templates: (none)
 > Registry: metric-registry
 
 ## Objective

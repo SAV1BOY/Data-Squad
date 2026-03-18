@@ -1,8 +1,8 @@
 # Task: Dashboard Effectiveness Review
-> Agent(s): Data Analyst, BI Developer
-> Frameworks: Dashboard Effectiveness Framework, Usability Assessment
-> Checklists: dashboard-review-checklist, usability-checklist
-> Template: dashboard-review-template
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: visualization-layer, data-storytelling-framework
+> Checklists: dashboard-quality, kaushik/dashboard-storytelling-audit
+> Templates: outputs/dashboard-spec
 > Registry: dashboard-registry
 
 ## Objective

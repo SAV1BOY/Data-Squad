@@ -1,9 +1,9 @@
 # Task: Investigate Anomaly
-> Agent(s): Data Analyst, Data Engineer
-> Frameworks: Anomaly Investigation Playbook, 5-Whys Analysis
-> Checklists: anomaly-investigation-checklist, data-quality-checklist
-> Template: anomaly-investigation-template
-> Registry: analysis-registry, incident-registry
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: analysis-layer
+> Checklists: analytics/anomaly-investigation, analytics/metric-drift-detection
+> Templates: (none)
+> Registry: decision-registry
 
 ## Objective
 Systematically investigate an unexpected change in a key metric to determine whether it is

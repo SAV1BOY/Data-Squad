@@ -15,7 +15,7 @@ events:
         type: string
         required: false
         description: "Attribution source if available"
-    owner: growth-lead
+    owner: sean-ellis
     status: active
     added: 2026-01-10
 
@@ -39,7 +39,7 @@ events:
         type: string
         required: true
         description: "Session in which the feature was used"
-    owner: product-analytics
+    owner: avinash-kaushik
     status: active
     added: 2026-01-10
 
@@ -63,7 +63,7 @@ events:
         type: string
         required: false
         description: "User-provided reason for change"
-    owner: revenue-lead
+    owner: peter-fader
     status: active
     added: 2026-01-15
 
@@ -87,6 +87,6 @@ events:
         type: string
         required: false
         description: "Ticket priority level"
-    owner: cs-lead
+    owner: nick-mehta
     status: active
     added: 2026-01-20

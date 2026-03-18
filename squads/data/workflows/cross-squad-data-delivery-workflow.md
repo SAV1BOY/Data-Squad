@@ -10,42 +10,42 @@ Handle data requests from other squads with a structured process that ensures cl
 - Escalation from a self-service attempt that exceeded the requester's capability
 
 ## Agents Involved
-- **Analytics Architect**: Scopes the request, designs the data solution, and delivers
-- **Data Quality Sentinel**: Validates the delivered data
-- **Insight Narrator**: Ensures delivery is understandable and actionable
-- **Retention Strategist**: Reviews for strategic alignment and priority conflicts
+- **data-chief**: Scopes the request, designs the data solution, and delivers
+- **avinash-kaushik**: Validates the delivered data
+- **wes-kao**: Ensures delivery is understandable and actionable
+- **data-chief**: Reviews for strategic alignment and priority conflicts
 
 ## Steps
 
 ### Phase 1: Request Intake (Day 1)
-1. **Analytics Architect** receives the request through the standard intake form: requester, squad, question to answer, decision to make, deadline, and data requirements.
-2. **Analytics Architect** classifies the request: Quick Query (< 2 hours), Standard Analysis (2-5 days), Complex Project (> 5 days), or Recurring Data Feed.
-3. **Retention Strategist** reviews the request against current squad priorities to determine if it can be accommodated within the current cycle.
-4. **Analytics Architect** acknowledges receipt and provides an estimated delivery date within 1 business day.
+1. **data-chief** receives the request through the standard intake form: requester, squad, question to answer, decision to make, deadline, and data requirements.
+2. **data-chief** classifies the request: Quick Query (< 2 hours), Standard Analysis (2-5 days), Complex Project (> 5 days), or Recurring Data Feed.
+3. **data-chief** reviews the request against current squad priorities to determine if it can be accommodated within the current cycle.
+4. **data-chief** acknowledges receipt and provides an estimated delivery date within 1 business day.
 
 ### Phase 2: Scope Definition (Days 2-3)
-5. **Analytics Architect** meets with the requester to clarify the question, understand the decision context, and agree on deliverable format.
-6. **Analytics Architect** documents the scope: specific questions, metrics involved, time ranges, segments, filters, and output format.
-7. **Analytics Architect** identifies data sources, assesses feasibility, and flags any data quality concerns.
-8. **Analytics Architect** and requester agree on the final scope and delivery timeline in writing.
+5. **data-chief** meets with the requester to clarify the question, understand the decision context, and agree on deliverable format.
+6. **data-chief** documents the scope: specific questions, metrics involved, time ranges, segments, filters, and output format.
+7. **data-chief** identifies data sources, assesses feasibility, and flags any data quality concerns.
+8. **data-chief** and requester agree on the final scope and delivery timeline in writing.
 
 ### Phase 3: Delivery (Duration varies by classification)
-9. **Analytics Architect** executes the analysis or builds the data pipeline according to the agreed scope.
-10. **Analytics Architect** documents methodology: queries, transformations, assumptions, and limitations.
-11. **Insight Narrator** reviews the deliverable for clarity: are the results interpretable by the requesting squad without Data Squad context?
-12. **Analytics Architect** packages the deliverable: data, methodology documentation, and interpretation guide.
+9. **data-chief** executes the analysis or builds the data pipeline according to the agreed scope.
+10. **data-chief** documents methodology: queries, transformations, assumptions, and limitations.
+11. **wes-kao** reviews the deliverable for clarity: are the results interpretable by the requesting squad without Data Squad context?
+12. **data-chief** packages the deliverable: data, methodology documentation, and interpretation guide.
 
 ### Phase 4: Validation (1-2 days)
-13. **Data Quality Sentinel** validates the delivered data: spot checks, cross-references with known benchmarks, and logical consistency.
-14. **Data Quality Sentinel** confirms the output matches the scoped requirements.
-15. **Analytics Architect** presents the results to the requester in a walkthrough meeting.
-16. **Analytics Architect** addresses any questions and makes minor adjustments if needed.
+13. **avinash-kaushik** validates the delivered data: spot checks, cross-references with known benchmarks, and logical consistency.
+14. **avinash-kaushik** confirms the output matches the scoped requirements.
+15. **data-chief** presents the results to the requester in a walkthrough meeting.
+16. **data-chief** addresses any questions and makes minor adjustments if needed.
 
 ### Phase 5: Feedback and Close (Within 1 week of delivery)
-17. **Analytics Architect** sends a feedback form to the requester: was the delivery useful, timely, and accurate?
-18. **Insight Narrator** collects the feedback and logs it in the delivery registry.
-19. **Analytics Architect** identifies if the request reveals a recurring need that should become a self-service dashboard or automated report.
-20. **Analytics Architect** closes the request in the tracking system with final status and documentation.
+17. **data-chief** sends a feedback form to the requester: was the delivery useful, timely, and accurate?
+18. **wes-kao** collects the feedback and logs it in the delivery registry.
+19. **data-chief** identifies if the request reveals a recurring need that should become a self-service dashboard or automated report.
+20. **data-chief** closes the request in the tracking system with final status and documentation.
 
 ## Inputs
 - Formal data request with business context
@@ -64,11 +64,11 @@ Handle data requests from other squads with a structured process that ensures cl
 
 | Gate | Criteria | Owner |
 |------|----------|-------|
-| G1: Scope Agreed | Written scope document signed off by requester and Analytics Architect | Analytics Architect |
-| G2: Priority Cleared | Request fits within current capacity or priority trade-off approved | Retention Strategist |
-| G3: Data Validated | Deliverable passes spot checks and logical consistency review | Data Quality Sentinel |
-| G4: Requester Satisfied | Walkthrough completed, requester confirms deliverable answers their question | Analytics Architect |
-| G5: Feedback Collected | Post-delivery feedback received and logged within 1 week | Insight Narrator |
+| G1: Scope Agreed | Written scope document signed off by requester and data-chief | data-chief |
+| G2: Priority Cleared | Request fits within current capacity or priority trade-off approved | data-chief |
+| G3: Data Validated | Deliverable passes spot checks and logical consistency review | avinash-kaushik |
+| G4: Requester Satisfied | Walkthrough completed, requester confirms deliverable answers their question | data-chief |
+| G5: Feedback Collected | Post-delivery feedback received and logged within 1 week | wes-kao |
 
 ## Registry Updates
 - **Delivery Registry**: Log request ID, requester, squad, classification, scope, delivery date, and feedback score.

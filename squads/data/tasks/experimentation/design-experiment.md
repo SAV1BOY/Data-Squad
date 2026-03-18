@@ -1,8 +1,8 @@
 # Task: Design Experiment
-> Agent(s): Data Scientist, Product Analyst, Product Manager
-> Frameworks: A/B Testing Framework, Statistical Experiment Design
-> Checklists: experiment-design-checklist, statistical-validity-checklist
-> Template: experiment-design-template
+> Agent(s): sean-ellis, wes-kao, data-chief
+> Frameworks: experiment-framework, ellis-high-tempo-testing, ice-pie-rice-prioritization
+> Checklists: experiment-design-quality, experimentation/sample-size-and-mde, experimentation/randomization-and-bias, experimentation/guardrails-and-metrics
+> Templates: outputs/experiment-onepager
 > Registry: experiment-registry
 
 ## Objective

@@ -1,9 +1,9 @@
 # Task: Quarterly Data Review
-> Agent(s): Data Team Lead, Data Strategist, Data Analyst
-> Frameworks: Quarterly Review Framework, OKR Assessment
-> Checklists: quarterly-review-checklist, strategic-alignment-checklist
-> Template: quarterly-data-review-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): data-chief
+> Frameworks: governance-layer, ralphloop-data-ops
+> Checklists: (none)
+> Templates: reports/quarterly-data-review
+> Registry: decision-registry, lessons-learned-registry
 
 ## Objective
 Conduct a comprehensive quarterly review of the data team's performance, the analytics

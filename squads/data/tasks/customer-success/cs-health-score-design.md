@@ -1,9 +1,9 @@
 # Task: CS Health Score Design
-> Agent(s): Customer Success Analyst, Data Scientist
-> Frameworks: Health Score Framework, Predictive Scoring Methodology
-> Checklists: health-score-checklist, model-validation-checklist
-> Template: health-score-design-template
-> Registry: metric-registry, segment-registry
+> Agent(s): nick-mehta, peter-fader, data-chief
+> Frameworks: cs-health-score, mehta-customer-health-score-design, value-based-segmentation-fader
+> Checklists: cs-health-score-quality, mehta/health-score-design, fader/value-segmentation-audit
+> Templates: outputs/cs-health-score, reports/alert-runbook
+> Registry: cs-health-registry, decision-registry
 
 ## Objective
 Design and implement a customer health score that aggregates multiple signals into a single

@@ -1,8 +1,8 @@
 # Task: Implement Event Tracking
-> Agent(s): Data Engineer, Frontend Engineer, Mobile Engineer
-> Frameworks: Event Taxonomy Standard, Tracking Implementation Guide
-> Checklists: tracking-implementation-checklist, code-review-checklist
-> Template: tracking-spec-template
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: instrumentation-layer
+> Checklists: instrumentation/tag-manager-qa, instrumentation/data-layer-contract-qa, instrumentation/consent-mode-tracking-qa
+> Templates: outputs/tracking-spec
 > Registry: event-registry
 
 ## Objective

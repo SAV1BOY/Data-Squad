@@ -1,8 +1,8 @@
 # Task: Define Success Criteria
-> Agent(s): Data Analyst, Product Manager, Data Strategist
-> Frameworks: OKR Framework, SMART Goals, Hypothesis-Driven Development
-> Checklists: success-criteria-checklist, measurability-checklist
-> Template: success-criteria-template
+> Agent(s): data-chief, sean-ellis, avinash-kaushik
+> Frameworks: kpi-tree, north-star-metric
+> Checklists: metric-definition-quality, kpi-tree-quality
+> Templates: outputs/metric-definition
 > Registry: metric-registry, experiment-registry
 
 ## Objective

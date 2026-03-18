@@ -1,9 +1,9 @@
 # Task: Define North Star Metric
-> Agent(s): Data Strategist, Product Analytics Lead
-> Frameworks: North Star Framework, HEART Framework
-> Checklists: metric-definition-checklist, data-quality-checklist
-> Template: north-star-metric-template
-> Registry: metric-registry
+> Agent(s): data-chief, sean-ellis, wes-kao, avinash-kaushik
+> Frameworks: north-star-metric, kpi-tree, ellis-growth-equation, kao-spiky-pov-framework
+> Checklists: kpi-tree-quality, metric-definition-quality, ellis/north-star-metric-audit, kao/growth-strategy-clarity
+> Templates: outputs/kpi-tree, outputs/metric-definition
+> Registry: metric-registry, decision-registry
 
 ## Objective
 Identify and formally define the single North Star Metric (NSM) that best captures the core value

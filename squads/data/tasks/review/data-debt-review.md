@@ -1,9 +1,9 @@
 # Task: Data Debt Review
-> Agent(s): Data Engineer, Data Analyst, Data Strategist
-> Frameworks: Technical Debt Framework (applied to data), Data Maturity Model
-> Checklists: data-debt-checklist, remediation-prioritization-checklist
-> Template: data-debt-review-template
-> Registry: metric-registry, event-registry
+> Agent(s): data-chief, avinash-kaushik
+> Frameworks: data-quality-triad, governance-layer
+> Checklists: data-quality-quality, governance/data-debt-audit
+> Templates: reports/data-quality-report
+> Registry: data-debt-registry, data-quality-registry
 
 ## Objective
 Identify, catalog, and prioritize data debt across the analytics stack -- including broken

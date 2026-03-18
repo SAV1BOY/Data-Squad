@@ -1,9 +1,9 @@
 # Task: Onboarding Metrics Audit
-> Agent(s): Growth Analyst, Product Analyst
-> Frameworks: Onboarding Framework, Time-to-Value Analysis
-> Checklists: onboarding-audit-checklist, analysis-rigor-checklist
-> Template: onboarding-audit-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): sean-ellis, wes-kao, avinash-kaushik
+> Frameworks: ellis-activation-aha-moment, kao-onboarding-metrics-framework, aarrr-pirate-metrics
+> Checklists: activation-funnel-quality, kao/onboarding-activation-qa
+> Templates: outputs/activation-audit
+> Registry: decision-registry, metric-registry
 
 ## Objective
 Audit the complete onboarding experience through the lens of data, measuring time-to-value,

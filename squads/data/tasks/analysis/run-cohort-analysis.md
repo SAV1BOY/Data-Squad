@@ -1,9 +1,9 @@
 # Task: Run Cohort Analysis
-> Agent(s): Data Analyst
-> Frameworks: Cohort Analysis Framework, Retention Curve Methodology
-> Checklists: analysis-rigor-checklist, statistical-validity-checklist
-> Template: cohort-analysis-template
-> Registry: analysis-registry
+> Agent(s): peter-fader, data-chief
+> Frameworks: cohort-analysis, fader-customer-base-audit
+> Checklists: cohort-analysis-quality, analytics/cohort-curve-reading
+> Templates: outputs/cohort-report
+> Registry: decision-registry
 
 ## Objective
 Perform a cohort analysis to understand how user behavior, retention, or other key metrics

@@ -1,9 +1,9 @@
 # Task: Community Impact Attribution
-> Agent(s): Community Analyst, Data Scientist
-> Frameworks: Attribution Modeling, Causal Inference, Propensity Score Matching
-> Checklists: attribution-checklist, statistical-validity-checklist
-> Template: community-impact-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): david-spinks, peter-fader
+> Frameworks: spinks-community-roi-framework, community-led-growth-metrics
+> Checklists: spinks/community-impact-attribution, community-metrics-quality
+> Templates: (none)
+> Registry: community-registry, decision-registry
 
 ## Objective
 Measure and attribute the business impact of the community by comparing community members

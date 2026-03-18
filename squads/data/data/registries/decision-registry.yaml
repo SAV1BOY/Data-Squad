@@ -34,7 +34,7 @@ decisions:
     alternatives_considered:
       - "7 days: insufficient to cover weekly seasonality patterns"
       - "21 days: unnecessarily long for most experiments given current traffic"
-    owner: growth-lead
+    owner: sean-ellis
     status: active
     review_date: 2026-08-01
 
@@ -60,6 +60,6 @@ decisions:
     alternatives_considered:
       - "Calendar week: rejected because it splits cohorts across arbitrary boundaries"
       - "Daily: too granular, creates noisy charts that are hard to act on"
-    owner: retention-lead
+    owner: peter-fader
     status: active
     review_date: 2026-08-20

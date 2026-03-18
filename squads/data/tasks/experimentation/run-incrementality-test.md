@@ -1,9 +1,9 @@
 # Task: Run Incrementality Test
-> Agent(s): Data Scientist, Marketing Analyst
-> Frameworks: Causal Inference Framework, Geo-Lift Methodology
-> Checklists: incrementality-test-checklist, statistical-validity-checklist
-> Template: incrementality-test-template
-> Registry: experiment-registry
+> Agent(s): sean-ellis, data-chief
+> Frameworks: experiment-framework, bayesian-vs-frequentist-testing
+> Checklists: experiment-design-quality, experiment-analysis-quality
+> Templates: outputs/experiment-analysis
+> Registry: experiment-registry, decision-registry
 
 ## Objective
 Measure the true incremental impact of a marketing channel, campaign, or feature by isolating

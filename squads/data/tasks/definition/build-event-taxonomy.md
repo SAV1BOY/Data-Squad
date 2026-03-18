@@ -1,8 +1,8 @@
 # Task: Build Event Taxonomy
-> Agent(s): Data Engineer, Data Analyst, Product Manager
-> Frameworks: Event Taxonomy Framework, Naming Convention Standard
-> Checklists: taxonomy-completeness-checklist, naming-convention-checklist
-> Template: event-taxonomy-template
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: instrumentation-layer, dmmm-kaushik
+> Checklists: event-taxonomy-quality, tracking-plan-quality
+> Templates: outputs/tracking-spec
 > Registry: event-registry
 
 ## Objective

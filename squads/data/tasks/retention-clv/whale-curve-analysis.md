@@ -1,9 +1,9 @@
 # Task: Whale Curve Analysis
-> Agent(s): Data Analyst, Finance Analyst
-> Frameworks: Whale Curve (Profit Concentration), Pareto Analysis
-> Checklists: analysis-rigor-checklist, profitability-checklist
-> Template: whale-curve-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): peter-fader, data-chief
+> Frameworks: fader-whale-curve-framework, value-based-segmentation-fader
+> Checklists: fader/fader-whale-curve-audit, fader/value-segmentation-audit
+> Templates: outputs/segmentation-report
+> Registry: segment-registry, decision-registry
 
 ## Objective
 Build a whale curve (cumulative profit curve) to reveal how profit is concentrated across

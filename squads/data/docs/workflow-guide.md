@@ -51,7 +51,7 @@ Not every situation fits neatly into a workflow. Here is how to handle common ex
 
 **Workflow does not match the situation:** If the trigger matches but the steps do not fit, adapt the workflow. Document the adaptation and the reason. After completing the workflow, propose a workflow update if the adaptation is likely to recur.
 
-**Urgent request that cannot wait for gates:** In genuine emergencies (data incident affecting customers, board request with a same-day deadline), the Retention Strategist can authorize a fast-track. Fast-tracked deliverables still go through gates but with a compressed timeline (hours instead of days). The fast-track is documented, and a retrospective review happens within 1 week.
+**Urgent request that cannot wait for gates:** In genuine emergencies (data incident affecting customers, board request with a same-day deadline), the peter-fader can authorize a fast-track. Fast-tracked deliverables still go through gates but with a compressed timeline (hours instead of days). The fast-track is documented, and a retrospective review happens within 1 week.
 
 **Agent unavailable:** If the assigned agent for a step is unavailable, the workflow owner identifies a substitute. Any agent can execute any step if they have the required skills, but the original agent remains accountable for quality.
 
@@ -75,4 +75,4 @@ The full list of workflows is maintained in the `squads/data/workflows/` directo
 
 ## Continuous Improvement
 
-Workflows are living documents. If you find a step that consistently causes friction, a gate that catches the same issue repeatedly, or a phase that takes longer than expected, propose an improvement. Updates to workflows go through a lightweight review by the Analytics Architect and are documented in the change log.
+Workflows are living documents. If you find a step that consistently causes friction, a gate that catches the same issue repeatedly, or a phase that takes longer than expected, propose an improvement. Updates to workflows go through a lightweight review by the avinash-kaushik and are documented in the change log.

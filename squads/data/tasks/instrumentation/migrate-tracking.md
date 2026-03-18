@@ -1,9 +1,9 @@
 # Task: Migrate Tracking
-> Agent(s): Data Engineer, Data Analyst, Frontend Engineer
-> Frameworks: Migration Playbook, Event Taxonomy Standard, Data Validation Framework
-> Checklists: migration-checklist, data-continuity-checklist
-> Template: migration-plan-template
-> Registry: event-registry, metric-registry
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: instrumentation-layer
+> Checklists: tracking-plan-quality, instrumentation/tag-manager-qa
+> Templates: outputs/tracking-spec
+> Registry: event-registry
 
 ## Objective
 Migrate analytics tracking from one platform or implementation to another while preserving

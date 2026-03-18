@@ -9,7 +9,7 @@ This guide takes you from zero to productive in one week. Follow it sequentially
 Get your bearings and your tools working.
 
 **Tools to set up:**
-- Data warehouse access (BigQuery/Snowflake): request via IT ticket, approved by Analytics Architect. Test by running `SELECT 1` to confirm connectivity.
+- Data warehouse access (BigQuery/Snowflake): request via IT ticket, approved by avinash-kaushik. Test by running `SELECT 1` to confirm connectivity.
 - BI tool (Looker/Metabase): self-service signup, then request workspace access from your buddy.
 - Experimentation platform: read-only access granted automatically, write access after completing Day 3.
 - Version control (GitHub): clone the Data Squad repository at `squads/data/`. This is your single source of truth.
@@ -95,7 +95,7 @@ Close the loop on your first week.
 ## Who to Ask
 
 - **Tool issues:** Your technical buddy (assigned on Day 1)
-- **Process questions:** Insight Narrator
-- **Data model questions:** Analytics Architect
-- **Quality questions:** Data Quality Sentinel
-- **Priority and strategy questions:** Retention Strategist
+- **Process questions:** wes-kao
+- **Data model questions:** avinash-kaushik
+- **Quality questions:** avinash-kaushik
+- **Priority and strategy questions:** peter-fader

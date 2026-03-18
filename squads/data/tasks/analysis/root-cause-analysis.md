@@ -1,9 +1,9 @@
 # Task: Root Cause Analysis
-> Agent(s): Data Analyst, Data Scientist
-> Frameworks: 5-Whys, Fishbone Diagram, Contribution Analysis
-> Checklists: analysis-rigor-checklist, root-cause-checklist
-> Template: root-cause-analysis-template
-> Registry: analysis-registry
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: analysis-layer, data-quality-triad
+> Checklists: analytics/anomaly-investigation, analytics/metric-drift-detection
+> Templates: (none)
+> Registry: decision-registry
 
 ## Objective
 Perform a structured root cause analysis to identify the fundamental driver(s) behind a

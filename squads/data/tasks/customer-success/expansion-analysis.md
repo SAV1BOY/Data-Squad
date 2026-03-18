@@ -1,9 +1,9 @@
 # Task: Expansion Analysis
-> Agent(s): Customer Success Analyst, Data Analyst
-> Frameworks: Expansion Revenue Framework, Land-and-Expand Analysis
-> Checklists: expansion-analysis-checklist, analysis-rigor-checklist
-> Template: expansion-analysis-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): nick-mehta, peter-fader
+> Frameworks: mehta-expansion-playbook-framework, nrr-grr-expansion, fader-heterogeneity-audit
+> Checklists: nrr-grr-quality, mehta/expansion-playbook-audit
+> Templates: reports/qbr-deck-outline
+> Registry: cs-health-registry
 
 ## Objective
 Analyze expansion revenue patterns (upsells, cross-sells, seat additions) to identify what

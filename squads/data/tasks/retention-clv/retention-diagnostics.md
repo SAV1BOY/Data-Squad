@@ -1,9 +1,9 @@
 # Task: Retention Diagnostics
-> Agent(s): Data Analyst, Growth Analyst
-> Frameworks: Retention Analysis Framework, Cohort Retention Methodology
-> Checklists: retention-diagnostics-checklist, analysis-rigor-checklist
-> Template: retention-diagnostics-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): peter-fader, nick-mehta, data-chief
+> Frameworks: retention-churn-diagnostics, fader-customer-centricity-framework, cohort-analysis
+> Checklists: retention-quality, churn-analysis-quality, retention/churn-taxonomy
+> Templates: outputs/retention-audit, reports/churn-postmortem
+> Registry: decision-registry
 
 ## Objective
 Conduct a comprehensive retention diagnostic to understand the current retention landscape,

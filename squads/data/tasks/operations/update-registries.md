@@ -1,8 +1,8 @@
 # Task: Update Registries
-> Agent(s): Data Analyst, Data Team Lead
-> Frameworks: Registry Management Framework, Data Catalog Standards
-> Checklists: registry-update-checklist, completeness-checklist
-> Template: registry-entry-template
+> Agent(s): data-chief
+> Frameworks: governance-layer, metric-lifecycle-framework
+> Checklists: governance/metric-governance, governance/data-catalog-quality
+> Templates: (none)
 > Registry: metric-registry, event-registry, experiment-registry, dashboard-registry
 
 ## Objective

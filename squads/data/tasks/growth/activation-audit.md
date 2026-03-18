@@ -1,9 +1,9 @@
 # Task: Activation Audit
-> Agent(s): Growth Analyst, Product Analyst
-> Frameworks: Activation Framework, User Journey Mapping
-> Checklists: activation-audit-checklist, analysis-rigor-checklist
-> Template: activation-audit-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): sean-ellis, wes-kao, avinash-kaushik
+> Frameworks: ellis-activation-aha-moment, kao-learning-velocity-framework, aarrr-pirate-metrics
+> Checklists: activation-funnel-quality, ellis/activation-loop-debug, kao/onboarding-activation-qa
+> Templates: outputs/activation-audit
+> Registry: decision-registry
 
 ## Objective
 Audit the user activation flow to measure how effectively new users reach their first moment

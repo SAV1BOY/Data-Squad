@@ -1,8 +1,8 @@
 # Task: Create KPI Tree
-> Agent(s): Data Strategist, Product Analytics Lead
-> Frameworks: KPI Tree Framework, MECE Decomposition
-> Checklists: metric-definition-checklist, alignment-checklist
-> Template: kpi-tree-template
+> Agent(s): data-chief, avinash-kaushik, sean-ellis
+> Frameworks: kpi-tree, dmmm-kaushik, aarrr-pirate-metrics
+> Checklists: kpi-tree-quality, kaushik/dmmm-measurement-model-audit
+> Templates: outputs/kpi-tree
 > Registry: metric-registry
 
 ## Objective

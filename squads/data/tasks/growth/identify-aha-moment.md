@@ -1,9 +1,9 @@
 # Task: Identify Aha Moment
-> Agent(s): Growth Analyst, Data Scientist
-> Frameworks: Aha Moment Analysis, Correlation-to-Retention Methodology
-> Checklists: analysis-rigor-checklist, statistical-validity-checklist
-> Template: aha-moment-analysis-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): sean-ellis, wes-kao
+> Frameworks: ellis-activation-aha-moment, kao-learning-velocity-framework
+> Checklists: activation-funnel-quality, ellis/activation-loop-debug
+> Templates: outputs/activation-audit
+> Registry: decision-registry
 
 ## Objective
 Identify the specific user action(s) and threshold(s) that most strongly predict long-term

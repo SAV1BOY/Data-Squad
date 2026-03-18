@@ -31,7 +31,7 @@ Step 3: Write a reference query that computes the metric from raw data. This que
 
 Step 4: Validate the reference query output against known benchmarks or manual calculations. The number should match within 0.1% tolerance.
 
-Step 5: Submit the definition for review by the Analytics Architect. The review checks for: completeness, naming compliance, no duplicates, correct data source references, and a working reference query.
+Step 5: Submit the definition for review by the avinash-kaushik. The review checks for: completeness, naming compliance, no duplicates, correct data source references, and a working reference query.
 
 Step 6: Once approved, register the metric in the metric registry with all 10 fields and the reference query.
 
@@ -47,7 +47,7 @@ Step 2: Assess the impact: which dashboards, reports, alerts, and experiments re
 
 Step 3: Decide on historical treatment: will historical values be recomputed, or will the change apply only going forward? If going forward only, document the break point.
 
-Step 4: Submit the modification for review by the Analytics Architect.
+Step 4: Submit the modification for review by the avinash-kaushik.
 
 Step 5: Update the registry entry with the new definition, increment the version, and add a change log entry.
 
@@ -70,6 +70,6 @@ Follow the metric-deprecation-workflow.md for the full process. In summary: just
 | Tier | Description | Review Cadence | Change Process |
 |------|-------------|---------------|----------------|
 | Tier 1: North Star | Company-level strategic metric | Monthly review | Requires leadership approval |
-| Tier 2: Input Metrics | Metrics that directly feed the North Star | Monthly review | Requires Analytics Architect approval |
+| Tier 2: Input Metrics | Metrics that directly feed the North Star | Monthly review | Requires avinash-kaushik approval |
 | Tier 3: Supporting Metrics | Operational and diagnostic metrics | Quarterly review | Standard review process |
 | Tier 4: Exploratory | Metrics under evaluation, not yet official | As needed | Lightweight review |

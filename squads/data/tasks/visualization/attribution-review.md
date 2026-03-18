@@ -1,9 +1,9 @@
 # Task: Attribution Review
-> Agent(s): Data Analyst, Marketing Analyst
-> Frameworks: Attribution Modeling Framework, Multi-Touch Attribution
-> Checklists: attribution-review-checklist, data-quality-checklist
-> Template: attribution-review-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: kaushik-economic-value-framework, kaushik-web-analytics-2-0-framework
+> Checklists: kaushik/web-analytics-quality, analytics-audit-quality
+> Templates: (none)
+> Registry: decision-registry
 
 ## Objective
 Review and evaluate the current attribution model to assess its accuracy, fairness, and

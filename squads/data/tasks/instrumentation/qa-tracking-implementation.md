@@ -1,8 +1,8 @@
 # Task: QA Tracking Implementation
-> Agent(s): QA Analyst, Data Analyst
-> Frameworks: Tracking QA Framework, Data Validation Standard
-> Checklists: tracking-qa-checklist, data-quality-checklist
-> Template: tracking-qa-report-template
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: instrumentation-layer
+> Checklists: instrumentation/tag-manager-qa, instrumentation/data-layer-contract-qa
+> Templates: outputs/tracking-spec
 > Registry: event-registry
 
 ## Objective

@@ -1,9 +1,9 @@
 # Task: Kill or Ship Experiment
-> Agent(s): Data Scientist, Product Manager, Engineering Lead
-> Frameworks: Decision Framework, Statistical Decision Theory
-> Checklists: ship-kill-decision-checklist, rollout-checklist
-> Template: experiment-decision-template
-> Registry: experiment-registry
+> Agent(s): sean-ellis, data-chief
+> Frameworks: experiment-framework, bayesian-vs-frequentist-testing
+> Checklists: experiment-analysis-quality, experimentation/decision-rubric
+> Templates: outputs/experiment-analysis
+> Registry: experiment-registry, decision-registry
 
 ## Objective
 Make a rigorous, data-informed decision on whether to ship (roll out to 100%), iterate (modify

@@ -1,9 +1,9 @@
 # Task: Growth Lever Analysis
-> Agent(s): Growth Analyst, Data Strategist
-> Frameworks: Growth Accounting Framework, Lever Decomposition
-> Checklists: analysis-rigor-checklist, growth-lever-checklist
-> Template: growth-lever-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): sean-ellis, wes-kao
+> Frameworks: ellis-growth-levers, ellis-growth-equation, kao-constraint-led-strategy
+> Checklists: ellis/ellis-growth-lever-audit, kao/constraint-led-prioritization
+> Templates: (none)
+> Registry: decision-registry
 
 ## Objective
 Decompose growth into its component levers (acquisition, activation, retention, referral,

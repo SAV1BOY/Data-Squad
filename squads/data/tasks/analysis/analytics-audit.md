@@ -1,9 +1,9 @@
 # Task: Analytics Audit
-> Agent(s): Data Analyst, Data Strategist
-> Frameworks: Analytics Maturity Model, Data Quality Framework
-> Checklists: analytics-audit-checklist, data-quality-checklist
-> Template: analytics-audit-report-template
-> Registry: metric-registry, event-registry
+> Agent(s): avinash-kaushik, data-chief
+> Frameworks: kaushik-web-analytics-2-0-framework, kaushik-trinity-strategy, data-quality-triad
+> Checklists: analytics-audit-quality, data-quality-quality, kaushik/web-analytics-quality
+> Templates: briefs/analytics-audit-brief
+> Registry: data-quality-registry
 
 ## Objective
 Conduct a comprehensive audit of the current analytics setup to identify gaps in tracking,

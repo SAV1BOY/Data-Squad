@@ -1,9 +1,9 @@
 # Task: QBR Preparation
-> Agent(s): Customer Success Analyst, Data Analyst
-> Frameworks: Quarterly Business Review Framework, Data Storytelling
-> Checklists: qbr-preparation-checklist, narrative-quality-checklist
-> Template: qbr-template
-> Registry: analysis-registry
+> Agent(s): nick-mehta, data-chief
+> Frameworks: mehta-expansion-playbook-framework, data-storytelling-framework
+> Checklists: nrr-grr-quality, exec-report-quality
+> Templates: reports/qbr-deck-outline
+> Registry: cs-health-registry
 
 ## Objective
 Prepare a data-driven Quarterly Business Review (QBR) package for a strategic customer

@@ -14,7 +14,7 @@ metrics:
     definition: "Percentage of users active in week N who return in week N+1"
     formula: "(COUNT(DISTINCT user_id WHERE active_week = N AND active_week = N+1) / COUNT(DISTINCT user_id WHERE active_week = N)) * 100"
     source: events.user_sessions
-    owner: retention-lead
+    owner: peter-fader
     type: retention
     cadence: weekly
     dashboard: retention-dashboard
@@ -25,7 +25,7 @@ metrics:
     definition: "Percentage of new signups who complete the activation milestone within 7 days"
     formula: "(COUNT(DISTINCT user_id WHERE signup_date >= CURRENT_DATE - 7 AND activation_complete = true) / COUNT(DISTINCT user_id WHERE signup_date >= CURRENT_DATE - 7)) * 100"
     source: events.user_milestones
-    owner: growth-lead
+    owner: sean-ellis
     type: activation
     cadence: daily
     dashboard: growth-dashboard

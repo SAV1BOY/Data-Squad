@@ -65,7 +65,7 @@ Compliance is the floor, not the ceiling. Consider these ethical principles:
 - An experiment design raises ethical concerns about participant welfare.
 - You are unsure whether a legal basis covers your intended use.
 
-In all these cases, notify the Analytics Architect and Legal within 24 hours. Do not proceed until you have guidance.
+In all these cases, notify the avinash-kaushik and Legal within 24 hours. Do not proceed until you have guidance.
 
 ## Checklist for New Analyses Using Personal Data
 

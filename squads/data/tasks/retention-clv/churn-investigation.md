@@ -1,9 +1,9 @@
 # Task: Churn Investigation
-> Agent(s): Data Analyst, Customer Success Analyst
-> Frameworks: Churn Analysis Framework, Survival Analysis
-> Checklists: churn-investigation-checklist, analysis-rigor-checklist
-> Template: churn-investigation-template
-> Registry: analysis-registry, metric-registry
+> Agent(s): peter-fader, nick-mehta, data-chief
+> Frameworks: retention-churn-diagnostics, fader-customer-centricity-framework
+> Checklists: churn-analysis-quality, retention/churn-taxonomy
+> Templates: reports/churn-postmortem
+> Registry: decision-registry
 
 ## Objective
 Investigate churn patterns to understand who churns, when they churn, why they churn, and

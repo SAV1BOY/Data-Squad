@@ -1,9 +1,9 @@
 # Task: Alerting Setup
-> Agent(s): Data Engineer, Data Analyst
-> Frameworks: Alerting Framework, Signal Detection Theory
-> Checklists: alerting-setup-checklist, threshold-calibration-checklist
-> Template: alerting-configuration-template
-> Registry: metric-registry, incident-registry
+> Agent(s): data-chief, avinash-kaushik
+> Frameworks: data-quality-triad, governance-layer
+> Checklists: alerting-quality, data-quality-quality
+> Templates: reports/alert-runbook
+> Registry: alert-registry, data-quality-registry
 
 ## Objective
 Set up a comprehensive alerting system that monitors key metrics and data pipelines,

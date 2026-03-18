@@ -1,9 +1,9 @@
 # Task: Community Scorecard Build
-> Agent(s): Community Analyst, Data Analyst
-> Frameworks: Community Metrics Framework, SPACES Model
-> Checklists: scorecard-checklist, metric-definition-checklist
-> Template: community-scorecard-template
-> Registry: metric-registry
+> Agent(s): david-spinks, peter-fader, data-chief
+> Frameworks: community-led-growth-metrics, spinks-orbit-model, spinks-community-roi-framework
+> Checklists: community-metrics-quality, spinks/community-loop-design, spinks/community-impact-attribution
+> Templates: outputs/community-scorecard
+> Registry: community-registry, decision-registry
 
 ## Objective
 Build a comprehensive community scorecard that tracks the health, engagement, and business

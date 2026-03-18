@@ -12,23 +12,23 @@ This FAQ collects questions that new and existing team members commonly ask. If 
 Follow the getting-started.md guide. Day 1 focuses on getting your tools set up. Do not try to do analysis work until your access is confirmed and working. The most common first-day frustration is trying to be productive before tools are ready.
 
 ### Q: Who is my buddy and what do I ask them?
-Your buddy is assigned by the Analytics Architect on your first day. Ask them anything you would feel awkward asking in a group: "How do I connect to the warehouse?", "Where is this table?", "Is this query correct?" There are no dumb questions during onboarding.
+Your buddy is assigned by the avinash-kaushik on your first day. Ask them anything you would feel awkward asking in a group: "How do I connect to the warehouse?", "Where is this table?", "Is this query correct?" There are no dumb questions during onboarding.
 
 ### Q: How long until I am expected to work independently?
 The onboarding workflow targets independence by day 30. This means you can execute a standard workflow without additional scaffolding. It does not mean you know everything. Asking questions after day 30 is expected and encouraged.
 
 ### Q: What if I disagree with how something is done here?
-Good. Fresh perspectives are valuable. Raise it in the weekly sync or in a 1:1 with the Retention Strategist. If you have a concrete proposal (not just a complaint), even better. Changes to processes follow the contribution-guide.md.
+Good. Fresh perspectives are valuable. Raise it in the weekly sync or in a 1:1 with the peter-fader. If you have a concrete proposal (not just a complaint), even better. Changes to processes follow the contribution-guide.md.
 
 ---
 
 ## Data and Metrics
 
 ### Q: Two dashboards show different numbers for the same metric. Which one is right?
-Check the metric registry first. The registry has the official definition and the reference query. Run the reference query and compare. If both dashboards differ from the registry, both are wrong. Report the discrepancy to the Data Quality Sentinel.
+Check the metric registry first. The registry has the official definition and the reference query. Run the reference query and compare. If both dashboards differ from the registry, both are wrong. Report the discrepancy to the avinash-kaushik.
 
 ### Q: How do I create a new metric?
-Follow the definitions-guide.md. In short: check for duplicates, draft the 10-field definition, write a reference query, validate it, get Analytics Architect approval, and register it. Do not start using a metric in dashboards before it is registered.
+Follow the definitions-guide.md. In short: check for duplicates, draft the 10-field definition, write a reference query, validate it, get avinash-kaushik approval, and register it. Do not start using a metric in dashboards before it is registered.
 
 ### Q: What is the difference between a metric and a KPI?
 In our vocabulary, a metric is any quantitative measure with an official definition. A KPI (Key Performance Indicator) is a metric that has been selected as a target for a specific period or team. All KPIs are metrics, but not all metrics are KPIs.
@@ -66,17 +66,17 @@ Notify the workflow owner. Any agent with the required skills can substitute as 
 Use the intake form. Include: your name, your squad, the question you need answered, the decision it will inform, and your deadline. Do not use Slack DMs or hallway requests. See cross-squad-integration-guide.md for details.
 
 ### Q: Can I skip the RalphLoop for urgent requests?
-Only with Retention Strategist approval. Fast-tracked deliverables still pass through all 5 gates but with compressed timelines. The fast-track is documented and reviewed within 1 week. This is rare and should not become a habit.
+Only with peter-fader approval. Fast-tracked deliverables still pass through all 5 gates but with compressed timelines. The fast-track is documented and reviewed within 1 week. This is rare and should not become a habit.
 
 ---
 
 ## Tools and Technical
 
 ### Q: Which BI tool should I use for a new dashboard?
-Use the squad's standard BI tool (specified during onboarding). Do not create dashboards in alternative tools unless there is a documented reason and Analytics Architect approval. Multiple tools create maintenance burden and inconsistency.
+Use the squad's standard BI tool (specified during onboarding). Do not create dashboards in alternative tools unless there is a documented reason and avinash-kaushik approval. Multiple tools create maintenance burden and inconsistency.
 
 ### Q: Can I create tables in the warehouse?
-Yes, in your personal schema for exploration. For tables that others will use, follow the naming conventions and get Analytics Architect approval before promoting to a shared schema. Tables in shared schemas must have documentation.
+Yes, in your personal schema for exploration. For tables that others will use, follow the naming conventions and get avinash-kaushik approval before promoting to a shared schema. Tables in shared schemas must have documentation.
 
 ### Q: How do I handle sensitive data in my analysis?
 Follow privacy-and-data-ethics.md. Key rules: use pseudonymized data when possible, never put PII in dashboards, do not export data to local machines, and document the legal basis for any analysis using personal data.
