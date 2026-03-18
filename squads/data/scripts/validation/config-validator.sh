@@ -115,10 +115,10 @@ if [[ ! -d "$TASKS_DIR" ]]; then
   fail "Tasks directory not found: $TASKS_DIR"
 else
   while IFS= read -r task_file; do
-    ((TASK_COUNT++))
+    TASK_COUNT=$((TASK_COUNT + 1))
     if ! grep -q "## Operational Details" "$task_file" 2>/dev/null; then
       fail "Missing '## Operational Details' in $(echo "$task_file" | sed "s|$SQUAD_ROOT/||")"
-      ((MISSING_OPS++))
+      MISSING_OPS=$((MISSING_OPS + 1))
     fi
   done < <(find "$TASKS_DIR" -name "*.md" -type f | sort)
 
@@ -151,7 +151,7 @@ for name in "${GENERIC_NAMES[@]}"; do
     while IFS= read -r match_file; do
       echo "         $(echo "$match_file" | sed "s|$SQUAD_ROOT/||")"
     done <<< "$matches"
-    ((GENERIC_FOUND++))
+    GENERIC_FOUND=$((GENERIC_FOUND + 1))
   fi
 done
 
@@ -180,7 +180,7 @@ for sq in "${WRONG_SQUADS[@]}"; do
     while IFS= read -r match_file; do
       echo "         $(echo "$match_file" | sed "s|$SQUAD_ROOT/||")"
     done <<< "$matches"
-    ((WRONG_FOUND++))
+    WRONG_FOUND=$((WRONG_FOUND + 1))
   fi
 done
 
