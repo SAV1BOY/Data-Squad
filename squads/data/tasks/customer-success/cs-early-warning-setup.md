@@ -87,3 +87,37 @@ An early warning system package containing:
 - Add early warning signals to `metric-registry` with thresholds.
 - Configure alerts in the alerting system.
 - Log task completion in `task-log` with back-test results.
+
+---
+
+## Operational Details
+
+### Handoff Rules
+- **Lead agent:** nick-mehta owns this task end-to-end.
+- **Supporting agents:** data-chief contribute to their domain-specific steps.
+- **Review:** data-chief reviews the final deliverable before it exits the squad.
+- **Cross-squad delivery:** If the output is requested by another squad, deliver via the cross-squad-data-delivery-workflow with data-chief sign-off.
+
+### Escalation Rules
+- **Data blocker:** If required data is unavailable or unreliable, escalate to data-chief within 24 hours.
+- **Stakeholder disagreement:** If stakeholders reject the methodology or conclusions, escalate to data-chief for mediation.
+- **Deadline risk:** If the task cannot be completed on schedule, notify data-chief at least 48 hours before the deadline.
+
+### Rework Loop
+- **Trigger:** Any checklist item marked as fail, or reviewer requests changes.
+- **Maximum iterations:** 2 rework cycles. If the deliverable fails after 2 reworks, escalate to data-chief for a scope review.
+- **Between iterations:** The reviewing agent provides specific, written feedback on what must change. No vague "needs improvement" — every rework request cites a checklist item or specific deficiency.
+
+### RalphLoop Gate
+- **Applicable gate:** G4 -- Insight
+- **Must-pass checklists:** `checklists/cs-health-score-quality.md`, `checklists/mehta/health-score-design.md`
+- **Gate enforcement:** Deliverable cannot be published or shared outside the squad until the gate passes.
+
+### Registry Updates on Completion
+- Update `data/registries/cs-health-registry.yaml` with task outcome, date, and artifact links.
+- Update `data/registries/alert-registry.yaml` with task outcome, date, and artifact links.
+
+### Cross-References
+- **Frameworks:** [mehta-customer-health-score-design](../../frameworks/mehta-customer-health-score-design.md), [cs-health-score](../../frameworks/cs-health-score.md)
+- **Checklists:** [cs-health-score-quality](../../checklists/cs-health-score-quality.md), [mehta/health-score-design](../../checklists/mehta/health-score-design.md)
+- **Templates:** [reports/alert-runbook](../../templates/reports/alert-runbook.md)

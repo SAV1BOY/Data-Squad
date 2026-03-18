@@ -69,3 +69,37 @@ A success criteria document containing:
   `metric-registry` (if ongoing metric target).
 - Record baseline snapshots in `metric-registry` with `baseline_date` tag.
 - Log task completion in `task-log` with initiative ID and artifact links.
+
+---
+
+## Operational Details
+
+### Handoff Rules
+- **Lead agent:** data-chief owns this task end-to-end.
+- **Supporting agents:** sean-ellis, avinash-kaushik contribute to their domain-specific steps.
+- **Review:** sean-ellis reviews the final deliverable before it exits the squad.
+- **Cross-squad delivery:** If the output is requested by another squad, deliver via the cross-squad-data-delivery-workflow with data-chief sign-off.
+
+### Escalation Rules
+- **Data blocker:** If required data is unavailable or unreliable, escalate to data-chief within 24 hours.
+- **Stakeholder disagreement:** If stakeholders reject the methodology or conclusions, escalate to data-chief for mediation.
+- **Deadline risk:** If the task cannot be completed on schedule, notify data-chief at least 48 hours before the deadline.
+
+### Rework Loop
+- **Trigger:** Any checklist item marked as fail, or reviewer requests changes.
+- **Maximum iterations:** 2 rework cycles. If the deliverable fails after 2 reworks, escalate to data-chief for a scope review.
+- **Between iterations:** The reviewing agent provides specific, written feedback on what must change. No vague "needs improvement" — every rework request cites a checklist item or specific deficiency.
+
+### RalphLoop Gate
+- **Applicable gate:** G1 -- Definition
+- **Must-pass checklists:** `checklists/metric-definition-quality.md`, `checklists/kpi-tree-quality.md`
+- **Gate enforcement:** Deliverable cannot be published or shared outside the squad until the gate passes.
+
+### Registry Updates on Completion
+- Update `data/registries/metric-registry.yaml` with task outcome, date, and artifact links.
+- Update `data/registries/experiment-registry.yaml` with task outcome, date, and artifact links.
+
+### Cross-References
+- **Frameworks:** [kpi-tree](../../frameworks/kpi-tree.md), [north-star-metric](../../frameworks/north-star-metric.md)
+- **Checklists:** [metric-definition-quality](../../checklists/metric-definition-quality.md), [kpi-tree-quality](../../checklists/kpi-tree-quality.md)
+- **Templates:** [outputs/metric-definition](../../templates/outputs/metric-definition.md)

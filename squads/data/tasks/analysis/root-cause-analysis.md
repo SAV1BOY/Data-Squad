@@ -73,3 +73,35 @@ A root cause analysis report containing:
 - Log analysis in `analysis-registry` with root cause and confidence level.
 - Link to related entries in `incident-registry` if applicable.
 - Log task completion in `task-log` with action item references.
+
+---
+
+## Operational Details
+
+### Handoff Rules
+- **Lead agent:** avinash-kaushik owns this task end-to-end.
+- **Supporting agents:** data-chief contribute to their domain-specific steps.
+- **Review:** data-chief reviews the final deliverable before it exits the squad.
+- **Cross-squad delivery:** If the output is requested by another squad, deliver via the cross-squad-data-delivery-workflow with data-chief sign-off.
+
+### Escalation Rules
+- **Data blocker:** If required data is unavailable or unreliable, escalate to data-chief within 24 hours.
+- **Stakeholder disagreement:** If stakeholders reject the methodology or conclusions, escalate to data-chief for mediation.
+- **Deadline risk:** If the task cannot be completed on schedule, notify data-chief at least 48 hours before the deadline.
+
+### Rework Loop
+- **Trigger:** Any checklist item marked as fail, or reviewer requests changes.
+- **Maximum iterations:** 2 rework cycles. If the deliverable fails after 2 reworks, escalate to data-chief for a scope review.
+- **Between iterations:** The reviewing agent provides specific, written feedback on what must change. No vague "needs improvement" — every rework request cites a checklist item or specific deficiency.
+
+### RalphLoop Gate
+- **Applicable gate:** G4 -- Insight
+- **Must-pass checklists:** `checklists/analytics/anomaly-investigation.md`, `checklists/analytics/metric-drift-detection.md`
+- **Gate enforcement:** Deliverable cannot be published or shared outside the squad until the gate passes.
+
+### Registry Updates on Completion
+- Update `data/registries/decision-registry.yaml` with task outcome, date, and artifact links.
+
+### Cross-References
+- **Frameworks:** [analysis-layer](../../frameworks/analysis-layer.md), [data-quality-triad](../../frameworks/data-quality-triad.md)
+- **Checklists:** [analytics/anomaly-investigation](../../checklists/analytics/anomaly-investigation.md), [analytics/metric-drift-detection](../../checklists/analytics/metric-drift-detection.md)

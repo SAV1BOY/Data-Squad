@@ -73,3 +73,37 @@ A funnel analysis report containing:
 - Log analysis in `analysis-registry` with funnel name, date, and findings.
 - Update relevant metrics in `metric-registry` if new conversion metrics are defined.
 - Log task completion in `task-log`.
+
+---
+
+## Operational Details
+
+### Handoff Rules
+- **Lead agent:** sean-ellis owns this task end-to-end.
+- **Supporting agents:** avinash-kaushik contribute to their domain-specific steps.
+- **Review:** data-chief reviews the final deliverable before it exits the squad.
+- **Cross-squad delivery:** If the output is requested by another squad, deliver via the cross-squad-data-delivery-workflow with data-chief sign-off.
+
+### Escalation Rules
+- **Data blocker:** If required data is unavailable or unreliable, escalate to data-chief within 24 hours.
+- **Stakeholder disagreement:** If stakeholders reject the methodology or conclusions, escalate to data-chief for mediation.
+- **Deadline risk:** If the task cannot be completed on schedule, notify data-chief at least 48 hours before the deadline.
+
+### Rework Loop
+- **Trigger:** Any checklist item marked as fail, or reviewer requests changes.
+- **Maximum iterations:** 2 rework cycles. If the deliverable fails after 2 reworks, escalate to data-chief for a scope review.
+- **Between iterations:** The reviewing agent provides specific, written feedback on what must change. No vague "needs improvement" — every rework request cites a checklist item or specific deficiency.
+
+### RalphLoop Gate
+- **Applicable gate:** G4 -- Insight
+- **Must-pass checklists:** `checklists/activation-funnel-quality.md`, `checklists/analytics/funnel-dropoff-diagnosis.md`
+- **Gate enforcement:** Deliverable cannot be published or shared outside the squad until the gate passes.
+
+### Registry Updates on Completion
+- Update `data/registries/decision-registry.yaml` with task outcome, date, and artifact links.
+
+### Cross-References
+- **Frameworks:** [aarrr-pirate-metrics](../../frameworks/aarrr-pirate-metrics.md), [ellis-activation-aha-moment](../../frameworks/ellis-activation-aha-moment.md)
+- **Checklists:** [activation-funnel-quality](../../checklists/activation-funnel-quality.md), [analytics/funnel-dropoff-diagnosis](../../checklists/analytics/funnel-dropoff-diagnosis.md)
+- **Templates:** [outputs/activation-audit](../../templates/outputs/activation-audit.md)
+- **Workflows:** [activation-optimization-workflow](../../workflows/activation-optimization-workflow.md)

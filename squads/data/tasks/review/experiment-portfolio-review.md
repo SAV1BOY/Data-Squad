@@ -92,3 +92,36 @@ An experiment portfolio review report containing:
 - Verify `experiment-registry` is current (all experiments have final status).
 - Add portfolio review summary to `analysis-registry`.
 - Log task completion in `task-log` with portfolio metrics.
+
+---
+
+## Operational Details
+
+### Handoff Rules
+- **Lead agent:** sean-ellis owns this task end-to-end.
+- **Supporting agents:** data-chief contribute to their domain-specific steps.
+- **Review:** data-chief reviews the final deliverable before it exits the squad.
+- **Cross-squad delivery:** If the output is requested by another squad, deliver via the cross-squad-data-delivery-workflow with data-chief sign-off.
+
+### Escalation Rules
+- **Data blocker:** If required data is unavailable or unreliable, escalate to data-chief within 24 hours.
+- **Stakeholder disagreement:** If stakeholders reject the methodology or conclusions, escalate to data-chief for mediation.
+- **Deadline risk:** If the task cannot be completed on schedule, notify data-chief at least 48 hours before the deadline.
+
+### Rework Loop
+- **Trigger:** Any checklist item marked as fail, or reviewer requests changes.
+- **Maximum iterations:** 2 rework cycles. If the deliverable fails after 2 reworks, escalate to data-chief for a scope review.
+- **Between iterations:** The reviewing agent provides specific, written feedback on what must change. No vague "needs improvement" — every rework request cites a checklist item or specific deficiency.
+
+### RalphLoop Gate
+- **Applicable gate:** G5 -- Decision + Registry
+- **Must-pass checklists:** `checklists/experiment-design-quality.md`, `checklists/experiment-analysis-quality.md`
+- **Gate enforcement:** Deliverable cannot be published or shared outside the squad until the gate passes.
+
+### Registry Updates on Completion
+- Update `data/registries/experiment-registry.yaml` with task outcome, date, and artifact links.
+- Update `data/registries/lessons-learned-registry.yaml` with task outcome, date, and artifact links.
+
+### Cross-References
+- **Frameworks:** [experiment-framework](../../frameworks/experiment-framework.md), [ellis-high-tempo-testing](../../frameworks/ellis-high-tempo-testing.md)
+- **Checklists:** [experiment-design-quality](../../checklists/experiment-design-quality.md), [experiment-analysis-quality](../../checklists/experiment-analysis-quality.md)

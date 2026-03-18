@@ -77,3 +77,37 @@ An analytics audit report containing:
 - Flag dead events in `event-registry` with `status: deprecated`.
 - Flag orphaned metrics in `metric-registry` with `status: review`.
 - Log audit findings in `task-log` with remediation ticket links.
+
+---
+
+## Operational Details
+
+### Handoff Rules
+- **Lead agent:** avinash-kaushik owns this task end-to-end.
+- **Supporting agents:** data-chief contribute to their domain-specific steps.
+- **Review:** data-chief reviews the final deliverable before it exits the squad.
+- **Cross-squad delivery:** If the output is requested by another squad, deliver via the cross-squad-data-delivery-workflow with data-chief sign-off.
+
+### Escalation Rules
+- **Data blocker:** If required data is unavailable or unreliable, escalate to data-chief within 24 hours.
+- **Stakeholder disagreement:** If stakeholders reject the methodology or conclusions, escalate to data-chief for mediation.
+- **Deadline risk:** If the task cannot be completed on schedule, notify data-chief at least 48 hours before the deadline.
+
+### Rework Loop
+- **Trigger:** Any checklist item marked as fail, or reviewer requests changes.
+- **Maximum iterations:** 2 rework cycles. If the deliverable fails after 2 reworks, escalate to data-chief for a scope review.
+- **Between iterations:** The reviewing agent provides specific, written feedback on what must change. No vague "needs improvement" — every rework request cites a checklist item or specific deficiency.
+
+### RalphLoop Gate
+- **Applicable gate:** G4 -- Insight
+- **Must-pass checklists:** `checklists/analytics-audit-quality.md`, `checklists/data-quality-quality.md`, `checklists/kaushik/web-analytics-quality.md`
+- **Gate enforcement:** Deliverable cannot be published or shared outside the squad until the gate passes.
+
+### Registry Updates on Completion
+- Update `data/registries/data-quality-registry.yaml` with task outcome, date, and artifact links.
+
+### Cross-References
+- **Frameworks:** [kaushik-web-analytics-2-0-framework](../../frameworks/kaushik-web-analytics-2-0-framework.md), [kaushik-trinity-strategy](../../frameworks/kaushik-trinity-strategy.md), [data-quality-triad](../../frameworks/data-quality-triad.md)
+- **Checklists:** [analytics-audit-quality](../../checklists/analytics-audit-quality.md), [data-quality-quality](../../checklists/data-quality-quality.md), [kaushik/web-analytics-quality](../../checklists/kaushik/web-analytics-quality.md)
+- **Templates:** [briefs/analytics-audit-brief](../../templates/briefs/analytics-audit-brief.md)
+- **Workflows:** [analytics-audit-workflow](../../workflows/analytics-audit-workflow.md)

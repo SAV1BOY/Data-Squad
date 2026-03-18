@@ -67,3 +67,38 @@ A metric definition record containing:
 - Set `status: active` and `created_date: <today>`.
 - Link to parent metric in KPI tree if applicable.
 - Log in `task-log` with metric ID and author.
+
+---
+
+## Operational Details
+
+### Handoff Rules
+- **Lead agent:** data-chief owns this task end-to-end.
+- **Supporting agents:** avinash-kaushik contribute to their domain-specific steps.
+- **Review:** avinash-kaushik reviews the final deliverable before it exits the squad.
+- **Cross-squad delivery:** If the output is requested by another squad, deliver via the cross-squad-data-delivery-workflow with data-chief sign-off.
+
+### Escalation Rules
+- **Data blocker:** If required data is unavailable or unreliable, escalate to data-chief within 24 hours.
+- **Stakeholder disagreement:** If stakeholders reject the methodology or conclusions, escalate to data-chief for mediation.
+- **Deadline risk:** If the task cannot be completed on schedule, notify data-chief at least 48 hours before the deadline.
+
+### Rework Loop
+- **Trigger:** Any checklist item marked as fail, or reviewer requests changes.
+- **Maximum iterations:** 2 rework cycles. If the deliverable fails after 2 reworks, escalate to data-chief for a scope review.
+- **Between iterations:** The reviewing agent provides specific, written feedback on what must change. No vague "needs improvement" — every rework request cites a checklist item or specific deficiency.
+
+### RalphLoop Gate
+- **Applicable gate:** G1 -- Definition
+- **Must-pass checklists:** `checklists/metric-definition-quality.md`, `checklists/kaushik/metrics-that-matter-filter.md`
+- **Gate enforcement:** Deliverable cannot be published or shared outside the squad until the gate passes.
+
+### Registry Updates on Completion
+- Update `data/registries/metric-registry.yaml` with task outcome, date, and artifact links.
+- Update `data/registries/glossary.yaml` with task outcome, date, and artifact links.
+
+### Cross-References
+- **Frameworks:** [metric-lifecycle-framework](../../frameworks/metric-lifecycle-framework.md), [kaushik-10-90-rule](../../frameworks/kaushik-10-90-rule.md)
+- **Checklists:** [metric-definition-quality](../../checklists/metric-definition-quality.md), [kaushik/metrics-that-matter-filter](../../checklists/kaushik/metrics-that-matter-filter.md)
+- **Templates:** [outputs/metric-definition](../../templates/outputs/metric-definition.md)
+- **Workflows:** [metric-deprecation-workflow](../../workflows/metric-deprecation-workflow.md)

@@ -79,3 +79,36 @@ A growth lever analysis report containing:
 - Record lever values as metrics in `metric-registry` with baseline dates.
 - Log analysis in `analysis-registry` with priority rankings.
 - Log task completion in `task-log` with roadmap reference.
+
+---
+
+## Operational Details
+
+### Handoff Rules
+- **Lead agent:** sean-ellis owns this task end-to-end.
+- **Supporting agents:** wes-kao contribute to their domain-specific steps.
+- **Review:** data-chief reviews the final deliverable before it exits the squad.
+- **Cross-squad delivery:** If the output is requested by another squad, deliver via the cross-squad-data-delivery-workflow with data-chief sign-off.
+
+### Escalation Rules
+- **Data blocker:** If required data is unavailable or unreliable, escalate to data-chief within 24 hours.
+- **Stakeholder disagreement:** If stakeholders reject the methodology or conclusions, escalate to data-chief for mediation.
+- **Deadline risk:** If the task cannot be completed on schedule, notify data-chief at least 48 hours before the deadline.
+
+### Rework Loop
+- **Trigger:** Any checklist item marked as fail, or reviewer requests changes.
+- **Maximum iterations:** 2 rework cycles. If the deliverable fails after 2 reworks, escalate to data-chief for a scope review.
+- **Between iterations:** The reviewing agent provides specific, written feedback on what must change. No vague "needs improvement" — every rework request cites a checklist item or specific deficiency.
+
+### RalphLoop Gate
+- **Applicable gate:** G4 -- Insight
+- **Must-pass checklists:** `checklists/ellis/ellis-growth-lever-audit.md`, `checklists/kao/constraint-led-prioritization.md`
+- **Gate enforcement:** Deliverable cannot be published or shared outside the squad until the gate passes.
+
+### Registry Updates on Completion
+- Update `data/registries/decision-registry.yaml` with task outcome, date, and artifact links.
+
+### Cross-References
+- **Frameworks:** [ellis-growth-levers](../../frameworks/ellis-growth-levers.md), [ellis-growth-equation](../../frameworks/ellis-growth-equation.md), [kao-constraint-led-strategy](../../frameworks/kao-constraint-led-strategy.md)
+- **Checklists:** [ellis/ellis-growth-lever-audit](../../checklists/ellis/ellis-growth-lever-audit.md), [kao/constraint-led-prioritization](../../checklists/kao/constraint-led-prioritization.md)
+- **Workflows:** [activation-optimization-workflow](../../workflows/activation-optimization-workflow.md)
