@@ -75,3 +75,15 @@ Every downstream analysis, model, and report inherits the quality of its source 
 - See `alerting-quality.md` for how data quality failures should trigger alerts.
 - See `privacy-and-compliance-quality.md` for quality checks specific to PII and compliance.
 - See `cross-squad-data-request-quality.md` for quality expectations when serving data to other squads.
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| analytics-audit | G3 -- Quality | `tasks/analysis/analytics-audit.md` |
+| data-quality-review | G3 -- Quality | `tasks/review/data-quality-review.md` |
+| data-pipeline-health-check | G3 -- Quality | `tasks/operations/data-pipeline-health-check.md` |
+
+**Quality Gate Type:** mandatory

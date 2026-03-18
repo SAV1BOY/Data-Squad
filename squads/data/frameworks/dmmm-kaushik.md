@@ -156,3 +156,14 @@ rather than the reverse.
   OKRs to the DMMM cascade.
 - [Kaushik Web Analytics 2.0](kaushik-web-analytics-2-0-framework.md) -- Broader
   analytics philosophy that underpins the DMMM.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| create-kpi-tree | data-chief, avinash-kaushik, sean-ellis | `tasks/definition/create-kpi-tree.md` |
+| build-measurement-plan | data-chief, avinash-kaushik | `tasks/instrumentation/build-measurement-plan.md` |
+
+**Workflows:** kpi-tree-build, measurement-plan

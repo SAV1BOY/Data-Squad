@@ -55,3 +55,14 @@ Establish ownership, change control, versioning, and single source of truth for 
 - [Data Catalog Quality](data-catalog-quality.md) -- The metric catalog is a subset of the broader data catalog.
 - [Documentation Discipline](documentation-discipline.md) -- Metric documentation standards align with overall doc standards.
 - [Data Layer Contract QA](../instrumentation/data-layer-contract-qa.md) -- Instrumentation changes can break metric definitions.
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| metric-governance-review | G5 -- Decision + Registry | `tasks/review/metric-governance-review.md` |
+| metric-sunset | G1 -- Definition | `tasks/definition/metric-sunset.md` |
+
+**Quality Gate Type:** per-domain (governance)

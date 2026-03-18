@@ -73,3 +73,15 @@ A metric without a precise definition is a metric that different people interpre
 - [Dashboard Quality Checklist](dashboard-quality.md)
 - [Cohort Analysis Quality Checklist](cohort-analysis-quality.md)
 - [LTV/CLV Model Quality Checklist](ltv-clv-model-quality.md)
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| define-north-star-metric | G1 -- Definition | `tasks/definition/define-north-star-metric.md` |
+| define-metric-officially | G1 -- Definition | `tasks/definition/define-metric-officially.md` |
+| metric-sunset | G1 -- Definition | `tasks/definition/metric-sunset.md` |
+
+**Quality Gate Type:** mandatory

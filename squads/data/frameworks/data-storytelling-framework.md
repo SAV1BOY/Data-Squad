@@ -181,3 +181,15 @@ Data stories can mislead, intentionally or accidentally. Embed these guardrails:
   enables self-serve storytelling.
 - [OKR-to-Metrics Alignment](okr-to-metrics-alignment.md) -- Storytelling about
   progress toward objectives.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| build-dashboard | avinash-kaushik, data-chief | `tasks/visualization/build-dashboard.md` |
+| build-exec-report | data-chief, wes-kao | `tasks/visualization/build-exec-report.md` |
+| data-literacy-training | wes-kao, data-chief | `tasks/operations/data-literacy-training.md` |
+
+**Workflows:** dashboard-build, exec-reporting, data-literacy

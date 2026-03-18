@@ -141,3 +141,15 @@ Implementing tracking first and worrying about privacy later creates legal risk 
 - **kohavi-online-experiments.md** -- Experiment instrumentation requires particular rigor to avoid measurement artifacts
 - **product-analytics-framework.md** -- Product analytics depends entirely on correct instrumentation
 - **tufte-data-visualization-principles.md** -- Honest visualization requires honest data, which requires honest instrumentation
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| build-measurement-plan | data-chief, avinash-kaushik | `tasks/instrumentation/build-measurement-plan.md` |
+| implement-event-tracking | avinash-kaushik, data-chief | `tasks/instrumentation/implement-event-tracking.md` |
+| privacy-impact-assessment | data-chief, avinash-kaushik | `tasks/operations/privacy-impact-assessment.md` |
+
+**Workflows:** measurement-plan, event-tracking-implementation

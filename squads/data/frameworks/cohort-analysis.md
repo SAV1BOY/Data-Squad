@@ -160,3 +160,14 @@ Apr cohort    100%     55%      --       --       --
   the product is truly improving.
 - [Simpson's Paradox Awareness](simpson-paradox-awareness.md) -- The statistical trap
   that cohort analysis helps avoid.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| run-cohort-analysis | peter-fader, data-chief | `tasks/analysis/run-cohort-analysis.md` |
+| retention-diagnostics | peter-fader, nick-mehta, data-chief | `tasks/retention-clv/retention-diagnostics.md` |
+
+**Workflows:** cohort-analysis, retention-diagnostics

@@ -71,4 +71,15 @@ redesigning onboarding flows, or defining "aha moment" criteria.
 
 ---
 
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| run-funnel-analysis | G4 -- Insight | `tasks/analysis/run-funnel-analysis.md` |
+| activation-audit | G4 -- Insight | `tasks/growth/activation-audit.md` |
+
+**Quality Gate Type:** per-domain (growth)
+
 *Version: 1.0 | Last updated: 2026-03-06*

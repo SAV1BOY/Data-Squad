@@ -72,3 +72,14 @@ A dashboard must answer a specific question, drive a specific action, and be int
 - [Metric Definition Quality Checklist](metric-definition-quality.md)
 - [KPI Tree Quality Checklist](kpi-tree-quality.md)
 - [Analytics Audit Quality Checklist](analytics-audit-quality.md)
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| build-dashboard | G4 -- Insight | `tasks/visualization/build-dashboard.md` |
+| dashboard-deprecation | G4 -- Insight | `tasks/operations/dashboard-deprecation.md` |
+
+**Quality Gate Type:** per-domain (visualization)

@@ -171,3 +171,14 @@ make?" Often the answer reveals that the problem is not tool capability but anal
   without people investment does not compound.
 - **Ellis High-Tempo Testing** -- High-tempo testing requires skilled experimenters, not just
   testing tools. The 10/90 principle applies directly to experimentation programs.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| define-metric-officially | data-chief, avinash-kaushik | `tasks/definition/define-metric-officially.md` |
+| dashboard-deprecation | avinash-kaushik, data-chief | `tasks/operations/dashboard-deprecation.md` |
+
+**Workflows:** metric-definition, dashboard-deprecation

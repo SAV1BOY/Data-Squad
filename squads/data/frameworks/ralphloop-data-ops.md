@@ -184,3 +184,15 @@ driven by downstream feedback.
 - [Instrumentation Layer](instrumentation-layer.md) -- Gate 1 concerns for event data.
 - [Metric Lifecycle](metric-lifecycle-framework.md) -- How metric quality evolves
   through the RalphLoop.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| quarterly-data-review | data-chief | `tasks/operations/quarterly-data-review.md` |
+| data-pipeline-health-check | avinash-kaushik, data-chief | `tasks/operations/data-pipeline-health-check.md` |
+| alert-threshold-calibration | avinash-kaushik | `tasks/operations/alert-threshold-calibration.md` |
+
+**Workflows:** quarterly-data-review, data-pipeline-health-check

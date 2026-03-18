@@ -180,3 +180,17 @@ real-world event occurred.
   issues often originate.
 - [Governance Layer](governance-layer.md) -- Organizational framework for quality
   management.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| analytics-audit | avinash-kaushik, data-chief | `tasks/analysis/analytics-audit.md` |
+| data-quality-review | data-chief, avinash-kaushik | `tasks/review/data-quality-review.md` |
+| data-pipeline-health-check | avinash-kaushik, data-chief | `tasks/operations/data-pipeline-health-check.md` |
+| alert-threshold-calibration | avinash-kaushik | `tasks/operations/alert-threshold-calibration.md` |
+| privacy-impact-assessment | data-chief, avinash-kaushik | `tasks/operations/privacy-impact-assessment.md` |
+
+**Workflows:** data-quality-review, data-pipeline-health-check

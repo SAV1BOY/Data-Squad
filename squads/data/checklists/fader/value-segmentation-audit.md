@@ -56,3 +56,15 @@ Audit whether customer segmentation is rooted in economic value rather than supe
 - [Fader Whale Curve Audit](fader-whale-curve-audit.md) -- whale curve visualizes value concentration
 - [Fader Heterogeneity Audit](fader-heterogeneity-audit.md) -- value segmentation is an expression of heterogeneity
 - [Retention vs. Acquisition Balance](retention-vs-acquisition-balance.md) -- investment should follow segment value
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| run-segmentation | G4 -- Insight | `tasks/analysis/run-segmentation.md` |
+| cs-health-score-design | G4 -- Insight | `tasks/customer-success/cs-health-score-design.md` |
+| segment-refresh | G4 -- Insight | `tasks/analysis/segment-refresh.md` |
+
+**Quality Gate Type:** agent-specific (peter-fader)

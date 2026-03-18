@@ -189,3 +189,14 @@ Re-run the discovery process periodically to ensure the aha moment definition re
   Both measure how quickly a customer reaches meaningful value.
 - **Kaushik See-Think-Do-Care** -- The aha moment sits at the boundary between Do (user takes
   action) and Care (user becomes committed).
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| run-funnel-analysis | sean-ellis, avinash-kaushik | `tasks/analysis/run-funnel-analysis.md` |
+| activation-audit | sean-ellis, wes-kao, avinash-kaushik | `tasks/growth/activation-audit.md` |
+
+**Workflows:** funnel-analysis, activation-audit

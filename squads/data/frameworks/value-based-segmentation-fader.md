@@ -160,3 +160,15 @@ Pareto-like):
   concentration.
 - [NRR/GRR Expansion](nrr-grr-expansion.md) -- Revenue retention metrics that connect
   to tier-level analysis.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| run-segmentation | peter-fader, data-chief | `tasks/analysis/run-segmentation.md` |
+| cs-health-score-design | nick-mehta, peter-fader, data-chief | `tasks/customer-success/cs-health-score-design.md` |
+| segment-refresh | peter-fader, avinash-kaushik | `tasks/analysis/segment-refresh.md` |
+
+**Workflows:** segmentation, cs-health-score-design

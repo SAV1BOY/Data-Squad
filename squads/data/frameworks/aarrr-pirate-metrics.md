@@ -144,3 +144,15 @@ drop-offs occur and where to focus optimization efforts.
 - [KPI Tree](kpi-tree.md) -- Decomposing each AARRR stage into driver metrics.
 - [McClure Pirate Metrics Original](mcclure-pirate-metrics-original.md) -- Extended
   reference on McClure's original formulation.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| create-kpi-tree | data-chief, avinash-kaushik, sean-ellis | `tasks/definition/create-kpi-tree.md` |
+| run-funnel-analysis | sean-ellis, avinash-kaushik | `tasks/analysis/run-funnel-analysis.md` |
+| activation-audit | sean-ellis, wes-kao, avinash-kaushik | `tasks/growth/activation-audit.md` |
+
+**Workflows:** activation-audit, funnel-analysis

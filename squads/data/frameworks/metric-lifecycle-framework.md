@@ -111,3 +111,15 @@ Metrics are not permanent. Without lifecycle management, organizations accumulat
 - `lib/patterns/metric-deprecation-pattern.md` -- deprecation details
 - `data/registries/metric-registry.yaml` -- central registry
 - `workflows/metric-deprecation-workflow.md` -- deprecation playbook
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| define-metric-officially | data-chief, avinash-kaushik | `tasks/definition/define-metric-officially.md` |
+| metric-governance-review | data-chief, avinash-kaushik | `tasks/review/metric-governance-review.md` |
+| metric-sunset | data-chief | `tasks/definition/metric-sunset.md` |
+
+**Workflows:** metric-deprecation-workflow, metric-governance-review

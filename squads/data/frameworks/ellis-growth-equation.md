@@ -196,3 +196,14 @@ the constraint. The growth equation is a continuous diagnostic cycle, not a one-
   component becoming a goal with its own KPIs and targets.
 - **Fader CLV as North Star** -- CLV connects the Revenue and Engagement components to long-term
   value, preventing short-term revenue optimization that damages lifetime value.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| define-north-star-metric | data-chief, sean-ellis, wes-kao, avinash-kaushik | `tasks/definition/define-north-star-metric.md` |
+| growth-lever-analysis | sean-ellis, wes-kao | `tasks/growth/growth-lever-analysis.md` |
+
+**Workflows:** north-star-definition, growth-lever-analysis

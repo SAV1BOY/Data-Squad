@@ -168,3 +168,18 @@ Concentrating all governance in the data team creates a bottleneck and reduces o
 - **campbell-law-framework.md** -- Governance processes should account for the corruption dynamics Campbell describes
 - **davenport-competing-on-analytics.md** -- Governance maturity is a prerequisite for advancing on Davenport's DELTA model
 - **kahneman-noise-framework.md** -- Governance structures operationalize decision hygiene practices
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| metric-governance-review | data-chief, avinash-kaushik | `tasks/review/metric-governance-review.md` |
+| quarterly-data-review | data-chief | `tasks/operations/quarterly-data-review.md` |
+| data-pipeline-health-check | avinash-kaushik, data-chief | `tasks/operations/data-pipeline-health-check.md` |
+| dashboard-deprecation | avinash-kaushik, data-chief | `tasks/operations/dashboard-deprecation.md` |
+| metric-sunset | data-chief | `tasks/definition/metric-sunset.md` |
+| privacy-impact-assessment | data-chief, avinash-kaushik | `tasks/operations/privacy-impact-assessment.md` |
+
+**Workflows:** metric-deprecation-workflow, quarterly-data-review

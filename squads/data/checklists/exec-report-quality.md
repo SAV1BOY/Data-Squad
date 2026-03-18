@@ -70,3 +70,13 @@ Executives make high-stakes decisions in low-attention-span windows. A cluttered
 - See `data-storytelling-quality.md` for the narrative principles that underpin executive communication.
 - See `nrr-grr-quality.md` for the specific metric standards when NRR/GRR appears in the report.
 - See `experiment-analysis-quality.md` for how experiment results should be summarized at the executive level.
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| build-exec-report | G5 -- Decision + Registry | `tasks/visualization/build-exec-report.md` |
+
+**Quality Gate Type:** mandatory

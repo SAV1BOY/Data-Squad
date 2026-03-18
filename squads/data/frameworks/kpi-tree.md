@@ -161,3 +161,14 @@ North Star Metric
   experiments against input metrics.
 - [Experiment Framework](experiment-framework.md) -- Running experiments on the levers
   identified in the tree.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| define-north-star-metric | data-chief, sean-ellis, wes-kao, avinash-kaushik | `tasks/definition/define-north-star-metric.md` |
+| create-kpi-tree | data-chief, avinash-kaushik, sean-ellis | `tasks/definition/create-kpi-tree.md` |
+
+**Workflows:** north-star-definition, kpi-tree-build

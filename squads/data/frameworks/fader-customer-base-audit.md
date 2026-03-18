@@ -225,3 +225,14 @@ an annual full audit. Define trigger thresholds that prompt investigation.
   rate, and cohort retention analysis.
 - **Ellis PMF Framework** -- Acquisition quality and retention dynamics in the audit can signal
   whether product-market fit is strengthening or weakening.
+
+---
+
+## Used By
+
+| Task | Agents | Path |
+|------|--------|------|
+| run-cohort-analysis | peter-fader, data-chief | `tasks/analysis/run-cohort-analysis.md` |
+| segment-refresh | peter-fader, avinash-kaushik | `tasks/analysis/segment-refresh.md` |
+
+**Workflows:** cohort-analysis, segment-refresh

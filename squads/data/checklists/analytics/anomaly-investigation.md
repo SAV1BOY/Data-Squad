@@ -55,3 +55,15 @@ Provide a structured protocol for investigating metric anomalies -- unexpected s
 - [Metric Drift Detection](metric-drift-detection.md) -- Gradual anomalies may be metric drift rather than sudden incidents.
 - [Root Cause Analysis QA](root-cause-analysis-qa.md) -- Complex anomalies benefit from structured RCA.
 - [Tag Manager QA](../instrumentation/tag-manager-qa.md) -- Many anomalies trace back to instrumentation changes.
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| investigate-anomaly | G4 -- Insight | `tasks/analysis/investigate-anomaly.md` |
+| data-pipeline-health-check | G3 -- Quality | `tasks/operations/data-pipeline-health-check.md` |
+| alert-threshold-calibration | G3 -- Quality | `tasks/operations/alert-threshold-calibration.md` |
+
+**Quality Gate Type:** per-domain (analysis, operations)

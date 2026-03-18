@@ -73,3 +73,14 @@ Segmentation is only useful if the resulting segments are distinct enough to war
 - [Retention Quality Checklist](retention-quality.md)
 - [LTV/CLV Model Quality Checklist](ltv-clv-model-quality.md)
 - [Activation Funnel Quality Checklist](activation-funnel-quality.md)
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| run-segmentation | G4 -- Insight | `tasks/analysis/run-segmentation.md` |
+| segment-refresh | G4 -- Insight | `tasks/analysis/segment-refresh.md` |
+
+**Quality Gate Type:** per-domain (analysis)

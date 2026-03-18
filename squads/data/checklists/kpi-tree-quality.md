@@ -68,3 +68,14 @@ A KPI tree translates a company's north-star metric into a decomposition of driv
 - [Dashboard Quality Checklist](dashboard-quality.md)
 - [Activation Funnel Quality Checklist](activation-funnel-quality.md)
 - [Retention Quality Checklist](retention-quality.md)
+
+---
+
+## Applied In
+
+| Task | Gate Level | Path |
+|------|-----------|------|
+| define-north-star-metric | G1 -- Definition | `tasks/definition/define-north-star-metric.md` |
+| create-kpi-tree | G1 -- Definition | `tasks/definition/create-kpi-tree.md` |
+
+**Quality Gate Type:** per-domain (definition)
